@@ -3,16 +3,8 @@
   "name": "Phishing Detection Plugin",
   "version": "0.1",
   "description": "Blocks possible phishing requests",
-  "permissions": [
-    "storage",
-    "webRequest",
-    "webRequestBlocking",
-    "<all_urls>"
-  ],
-  "web_accessible_resources": [
-    "blocked.html",
-    "blocked.png"
-  ],
+  "permissions": ["storage", "webRequest", "webRequestBlocking", "<all_urls>"],
+  "web_accessible_resources": ["blocked.html", "blocked.png"],
   "background": {
     "scripts": ["firefox.js"]
   },

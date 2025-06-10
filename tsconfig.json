@@ -9,7 +9,7 @@
     "experimentalDecorators": false,
     "emitDecoratorMetadata": false,
     "sourceMap": true,
-    "declaration": false,
+    "declaration": false
   },
   "exclude": ["node_modules", "dist", "src/testing", "./**/__tests__"]
 }

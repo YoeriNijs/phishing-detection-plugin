@@ -22,7 +22,6 @@ interface BlockingResponse {
 }
 
 export class FirefoxPlugin {
-
   constructor() {
     // This event is triggered when a request is about to be made, and before
     // headers are available. See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeRequest
@@ -38,13 +37,13 @@ export class FirefoxPlugin {
     const currentUrl = details.url;
     const detectionResult = this.detectPhishing(currentUrl);
     if (detectionResult.isPhishing) {
-      this.updateIcon('blocked.png');
-      this.updatePopup('blocked.html');
+      this.updateIcon("blocked.png");
+      this.updatePopup("blocked.html");
       // @ts-ignore
       return { redirectUrl: browser.runtime.getURL("blocked.html") };
     } else {
-      this.updateIcon('shield.png');
-      this.updatePopup('settings.html');
+      this.updateIcon("shield.png");
+      this.updatePopup("settings.html");
     }
   }
 

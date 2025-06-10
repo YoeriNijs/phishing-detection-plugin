@@ -3,12 +3,20 @@ import { PhishingRules } from "../model/phishing-rules";
 export const DEFAULT_RULES: PhishingRules = {
   include: [
     {
-      name: "bank_include_rule_1",
-      description: "Default phishing detection rule for banks",
-      value: "nu.nl",
-      weight: 0.91,
+      name: "rabo_phishing_rule_1",
+      description: "A phishing rule to detect rabobank phishing attempts",
       phishingRuleType: "contains",
-    }
+      value: "rabo",
+      weight: 0.91,
+    },
   ],
-  exclude: [],
+  exclude: [
+    {
+      name: "rabo_phishing_rule_2",
+      description: "A phishing rule to detect valid rabobank urls",
+      phishingRuleType: "contains",
+      value: "rabobank.nl",
+      weight: 0.5,
+    },
+  ],
 };

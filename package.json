@@ -1,15 +1,13 @@
 {
-  "name": "phishing-detection-engine",
-  "version": "1.0.0",
-  "description": "A modular phishing detection engine",
+  "name": "phishing-detection-plugin",
+  "version": "0.0.1",
+  "description": "A modular phishing detection plugin for Chrome and Firefox",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev src/engine/engine.ts",
     "lint": "npx prettier . --write",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "prepare": "husky",
-    "clean": "rimraf ./build/",
     "clean:firefox": "rm -rf ./build/firefox",
     "build:firefox": "npm run clean:firefox && webpack --config webpack.firefox.js"
   },
