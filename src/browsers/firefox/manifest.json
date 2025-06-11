@@ -3,7 +3,13 @@
   "name": "Phishing Detection Plugin",
   "version": "0.1",
   "description": "Blocks possible phishing requests",
-  "permissions": ["storage", "webRequest", "webRequestBlocking", "webNavigation", "<all_urls>"],
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "<all_urls>"
+  ],
   "web_accessible_resources": ["blocked.html", "blocked.png"],
   "content_security_policy": "script-src 'self';",
   "background": {

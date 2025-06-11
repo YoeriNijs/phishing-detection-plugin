@@ -1,1 +1,1 @@
-export * from "./fixtures/detection-rule.fixture";
+export * from './fixtures/detection-rule.fixture';

@@ -1,5 +1,5 @@
-import { PhishingRuleType } from "../../../model/phishing-rule-type";
-import { PhishingRule } from "../../../model/phishing-rule";
+import { PhishingRuleType } from '../../../model/phishing-rule-type';
+import { PhishingRule } from '../../../model/phishing-rule';
 
 export interface IPhishingRuleChecker {
   type: () => PhishingRuleType;

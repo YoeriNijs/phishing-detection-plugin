@@ -1,4 +1,4 @@
-import { PhishingRuleType } from "./phishing-rule-type";
+import { PhishingRuleType } from './phishing-rule-type';
 
 export interface PhishingRule {
   name: string;

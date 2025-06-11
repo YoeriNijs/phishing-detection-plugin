@@ -1,10 +1,10 @@
-import { IPhishingRuleChecker } from "./i-phishing-rule-checker";
-import { PhishingRuleType } from "../../../model/phishing-rule-type";
-import { PhishingRule } from "../../../model/phishing-rule";
+import { IPhishingRuleChecker } from './i-phishing-rule-checker';
+import { PhishingRuleType } from '../../../model/phishing-rule-type';
+import { PhishingRule } from '../../../model/phishing-rule';
 
 export class PhishingRuleContains implements IPhishingRuleChecker {
   type(): PhishingRuleType {
-    return "contains";
+    return 'contains';
   }
 
   isApplicable(rule: PhishingRule, url: string): boolean {
