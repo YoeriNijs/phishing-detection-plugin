@@ -31,13 +31,6 @@
     "webpack-cli": "^6.0.1",
     "webpack-merge": "^6.0.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm lint",
-      "pre-push": "npm run test",
-      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
-    }
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
