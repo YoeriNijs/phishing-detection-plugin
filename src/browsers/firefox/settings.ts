@@ -1,44 +1,81 @@
-import { FirefoxStorage } from "./storage";
-import { DEFAULT_RULES } from "../../rules/default";
-import { PhishingRules } from "../../model/phishing-rules";
+import { FirefoxStorage } from './storage';
+import { DEFAULT_RULES } from '../../rules/default';
+import { PhishingRules } from '../../model/phishing-rules';
+import { Engine } from '../../engine/engine';
 
 const storage: FirefoxStorage = new FirefoxStorage(DEFAULT_RULES);
 
 async function showRules() {
   const settingsTextArea: HTMLTextAreaElement =
-    document.querySelector("textarea");
+    document.querySelector('textarea');
   if (settingsTextArea) {
     const storedRules = await storage.getRules();
-    settingsTextArea.value = JSON.stringify(storedRules);
+    settingsTextArea.value = JSON.stringify(storedRules, null, 4); // 4 spaces for indentation
   }
 }
 
-function isPhishingRules(object: any): object is PhishingRules {
-  return !!object.exclude || !!object.include;
+function isPhishingRules(object: any): object is PhishingRules[] {
+  if (Array.isArray(object)) {
+    if (object.length < 1) {
+      return false;
+    }
+    return object.every(v => !!v.exclude || !!v.include);
+  }
+  return false;
 }
 
 async function updateRules() {
   const settingsTextArea: HTMLTextAreaElement =
-    document.querySelector("textarea");
+    document.querySelector('textarea');
   if (settingsTextArea) {
     try {
       const rules = JSON.parse(settingsTextArea.value);
       if (!isPhishingRules(rules)) {
-        alert("Invalid rules: missing include or exclude fields!");
+        alert('Invalid rules: missing include or exclude fields!');
         return;
       }
       storage.updateRules(rules);
-      alert("Rules saved!");
+      alert('Rules saved!');
     } catch (e: any) {
       alert(`Invalid rules!`);
     }
   }
 }
 
-// Show rules
-showRules();
-
-const updateBtn = document.querySelector("button");
-if (updateBtn) {
-  updateBtn.addEventListener("click", () => updateRules());
+function initializeReport(): void {
+  // @ts-ignore
+  browser.webNavigation.onCompleted.addListener(async details => {
+    const rules = await storage.getRules();
+    const engine = new Engine(...rules);
+    const results = engine.detect(details.url);
+    const resultWithHighestScore = results
+      .sort((a, b) => {
+        if (a.phishingProbability > b.phishingProbability) {
+          return -1;
+        } else {
+          return 1;
+        }
+      })
+      .map(v => v.phishingProbability)
+      .pop()
+      .toFixed(1);
+    console.log('Navigation completed:', resultWithHighestScore);
+  });
 }
+
+function initialize(): void {
+  // Show rules
+  showRules();
+
+  // Initialize listener
+  initializeReport();
+
+  // Add click listener (since onclick is cumbersome to implement in Firefox extensions)
+  const updateBtn = document.querySelector('button');
+  if (updateBtn) {
+    updateBtn.addEventListener('click', () => updateRules());
+  }
+}
+
+// Init settings page
+initialize();
