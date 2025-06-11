@@ -9,7 +9,7 @@
     "test:watch": "jest --watchAll",
     "prepare": "husky",
     "clean:firefox": "rm -rf ./build/firefox",
-    "build:firefox": "npm run clean:firefox && webpack --config webpack.firefox.js"
+    "build:firefox": "npm run clean:firefox && webpack --config webpack.firefox.plugin.js && webpack --config webpack.firefox.settings.js"
   },
   "author": "Yoeri Nijs",
   "license": "MIT",

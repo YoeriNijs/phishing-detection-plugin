@@ -12,11 +12,18 @@ export const DEFAULT_RULES: PhishingRules = {
   ],
   exclude: [
     {
-      name: "rabo_phishing_rule_2",
-      description: "A phishing rule to detect valid rabobank urls",
+      name: "rabo_phishing_rule_1",
+      description: "A phishing rule to detect rabobank phishing attempts",
       phishingRuleType: "contains",
-      value: "rabobank.nl",
-      weight: 0.5,
+      value: "rabobank.nl/",
+      weight: 1,
     },
+    {
+      name: "rabo_phishing_rule_1",
+      description: "A phishing rule to detect rabobank phishing attempts",
+      phishingRuleType: "endswith",
+      value: "rabobank.nl",
+      weight: 1,
+    }
   ],
 };

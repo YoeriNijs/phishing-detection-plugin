@@ -1,5 +1,7 @@
 import { DEFAULT_RULES } from "../../rules/default";
 import { Engine } from "../../engine/engine";
+import { FirefoxStorage } from "./storage";
+import { DetectionResult } from "../../model/detection-result";
 
 // See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeRequest#details
 interface BrowserDetails {
@@ -22,7 +24,7 @@ interface BlockingResponse {
 }
 
 export class FirefoxPlugin {
-  constructor() {
+  constructor(private _storage: FirefoxStorage) {
     // This event is triggered when a request is about to be made, and before
     // headers are available. See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeRequest
     // @ts-ignore
@@ -33,9 +35,9 @@ export class FirefoxPlugin {
     );
   }
 
-  intercept(details: BrowserDetails): BlockingResponse {
+  async intercept(details: BrowserDetails): Promise<BlockingResponse> {
     const currentUrl = details.url;
-    const detectionResult = this.detectPhishing(currentUrl);
+    const detectionResult = await this.detectPhishing(currentUrl);
     if (detectionResult.isPhishing) {
       this.updateIcon("blocked.png");
       this.updatePopup("blocked.html");
@@ -47,9 +49,9 @@ export class FirefoxPlugin {
     }
   }
 
-  private detectPhishing(url: string) {
-    const rules = DEFAULT_RULES; // Might be presets eventually?
-    const threshold = 0.9; // Might be customizable?
+  private async detectPhishing(url: string): Promise<DetectionResult> {
+    const rules = await this._storage.getRules();
+    const threshold = await this._storage.getThreshold();
     const engine = new Engine(rules, threshold);
     return engine.detect(url);
   }
@@ -66,4 +68,5 @@ export class FirefoxPlugin {
 }
 
 // Initialize plugin
-new FirefoxPlugin();
+const storage = new FirefoxStorage(DEFAULT_RULES);
+new FirefoxPlugin(storage);

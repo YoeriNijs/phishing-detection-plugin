@@ -5,8 +5,9 @@
   "description": "Blocks possible phishing requests",
   "permissions": ["storage", "webRequest", "webRequestBlocking", "<all_urls>"],
   "web_accessible_resources": ["blocked.html", "blocked.png"],
+  "content_security_policy": "script-src 'self';",
   "background": {
-    "scripts": ["firefox.js"]
+    "scripts": ["plugin.js", "settings.js"]
   },
   "icons": {
     "48": "shield.png"

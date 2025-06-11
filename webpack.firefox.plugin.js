@@ -9,7 +9,7 @@ module.exports = merge(common, {
   mode: "production",
   output: {
     path: path.resolve(__dirname, "build", "firefox"),
-    filename: "firefox.js",
+    filename: "plugin.js",
   },
   devtool: false,
   optimization: {
