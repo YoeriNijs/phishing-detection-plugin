@@ -33,8 +33,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm run lint",
+      "pre-commit": "npm lint",
+      "pre-push": "npm run test",
       "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
     }
   },
