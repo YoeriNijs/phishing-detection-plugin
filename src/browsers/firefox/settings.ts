@@ -5,7 +5,8 @@ import { PhishingRules } from "../../model/phishing-rules";
 const storage: FirefoxStorage = new FirefoxStorage(DEFAULT_RULES);
 
 async function showRules() {
-  const settingsTextArea: HTMLTextAreaElement = document.querySelector('textarea');
+  const settingsTextArea: HTMLTextAreaElement =
+    document.querySelector("textarea");
   if (settingsTextArea) {
     const storedRules = await storage.getRules();
     settingsTextArea.value = JSON.stringify(storedRules);
@@ -17,18 +18,18 @@ function isPhishingRules(object: any): object is PhishingRules {
 }
 
 async function updateRules() {
-  const settingsTextArea: HTMLTextAreaElement = document.querySelector('textarea');
+  const settingsTextArea: HTMLTextAreaElement =
+    document.querySelector("textarea");
   if (settingsTextArea) {
     try {
       const rules = JSON.parse(settingsTextArea.value);
       if (!isPhishingRules(rules)) {
-        alert('Invalid rules: missing include or exclude fields!')
+        alert("Invalid rules: missing include or exclude fields!");
         return;
       }
       storage.updateRules(rules);
-      alert('Rules saved!');
-    }
-    catch (e: any) {
+      alert("Rules saved!");
+    } catch (e: any) {
       alert(`Invalid rules!`);
     }
   }
@@ -37,7 +38,7 @@ async function updateRules() {
 // Show rules
 showRules();
 
-const updateBtn = document.querySelector('button');
+const updateBtn = document.querySelector("button");
 if (updateBtn) {
-  updateBtn.addEventListener('click', () => updateRules());
+  updateBtn.addEventListener("click", () => updateRules());
 }

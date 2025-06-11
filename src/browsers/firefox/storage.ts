@@ -7,7 +7,6 @@ export interface FirefoxStorageObject {
 }
 
 export class FirefoxStorage {
-
   private readonly _initialThreshold: number = 0.9;
 
   constructor(initialRules: PhishingRules) {
@@ -32,38 +31,40 @@ export class FirefoxStorage {
     // @ts-ignore
     return browser.storage.local
       .get()
-      .then((storageObject: FirefoxStorageObject) => storageObject.whitelistedUrls);
+      .then(
+        (storageObject: FirefoxStorageObject) => storageObject.whitelistedUrls,
+      );
   }
 
   whitelistUrls(...urls: string[]): void {
     // @ts-ignore
     let gettingItem = browser.storage.local.get();
-    gettingItem.then(
-      (storageObject: FirefoxStorageObject) => {
-        const updatedWhitelistedUrls = urls
-          .concat(storageObject.whitelistedUrls)
-          .reduce((prev, curr) => {
-            if (prev.includes(curr)) {
-              return prev;
-            } else {
-              prev.push(curr);
-              return prev;
-            }
-          }, []);
-        const updatedStorageObject: FirefoxStorageObject = {
-          rules: storageObject.rules,
-          whitelistedUrls: updatedWhitelistedUrls,
-          threshold: storageObject.threshold
-        };
-        // @ts-ignore
-        browser.storage.local.set(updatedStorageObject);
-      }
-    );
+    gettingItem.then((storageObject: FirefoxStorageObject) => {
+      const updatedWhitelistedUrls = urls
+        .concat(storageObject.whitelistedUrls)
+        .reduce((prev, curr) => {
+          if (prev.includes(curr)) {
+            return prev;
+          } else {
+            prev.push(curr);
+            return prev;
+          }
+        }, []);
+      const updatedStorageObject: FirefoxStorageObject = {
+        rules: storageObject.rules,
+        whitelistedUrls: updatedWhitelistedUrls,
+        threshold: storageObject.threshold,
+      };
+      // @ts-ignore
+      browser.storage.local.set(updatedStorageObject);
+    });
   }
 
   updateThreshold(threshold: number) {
     if (threshold < 0 || threshold > 1) {
-      throw Error(`Threshold must be a value between 0 and 1, but is ${threshold}`);
+      throw Error(
+        `Threshold must be a value between 0 and 1, but is ${threshold}`,
+      );
     }
     // @ts-ignore
     let gettingItem = browser.storage.local.get();
@@ -72,19 +73,19 @@ export class FirefoxStorage {
         const updatedStorageObject: FirefoxStorageObject = {
           rules: storageObject.rules,
           whitelistedUrls: storageObject.whitelistedUrls,
-          threshold: threshold
+          threshold: threshold,
         };
         // @ts-ignore
         browser.storage.local.set(updatedStorageObject);
       },
       (e: any) => {
-        throw Error(`Cannot update threshold: ${e}`)
-      }
+        throw Error(`Cannot update threshold: ${e}`);
+      },
     );
   }
 
   updateRules(rules: PhishingRules) {
-    if (!rules || !rules.include && rules.exclude) {
+    if (!rules || (!rules.include && rules.exclude)) {
       rules = {};
     }
 
@@ -95,14 +96,14 @@ export class FirefoxStorage {
         const updatedStorageObject: FirefoxStorageObject = {
           rules: rules,
           whitelistedUrls: storageObject.whitelistedUrls,
-          threshold: storageObject.threshold
+          threshold: storageObject.threshold,
         };
         // @ts-ignore
         browser.storage.local.set(updatedStorageObject);
       },
       (e: any) => {
-        throw Error(`Cannot update rules: ${e}`)
-      }
+        throw Error(`Cannot update rules: ${e}`);
+      },
     );
   }
 
@@ -116,7 +117,7 @@ export class FirefoxStorage {
           this.initializeStorageObject(initialRules);
         }
       },
-      () => this.initializeStorageObject(initialRules)
+      () => this.initializeStorageObject(initialRules),
     );
   }
 
@@ -124,7 +125,7 @@ export class FirefoxStorage {
     const storageObject: FirefoxStorageObject = {
       rules: initialRules,
       whitelistedUrls: [],
-      threshold: this._initialThreshold
+      threshold: this._initialThreshold,
     };
     // @ts-ignore
     browser.storage.local.set(storageObject);

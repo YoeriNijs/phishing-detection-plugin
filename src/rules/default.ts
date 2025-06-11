@@ -24,6 +24,6 @@ export const DEFAULT_RULES: PhishingRules = {
       phishingRuleType: "endswith",
       value: "rabobank.nl",
       weight: 1,
-    }
+    },
   ],
 };
