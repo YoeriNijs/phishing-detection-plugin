@@ -6,21 +6,17 @@ export interface FirefoxStorageObject {
 }
 
 export class FirefoxStorage {
-  private readonly _initialThreshold: number = 0.9;
-
   constructor(initialRules: PhishingRules[]) {
     this.initializeStorage(initialRules);
   }
 
   getRules(): Promise<PhishingRules[]> {
-    // @ts-ignore
     return browser.storage.local
       .get()
       .then((storageObject: FirefoxStorageObject) => storageObject.rules);
   }
 
   getWhitelistedUrls(): Promise<string[]> {
-    // @ts-ignore
     return browser.storage.local
       .get()
       .then(
@@ -29,9 +25,7 @@ export class FirefoxStorage {
   }
 
   whitelistUrls(...urls: string[]): void {
-    // @ts-ignore
-    let gettingItem = browser.storage.local.get();
-    gettingItem.then((storageObject: FirefoxStorageObject) => {
+    browser.storage.local.get().then((storageObject: FirefoxStorageObject) => {
       const updatedWhitelistedUrls = urls
         .concat(storageObject.whitelistedUrls)
         .reduce((prev, curr) => {
@@ -46,7 +40,6 @@ export class FirefoxStorage {
         rules: storageObject.rules,
         whitelistedUrls: updatedWhitelistedUrls
       };
-      // @ts-ignore
       browser.storage.local.set(updatedStorageObject);
     });
   }
@@ -57,15 +50,12 @@ export class FirefoxStorage {
         `Threshold must be a value between 0 and 1, but is ${threshold}`
       );
     }
-    // @ts-ignore
-    let gettingItem = browser.storage.local.get();
-    gettingItem.then(
+    browser.storage.local.get().then(
       (storageObject: FirefoxStorageObject) => {
         const updatedStorageObject: FirefoxStorageObject = {
           rules: storageObject.rules,
           whitelistedUrls: storageObject.whitelistedUrls
         };
-        // @ts-ignore
         browser.storage.local.set(updatedStorageObject);
       },
       (e: any) => {
@@ -82,14 +72,12 @@ export class FirefoxStorage {
     }
 
     // @ts-ignore
-    let gettingItem = browser.storage.local.get();
-    gettingItem.then(
+    browser.storage.local.get().then(
       (storageObject: FirefoxStorageObject) => {
         const updatedStorageObject: FirefoxStorageObject = {
           rules: rules_sets,
           whitelistedUrls: storageObject.whitelistedUrls
         };
-        // @ts-ignore
         browser.storage.local.set(updatedStorageObject);
       },
       (e: any) => {
@@ -99,9 +87,7 @@ export class FirefoxStorage {
   }
 
   private initializeStorage(initialRules: PhishingRules[]) {
-    // @ts-ignore
-    let gettingItem = browser.storage.local.get();
-    gettingItem.then(
+    browser.storage.local.get().then(
       (storedObject: FirefoxStorageObject) => {
         // If the object is missing required fields, we still save the initial object
         if (!this.isStorageObject(storedObject)) {
@@ -117,7 +103,6 @@ export class FirefoxStorage {
       rules: initialRules,
       whitelistedUrls: []
     };
-    // @ts-ignore
     browser.storage.local.set(storageObject);
   }
 
