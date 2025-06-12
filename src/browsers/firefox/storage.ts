@@ -16,54 +16,6 @@ export class FirefoxStorage {
       .then((storageObject: FirefoxStorageObject) => storageObject.rules);
   }
 
-  getWhitelistedUrls(): Promise<string[]> {
-    return browser.storage.local
-      .get()
-      .then(
-        (storageObject: FirefoxStorageObject) => storageObject.whitelistedUrls
-      );
-  }
-
-  whitelistUrls(...urls: string[]): void {
-    browser.storage.local.get().then((storageObject: FirefoxStorageObject) => {
-      const updatedWhitelistedUrls = urls
-        .concat(storageObject.whitelistedUrls)
-        .reduce((prev, curr) => {
-          if (prev.includes(curr)) {
-            return prev;
-          } else {
-            prev.push(curr);
-            return prev;
-          }
-        }, []);
-      const updatedStorageObject: FirefoxStorageObject = {
-        rules: storageObject.rules,
-        whitelistedUrls: updatedWhitelistedUrls
-      };
-      browser.storage.local.set(updatedStorageObject);
-    });
-  }
-
-  updateThreshold(threshold: number) {
-    if (threshold < 0 || threshold > 1) {
-      throw Error(
-        `Threshold must be a value between 0 and 1, but is ${threshold}`
-      );
-    }
-    browser.storage.local.get().then(
-      (storageObject: FirefoxStorageObject) => {
-        const updatedStorageObject: FirefoxStorageObject = {
-          rules: storageObject.rules,
-          whitelistedUrls: storageObject.whitelistedUrls
-        };
-        browser.storage.local.set(updatedStorageObject);
-      },
-      (e: any) => {
-        throw Error(`Cannot update threshold: ${e}`);
-      }
-    );
-  }
-
   updateRules(rules_sets: PhishingRules[]) {
     if (rules_sets.length < 1) {
       rules_sets = [];
@@ -71,7 +23,6 @@ export class FirefoxStorage {
       rules_sets = [];
     }
 
-    // @ts-ignore
     browser.storage.local.get().then(
       (storageObject: FirefoxStorageObject) => {
         const updatedStorageObject: FirefoxStorageObject = {

@@ -9,10 +9,9 @@ async function showRules() {
   const settingsTextArea: HTMLTextAreaElement =
     document.querySelector('textarea');
   if (settingsTextArea) {
-    const phishingRules = storage.executeWithRules<PhishingRules[]>(
-      chromeStorageObject => chromeStorageObject.rules
-    );
-    settingsTextArea.value = JSON.stringify(phishingRules, null, 4); // 4 spaces for indentation
+    storage.getRules(rules => {
+      settingsTextArea.value = JSON.stringify(rules, null, 4); // 4 spaces for indentation
+    });
   }
 }
 

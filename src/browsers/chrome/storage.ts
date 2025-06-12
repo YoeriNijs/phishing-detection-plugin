@@ -1,8 +1,10 @@
 import { PhishingRules } from '../../model/phishing-rules';
 
 export interface ChromeStorageObject {
-  rules: PhishingRules[];
-  whitelistedUrls: string[];
+  settings: {
+    rules: PhishingRules[];
+    whitelistedUrls: string[];
+  };
 }
 
 export class ChromeStorage {
@@ -10,60 +12,14 @@ export class ChromeStorage {
     this.initializeStorage(initialRules);
   }
 
-  executeWithRules<T>(
-    fn: (chromeStorageObject: ChromeStorageObject) => T
-  ): T | undefined {
-    let value: T = undefined;
-    chrome.storage.local.get('settings', chromeStorageObject => {
-      if (chromeStorageObject.settings) {
-        value = fn(
-          chromeStorageObject.settings as unknown as ChromeStorageObject
-        );
+  getRules(fn: (rules: PhishingRules[]) => void): void {
+    chrome.storage.local.get(
+      'settings',
+      (chromeStorageObject: ChromeStorageObject) => {
+        const rules = chromeStorageObject.settings.rules;
+        fn(rules);
       }
-      return undefined;
-    });
-    return value;
-  }
-
-  getWhitelistedUrls(): Promise<string[]> {
-    return chrome.storage.local
-      .get()
-      .then((res: ChromeStorageObject) => res.whitelistedUrls);
-  }
-
-  whitelistUrls(...urls: string[]): void {
-    chrome.storage.local.get('settings', chromeStorageObject => {
-      const updatedWhitelistedUrls = urls
-        .concat((chromeStorageObject as ChromeStorageObject).whitelistedUrls)
-        .reduce((prev, curr) => {
-          if (prev.includes(curr)) {
-            return prev;
-          } else {
-            prev.push(curr);
-            return prev;
-          }
-        }, []);
-      const updatedStorageObject: ChromeStorageObject = {
-        rules: (chromeStorageObject as ChromeStorageObject).rules,
-        whitelistedUrls: updatedWhitelistedUrls
-      };
-      chrome.storage.local.set({ settings: updatedStorageObject });
-    });
-  }
-
-  updateThreshold(threshold: number) {
-    if (threshold < 0 || threshold > 1) {
-      throw Error(
-        `Threshold must be a value between 0 and 1, but is ${threshold}`
-      );
-    }
-    chrome.storage.local.get('settings', storageObject => {
-      const updatedStorageObject: ChromeStorageObject = {
-        rules: storageObject.rules,
-        whitelistedUrls: (storageObject as ChromeStorageObject).whitelistedUrls
-      };
-      chrome.storage.local.set({ settings: updatedStorageObject });
-    });
+    );
   }
 
   updateRules(rules_sets: PhishingRules[]) {
@@ -75,17 +31,20 @@ export class ChromeStorage {
 
     chrome.storage.local.get('settings', storageObject => {
       const updatedStorageObject: ChromeStorageObject = {
-        rules: rules_sets,
-        whitelistedUrls: (storageObject as ChromeStorageObject).whitelistedUrls
+        settings: {
+          rules: rules_sets,
+          whitelistedUrls: (storageObject as ChromeStorageObject).settings
+            .whitelistedUrls
+        }
       };
-      chrome.storage.local.set({ settings: updatedStorageObject });
+      chrome.storage.local.set(updatedStorageObject);
     });
   }
 
   private initializeStorage(initialRules: PhishingRules[]) {
-    chrome.storage.local.get((object: any) => {
+    chrome.storage.local.get('settings', (settings: any) => {
       // If the object is missing required fields, we still save the initial object
-      if (!object.settings || !this.isStorageObject(object.settings)) {
+      if (!this.isStorageObject(settings)) {
         this.initializeStorageObject(initialRules);
       }
     });
@@ -93,10 +52,12 @@ export class ChromeStorage {
 
   private initializeStorageObject(initialRules: PhishingRules[]) {
     const storageObject: ChromeStorageObject = {
-      rules: initialRules,
-      whitelistedUrls: []
+      settings: {
+        rules: initialRules,
+        whitelistedUrls: []
+      }
     };
-    chrome.storage.local.set({ settings: storageObject });
+    chrome.storage.local.set(storageObject);
   }
 
   private isStorageObject(object: any): object is ChromeStorageObject {
