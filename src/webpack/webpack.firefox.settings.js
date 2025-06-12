@@ -4,10 +4,10 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
-  entry: './src/browsers/chrome/settings.ts',
+  entry: './src/browsers/firefox/settings.ts',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, 'build', 'chrome'),
+    path: path.resolve(__dirname, '..', '..', 'build', 'firefox'),
     filename: 'settings.js'
   },
   devtool: false,

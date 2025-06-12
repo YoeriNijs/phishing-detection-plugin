@@ -10,7 +10,7 @@ export class ChromePlugin {
   private _rules: PhishingRules[] = [];
 
   constructor(private _storage: ChromeStorage) {
-    this._storage.getRules(rules => (this._rules = rules));
+    this.updateRules();
 
     chrome.webRequest.onBeforeRequest.addListener(
       details => this.intercept(details),
@@ -21,29 +21,36 @@ export class ChromePlugin {
 
   intercept(details: OnBeforeRequestDetails): BlockingResponse {
     const currentUrl = details.initiator || details.url;
+    if (currentUrl.includes('chrome-extension://')) {
+      this.updateRules();
+      return { cancel: false };
+    }
+    this._storage.setInitiator(currentUrl);
     if (this._rules && Array.isArray(this._rules)) {
       const detectionResults = this.detectPhishing(currentUrl);
       const isPhishingDetected = detectionResults.some(r => r.isPhishing);
       if (isPhishingDetected) {
         this.updateIcon('blocked.png');
-        this.updatePopup('blocked.html');
+        this.updatePopup('report.html');
         this.updateBadge('X');
+        this.updateRules();
         return { redirectUrl: chrome.runtime.getURL('blocked.html') };
       } else {
         this.updateIcon('shield.png');
-        this.updatePopup('settings.html');
+        this.updatePopup('report.html');
         const highestScore = detectionResults
           .sort((a, b) => {
             if (a.phishingProbability > b.phishingProbability) {
-              return -1;
-            } else {
               return 1;
+            } else {
+              return -1;
             }
           })
           .map(v => v.phishingProbability)
           .pop()
           .toFixed(1);
         this.updateBadge(`${highestScore}`);
+        this.updateRules();
         return { cancel: false };
       }
     }
@@ -66,6 +73,10 @@ export class ChromePlugin {
 
   private updateBadge(text: string): void {
     chrome.browserAction.setBadgeText({ text: text });
+  }
+
+  private updateRules(): void {
+    this._storage.getRules(rules => (this._rules = rules));
   }
 }
 

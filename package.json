@@ -12,8 +12,8 @@
     "clean:firefox": "rm -rf ./build/firefox",
     "clean:chrome": "rm -rf ./build/chrome",
     "build": "npm run build:firefox && npm run build:chrome",
-    "build:firefox": "npm run clean:firefox && webpack --config webpack.firefox.plugin.js && webpack --config webpack.firefox.settings.js",
-    "build:chrome": "npm run clean:chrome && webpack --config webpack.chrome.plugin.js && webpack --config webpack.chrome.settings.js"
+    "build:firefox": "npm run clean:firefox && webpack --config src/webpack/webpack.firefox.plugin.js && webpack --config src/webpack/webpack.firefox.settings.js",
+    "build:chrome": "npm run clean:chrome && webpack --config src/webpack/webpack.chrome.plugin.js && webpack --config src/webpack/webpack.chrome.settings.js && webpack --config src/webpack/webpack.chrome.report.js"
   },
   "author": "Yoeri Nijs",
   "license": "MIT",

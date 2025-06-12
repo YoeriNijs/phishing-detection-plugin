@@ -8,7 +8,7 @@ module.exports = merge(common, {
   entry: './src/browsers/firefox/plugin.ts',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, 'build', 'firefox'),
+    path: path.resolve(__dirname, '..', '..', 'build', 'firefox'),
     filename: 'plugin.js'
   },
   devtool: false,
