@@ -4,6 +4,7 @@ import { PhishingRules } from '../../model/phishing-rules';
 export interface BadgeScore {
   isPhishing: string;
   phishingProbability: string;
+  threshold: string;
 }
 
 export const calculateBatchScore = (
@@ -23,6 +24,7 @@ export const calculateBatchScore = (
     .pop();
   return {
     isPhishing: resultWithHighestScore.isPhishing ? 'yes' : 'unlikely',
-    phishingProbability: resultWithHighestScore.phishingProbability.toFixed(1)
+    phishingProbability: resultWithHighestScore.phishingProbability.toFixed(1),
+    threshold: resultWithHighestScore.threshold.toFixed(1)
   };
 };

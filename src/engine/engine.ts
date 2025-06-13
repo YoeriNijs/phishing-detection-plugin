@@ -11,7 +11,8 @@ interface EngineResult {
 
 const NO_PHISHING_RESULT: DetectionResult = {
   isPhishing: false,
-  phishingProbability: 0
+  phishingProbability: 0,
+  threshold: 0
 };
 
 export class Engine {
@@ -38,7 +39,8 @@ export class Engine {
       ]);
       return {
         isPhishing: engineResult.isPhishing,
-        phishingProbability: engineResult.phishingProbability
+        phishingProbability: engineResult.phishingProbability,
+        threshold: rules.threshold
       };
     });
   }

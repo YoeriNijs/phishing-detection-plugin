@@ -12,7 +12,8 @@ describe('Engine tests', () => {
     const [result] = engine.detect('https://some_evil_domain.com');
     expect(result).toEqual({
       isPhishing: false,
-      phishingProbability: 0
+      phishingProbability: 0,
+      threshold: 0.9
     });
   });
 
@@ -21,7 +22,8 @@ describe('Engine tests', () => {
     const [result] = engine.detect('https://some_evil_domain.com');
     expect(result).toEqual({
       isPhishing: false,
-      phishingProbability: 0
+      phishingProbability: 0,
+      threshold: 0.9
     });
   });
 
@@ -30,7 +32,8 @@ describe('Engine tests', () => {
     const [result] = engine.detect('https://some_evil_domain.com');
     expect(result).toEqual({
       isPhishing: false,
-      phishingProbability: 0
+      phishingProbability: 0,
+      threshold: 0.9
     });
   });
 

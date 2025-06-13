@@ -20,6 +20,10 @@ if (htmlParagraphElement) {
           {
             key: 'Probability',
             value: resultWithHighestScore.phishingProbability
+          },
+          {
+            key: 'Threshold',
+            value: resultWithHighestScore.threshold
           }
         ];
 
