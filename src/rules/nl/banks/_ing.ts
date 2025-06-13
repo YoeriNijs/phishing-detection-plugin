@@ -1,7 +1,7 @@
 import { PhishingRules } from '../../../model/phishing-rules';
 
 export const ING_RULES: PhishingRules = {
-  threshold: 0.9,
+  threshold: 1,
   include: [
     {
       name: 'ing_phishing_include_rule_1',
@@ -9,6 +9,27 @@ export const ING_RULES: PhishingRules = {
       phishingRuleType: 'contains',
       value: 'ing',
       weight: 0.5
+    },
+    {
+      name: 'ing_phishing_include_rule_2',
+      description: 'A phishing rule to detect ING phishing attempts',
+      phishingRuleType: 'contains',
+      value: 'іng',
+      weight: 1
+    },
+    {
+      name: 'ing_phishing_include_rule_3',
+      description: 'A phishing rule to detect ING phishing attempts',
+      phishingRuleType: 'contains',
+      value: 'íng',
+      weight: 1
+    },
+    {
+      name: 'ing_phishing_include_rule_4',
+      description: 'A phishing rule to detect ING phishing attempts',
+      phishingRuleType: 'contains',
+      value: 'ïng',
+      weight: 1
     }
   ],
   exclude: [

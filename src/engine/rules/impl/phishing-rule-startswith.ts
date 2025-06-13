@@ -8,6 +8,11 @@ export class PhishingRuleStartsWith implements IPhishingRuleChecker {
   }
 
   isApplicable(rule: PhishingRule, url: string): boolean {
+    if (url.startsWith('http')) {
+      const urlWithoutHttp = url.replace('http://', '')
+        .replace('https://', '');
+      return urlWithoutHttp.startsWith(rule.value.toLowerCase());
+    }
     return url.startsWith(rule.value.toLowerCase());
   }
 }

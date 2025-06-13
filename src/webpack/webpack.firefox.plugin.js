@@ -4,7 +4,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-module.exports = merge(common, {
+const pluginConf = merge(common, {
   entry: './src/browsers/firefox/plugin.ts',
   mode: 'production',
   output: {
@@ -29,3 +29,20 @@ module.exports = merge(common, {
     })
   ]
 });
+
+const settingsConf = merge(common, {
+  entry: './src/browsers/firefox/settings.ts',
+  mode: 'production',
+  output: {
+    path: path.resolve(__dirname, '..', '..', 'build', 'firefox'),
+    filename: 'settings.js'
+  },
+  devtool: false,
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()]
+  },
+  plugins: []
+});
+
+module.exports = [settingsConf, pluginConf]

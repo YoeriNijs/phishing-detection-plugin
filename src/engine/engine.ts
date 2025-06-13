@@ -49,10 +49,6 @@ export class Engine {
     url: string
   ): number {
     let totalWeight = 0;
-    let nRules: number =
-      (rules.include?.filter(r => r.phishingRuleType === type).length || 0) +
-      (rules.exclude?.filter(r => r.phishingRuleType === type).length || 0);
-
     const phishingRuleFactory = new PhishingRuleFactory();
     const phishingRuleImpl = phishingRuleFactory.getPhishingRuleImpl(type);
     if (rules.include) {
@@ -73,7 +69,7 @@ export class Engine {
         .forEach((weight: number) => (totalWeight -= weight));
     }
 
-    return totalWeight === 0 ? 0 : totalWeight / nRules;
+    return totalWeight;
   }
 
   private calculateResult(threshold: number, numbers: number[]): EngineResult {
@@ -88,7 +84,7 @@ export class Engine {
     );
     const probability = totalNumbers / filteredNumbers.length;
     return {
-      isPhishing: probability > threshold,
+      isPhishing: probability >= threshold,
       phishingProbability: probability
     };
   }
