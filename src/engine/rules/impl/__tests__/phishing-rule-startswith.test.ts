@@ -19,17 +19,17 @@ describe('Phishing rule startswith tests', () => {
   it('should return true when url with https starts with value', () => {
     const implementation = new PhishingRuleStartsWith();
     const containsRule = createEndsWithRule({ value: 'www' });
-    expect(implementation.isApplicable(containsRule, 'https://www.google.com')).toBe(
-      true
-    );
+    expect(
+      implementation.isApplicable(containsRule, 'https://www.google.com')
+    ).toBe(true);
   });
 
   it('should return true when url with http starts with value', () => {
     const implementation = new PhishingRuleStartsWith();
     const containsRule = createEndsWithRule({ value: 'www' });
-    expect(implementation.isApplicable(containsRule, 'http://www.google.com')).toBe(
-      true
-    );
+    expect(
+      implementation.isApplicable(containsRule, 'http://www.google.com')
+    ).toBe(true);
   });
 
   it('should return false when url does not start with value', () => {

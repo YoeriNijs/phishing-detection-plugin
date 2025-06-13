@@ -45,4 +45,4 @@ const settingsConf = merge(common, {
   plugins: []
 });
 
-module.exports = [settingsConf, pluginConf]
+module.exports = [settingsConf, pluginConf];

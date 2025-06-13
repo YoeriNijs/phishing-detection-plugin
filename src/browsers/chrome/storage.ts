@@ -12,14 +12,6 @@ export class ChromeStorage {
     this.initializeStorage(initialRules);
   }
 
-  setInitiator(initiator: string) {
-    chrome.storage.local.set({ initiator: initiator });
-  }
-
-  getInitiator(fn: (initiator: string | undefined) => void): void {
-    chrome.storage.local.get('initiator', value => fn(value.initiator));
-  }
-
   getRules(fn: (rules: PhishingRules[]) => void): void {
     chrome.storage.local.get(
       'settings',
