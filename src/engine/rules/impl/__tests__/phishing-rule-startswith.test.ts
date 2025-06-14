@@ -39,4 +39,10 @@ describe('Phishing rule startswith tests', () => {
       false
     );
   });
+
+  it('should return false when url is undefined', () => {
+    const implementation = new PhishingRuleStartsWith();
+    const containsRule = createEndsWithRule({ value: 'com' });
+    expect(implementation.isApplicable(containsRule, undefined)).toBe(false);
+  });
 });

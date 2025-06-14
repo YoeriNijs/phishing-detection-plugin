@@ -7,26 +7,27 @@ import { calculateBatchScore } from './badge';
 
 const URL_PATTERN = '*://*/*';
 
-interface UrlAndResult {
-  url: string;
-  result: DetectionResult;
-}
-
 export class ChromePlugin {
   private _rules: PhishingRules[] = [];
+  private _whitelistedUrls: string[] = [];
 
   constructor(private _storage: ChromeStorage) {
     this.updateRules();
+    this.updateWhitelistedUrls();
 
     chrome.webRequest.onBeforeRequest.addListener(
       details => {
         this.updateRules();
+        this.updateWhitelistedUrls();
         this.updateBadgeScore();
 
         if (details.method === 'GET') {
-          const detectionResults = this.detectPhishing(details.url);
+          const currentUrl = details.url;
+          const detectionResults = this.detectPhishing(currentUrl);
           const isPhishingDetected = detectionResults.some(r => r.isPhishing);
-          if (isPhishingDetected) {
+          const isWhitelisted = this.isWhitelisted(currentUrl);
+          if (isPhishingDetected && !isWhitelisted) {
+            this.setActiveHost(currentUrl);
             this.updateIcon('blocked.png');
             this.updatePopup('unblock.html');
             return { redirectUrl: chrome.runtime.getURL('blocked.html') };
@@ -41,12 +42,27 @@ export class ChromePlugin {
     );
   }
 
+  private setActiveHost(currentUrl: string) {
+    if (this.isChromeExtension(currentUrl)) {
+      return;
+    }
+    this._storage.setActiveHost(currentUrl);
+  }
+
   private updateBadgeScore() {
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
       if (tabs.length > 0) {
         const currentTab = tabs[0];
         const currentUrl = currentTab.url;
-        if (currentUrl.startsWith('chrome-extension://')) {
+        if (!currentUrl) {
+          this.updateBadge('');
+          return;
+        }
+        if (this.isWhitelisted(currentUrl)) {
+          this.updateBadge('-');
+          return;
+        }
+        if (this.isChromeExtension(currentUrl)) {
           this.updateBadge('');
           return;
         }
@@ -54,6 +70,16 @@ export class ChromePlugin {
         this.updateBadge(badgeScore.phishingProbability);
       }
     });
+  }
+
+  private isChromeExtension(url: string) {
+    return url.startsWith('chrome-extension://');
+  }
+
+  private isWhitelisted(currentUrl: string) {
+    return this._whitelistedUrls.some(whitelistedUrl =>
+      currentUrl.includes(whitelistedUrl)
+    );
   }
 
   private detectPhishing(url: string): DetectionResult[] {
@@ -75,6 +101,10 @@ export class ChromePlugin {
 
   private updateRules(): void {
     this._storage.getRules(rules => (this._rules = rules));
+  }
+
+  private updateWhitelistedUrls(): void {
+    this._storage.getWhitelistedUrls(urls => (this._whitelistedUrls = urls));
   }
 }
 

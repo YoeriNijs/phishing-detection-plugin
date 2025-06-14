@@ -4,6 +4,7 @@ export interface ChromeStorageObject {
   settings: {
     rules: PhishingRules[];
     whitelistedUrls: string[];
+    activeHost?: string | undefined;
   };
 }
 
@@ -41,6 +42,70 @@ export class ChromeStorage {
     });
   }
 
+  addWhitelistedUrl(...urls: string[]) {
+    if (urls.length < 1) {
+      return;
+    }
+
+    const hostnames = urls.map(u => this.toHostname(u));
+    const uniqueHostnames = new Set<string>(hostnames);
+
+    chrome.storage.local.get(
+      'settings',
+      (chromeStorageObject: ChromeStorageObject) => {
+        const whitelistedUrls = [
+          ...chromeStorageObject.settings.whitelistedUrls
+        ];
+        whitelistedUrls.push(...uniqueHostnames);
+        const uniqueWhitelistedUrls = new Set(whitelistedUrls);
+        const updatedStorageObject: ChromeStorageObject = {
+          settings: {
+            rules: chromeStorageObject.settings.rules,
+            whitelistedUrls: [...uniqueWhitelistedUrls]
+          }
+        };
+        chrome.storage.local.set(updatedStorageObject);
+      }
+    );
+  }
+
+  getWhitelistedUrls(fn: (whitelistedUrls: string[]) => void): void {
+    chrome.storage.local.get(
+      'settings',
+      (chromeStorageObject: ChromeStorageObject) => {
+        const urls = chromeStorageObject.settings.whitelistedUrls;
+        fn(urls);
+      }
+    );
+  }
+
+  setActiveHost(url: string | undefined): void {
+    chrome.storage.local.get(
+      'settings',
+      (chromeStorageObject: ChromeStorageObject) => {
+        const storageObject: ChromeStorageObject = {
+          settings: {
+            rules: chromeStorageObject.settings.rules,
+            whitelistedUrls: chromeStorageObject.settings.whitelistedUrls,
+            activeHost: url ? this.toHostname(url) : undefined
+          }
+        };
+        chrome.storage.local.set(storageObject);
+      }
+    );
+  }
+
+  getActiveHost(fn: (activeHost: string | undefined) => void): void {
+    chrome.storage.local.get(
+      'settings',
+      (chromeStorageObject: ChromeStorageObject) => {
+        const activeUrl = chromeStorageObject.settings.activeHost;
+        const activeHost = activeUrl ? this.toHostname(activeUrl) : activeUrl;
+        fn(activeHost);
+      }
+    );
+  }
+
   private initializeStorage(initialRules: PhishingRules[]) {
     chrome.storage.local.get('settings', (settings: any) => {
       // If the object is missing required fields, we still save the initial object
@@ -62,5 +127,10 @@ export class ChromeStorage {
 
   private isStorageObject(object: any): object is ChromeStorageObject {
     return object.rules && object.threshold && object.whitelistedUrls;
+  }
+
+  private toHostname(url: string): string {
+    const u = new URL(url);
+    return u.hostname;
   }
 }
