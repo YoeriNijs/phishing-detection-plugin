@@ -11,6 +11,6 @@ export class PhishingRuleEndsWith implements IPhishingRuleChecker {
     if (!url) {
       return false;
     }
-    return url && url.endsWith(rule.value.toLowerCase());
+    return url.endsWith(rule.value.toLowerCase());
   }
 }
