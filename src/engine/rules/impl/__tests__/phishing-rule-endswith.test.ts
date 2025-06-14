@@ -23,4 +23,10 @@ describe('Phishing rule endswith tests', () => {
       false
     );
   });
+
+  it('should return false when url is undefined', () => {
+    const implementation = new PhishingRuleEndsWith();
+    const containsRule = createEndsWithRule({ value: 'com' });
+    expect(implementation.isApplicable(containsRule, undefined)).toBe(false);
+  });
 });
