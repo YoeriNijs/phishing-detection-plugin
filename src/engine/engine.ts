@@ -3,7 +3,6 @@ import { PhishingRules } from '../model/phishing-rules';
 import { PhishingRuleType } from '../model/phishing-rule-type';
 import { PhishingRuleFactory } from './rules/phishing-rule-factory';
 import { PhishingRule } from '../model/phishing-rule';
-import { Openfish } from '../community/openfish';
 import { ICommunity } from '../community/i-community';
 
 interface EngineResult {
@@ -31,11 +30,16 @@ export class Engine {
     this._rules_sets = rules;
 
     // Community urls
-    community_sources.map(source =>
+    const $community_sources = community_sources.map(source =>
       source
         .fetch()
         .then(res => (this._community_urls = [...this._community_urls, ...res]))
-        .then(() => console.log('community urls', this._community_urls))
+        .catch(err => {
+          throw Error(`Cannot fetch community data: ${err}`);
+        })
+    );
+    Promise.all($community_sources).then(() =>
+      console.log('Loaded community sources: ', this._community_urls)
     );
   }
 
@@ -46,10 +50,16 @@ export class Engine {
     }
 
     // If it is a community url, then mark it as unsafe
+    console.log(
+      'check',
+      this._community_urls.map(cu => cu.toLowerCase()),
+      url.toLowerCase()
+    );
     const isCommunityUrl = this._community_urls
       .map(cu => cu.toLowerCase())
       .includes(url.toLowerCase());
     if (isCommunityUrl) {
+      console.log('DETECTED', url, this._community_urls);
       return [PHISHING_RESULT];
     }
 

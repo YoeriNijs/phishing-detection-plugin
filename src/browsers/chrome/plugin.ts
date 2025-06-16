@@ -4,6 +4,7 @@ import { ChromeStorage } from './storage';
 import { DetectionResult } from '../../model/detection-result';
 import { PhishingRules } from '../../model/phishing-rules';
 import { calculateBatchScore } from './badge';
+import { Openfish } from '../../community/openfish';
 
 const URL_PATTERN = '*://*/*';
 
@@ -57,7 +58,8 @@ export class ChromePlugin {
   }
 
   private detectPhishing(url: string): DetectionResult[] {
-    const engine = new Engine([], ...this._rules);
+    const community_values = [new Openfish()];
+    const engine = new Engine(community_values, ...this._rules);
     return engine.detect(url);
   }
 
