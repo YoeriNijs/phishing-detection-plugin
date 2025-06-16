@@ -57,7 +57,7 @@ export class ChromePlugin {
   }
 
   private detectPhishing(url: string): DetectionResult[] {
-    const engine = new Engine(...this._rules);
+    const engine = new Engine([], ...this._rules);
     return engine.detect(url);
   }
 

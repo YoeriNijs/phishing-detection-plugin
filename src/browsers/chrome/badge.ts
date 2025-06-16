@@ -11,7 +11,7 @@ export const calculateBatchScore = (
   rules: PhishingRules[],
   url: string
 ): BadgeScore => {
-  const engine = new Engine(...rules);
+  const engine = new Engine([], ...rules);
   const results = engine.detect(url);
   const resultWithHighestScore = results
     .sort((a, b) => {

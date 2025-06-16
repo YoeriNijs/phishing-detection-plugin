@@ -45,7 +45,7 @@ export class FirefoxPlugin {
 
   private async detectPhishing(url: string): Promise<DetectionResult[]> {
     const rules = await this._storage.getRules();
-    const engine = new Engine(...rules);
+    const engine = new Engine([], ...rules);
     return engine.detect(url);
   }
 

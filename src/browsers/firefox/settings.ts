@@ -46,7 +46,7 @@ function initializeReport(): void {
   // @ts-ignore
   browser.webNavigation.onCompleted.addListener(async details => {
     const rules = await storage.getRules();
-    const engine = new Engine(...rules);
+    const engine = new Engine([], ...rules);
     const results = engine.detect(details.url);
     const resultWithHighestScore = results
       .sort((a, b) => {

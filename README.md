@@ -11,6 +11,7 @@
 - [ ] Add real world rules
 - [ ] Dropdown for selecting rules sets
 - [ ] Clean up duplicate Chrome and Firefox code (programming against interface)
+- [ ] Fix community urls implementation
 
 ## Future backlog
 
