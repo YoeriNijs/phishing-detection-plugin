@@ -3,6 +3,7 @@ import { PhishingRuleType } from '../../model/phishing-rule-type';
 import { PhishingRuleContains } from './impl/phishing-rule-contains';
 import { PhishingRuleStartsWith } from './impl/phishing-rule-startswith';
 import { PhishingRuleEndsWith } from './impl/phishing-rule-endswith';
+import { PhishingRuleRegex } from './impl/phishing-rule-regex';
 
 export class PhishingRuleFactory {
   getPhishingRuleImpl(type: PhishingRuleType): IPhishingRuleChecker {
@@ -13,6 +14,8 @@ export class PhishingRuleFactory {
         return new PhishingRuleStartsWith();
       case 'endswith':
         return new PhishingRuleEndsWith();
+      case 'regex':
+        return new PhishingRuleRegex();
       default:
         throw new Error(`Phishing rule type ${type} is not supported`);
     }

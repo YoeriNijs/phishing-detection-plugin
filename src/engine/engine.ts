@@ -49,10 +49,12 @@ export class Engine {
       const containsProbability = this.runType(rules, 'contains', url);
       const startsWithProbability = this.runType(rules, 'startswith', url);
       const endsWithProbability = this.runType(rules, 'endswith', url);
+      const regexProbability = this.runType(rules, 'regex', url);
       const engineResult = this.calculateResult(rules.threshold, [
         containsProbability,
         startsWithProbability,
-        endsWithProbability
+        endsWithProbability,
+        regexProbability
       ]);
       return {
         isPhishing: engineResult.isPhishing,

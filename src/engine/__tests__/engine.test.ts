@@ -1,7 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import { Engine } from '../engine';
 import { createContainsRule } from '../../testing';
-import { ICommunity } from '../../community/_i-community';
 
 describe('Engine tests', () => {
   it('should init', () => {
@@ -106,7 +105,7 @@ describe('Engine tests', () => {
   });
 
   describe('# Community urls', () => {
-    it('should resolve the community urls', async () => {
+    it('should take the community urls into account', async () => {
       const community_urls = ['https://www.google.com'];
       const engine = new Engine(community_urls, {
         include: [],
@@ -114,6 +113,9 @@ describe('Engine tests', () => {
       });
       expect(engine.detect('https://www.anotherdomain.com')).toEqual([
         { isPhishing: false, phishingProbability: 0, threshold: 0 }
+      ]);
+      expect(engine.detect('https://www.google.com')).toEqual([
+        { isPhishing: true, phishingProbability: 1, threshold: 0 }
       ]);
     });
   });
