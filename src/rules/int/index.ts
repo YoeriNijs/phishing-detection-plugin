@@ -1,3 +1,3 @@
-import { BANK_RULES } from './bank/_misc';
+import { INT_BANK_RULES } from './bank';
 
-export const ALL_INTERNATIONAL = [BANK_RULES];
+export const ALL_INTERNATIONAL = [...INT_BANK_RULES];

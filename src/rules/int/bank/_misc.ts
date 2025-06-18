@@ -1,7 +1,7 @@
 // TODO Just for testing purposes, remove in prod
 import { PhishingRules } from '../../../model/phishing-rules';
 
-export const BANK_RULES: PhishingRules = {
+export const MISC_BANK_RULES: PhishingRules = {
   threshold: 0.2,
   include: [
     {
