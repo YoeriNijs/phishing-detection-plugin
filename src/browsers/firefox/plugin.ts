@@ -4,7 +4,7 @@ import { FirefoxStorage } from './storage';
 import { DetectionResult } from '../../model/detection-result';
 import BlockingResponse = browser.webRequest.BlockingResponse;
 import _OnBeforeRequestDetails = browser.webRequest._OnBeforeRequestDetails;
-import { Openfish } from '../../community/openfish';
+import { Openfish } from '../../community/_openfish';
 
 export class FirefoxPlugin {
   constructor(private _storage: FirefoxStorage) {
@@ -46,7 +46,7 @@ export class FirefoxPlugin {
 
   private async detectPhishing(url: string): Promise<DetectionResult[]> {
     const rules = await this._storage.getRules();
-    const engine = new Engine([new Openfish()], ...rules);
+    const engine = new Engine([], ...rules);
     return engine.detect(url);
   }
 

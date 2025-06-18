@@ -1,4 +1,4 @@
-import { ICommunity } from './i-community';
+import { ICommunity } from './_i-community';
 
 class OpenFishCache {
   private static CACHED_FEED: string[] = null;
