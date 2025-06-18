@@ -3,6 +3,7 @@ import { PhishingRules } from '../../model/phishing-rules';
 export interface FirefoxStorageObject {
   rules: PhishingRules[];
   whitelistedUrls: string[];
+  communityUrls: string[];
 }
 
 export class FirefoxStorage {
@@ -27,12 +28,37 @@ export class FirefoxStorage {
       (storageObject: FirefoxStorageObject) => {
         const updatedStorageObject: FirefoxStorageObject = {
           rules: rules_sets,
-          whitelistedUrls: storageObject.whitelistedUrls
+          whitelistedUrls: storageObject.whitelistedUrls,
+          communityUrls: storageObject.communityUrls
         };
         browser.storage.local.set(updatedStorageObject);
       },
       (e: any) => {
         throw Error(`Cannot update rules: ${e}`);
+      }
+    );
+  }
+
+  getCommunityUrls(): Promise<string[]> {
+    return browser.storage.local
+      .get()
+      .then(
+        (storageObject: FirefoxStorageObject) => storageObject.communityUrls
+      );
+  }
+
+  addCommunityUrls(urls: string[]) {
+    browser.storage.local.get().then(
+      (storageObject: FirefoxStorageObject) => {
+        const updatedStorageObject: FirefoxStorageObject = {
+          rules: storageObject.rules,
+          whitelistedUrls: storageObject.whitelistedUrls,
+          communityUrls: [...storageObject.communityUrls, ...urls]
+        };
+        browser.storage.local.set(updatedStorageObject);
+      },
+      (e: any) => {
+        throw Error(`Cannot update community urls: ${e}`);
       }
     );
   }
@@ -52,7 +78,8 @@ export class FirefoxStorage {
   private initializeStorageObject(initialRules: PhishingRules[]) {
     const storageObject: FirefoxStorageObject = {
       rules: initialRules,
-      whitelistedUrls: []
+      whitelistedUrls: [],
+      communityUrls: []
     };
     browser.storage.local.set(storageObject);
   }

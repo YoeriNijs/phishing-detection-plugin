@@ -3,8 +3,6 @@ import { PhishingRules } from '../model/phishing-rules';
 import { PhishingRuleType } from '../model/phishing-rule-type';
 import { PhishingRuleFactory } from './rules/phishing-rule-factory';
 import { PhishingRule } from '../model/phishing-rule';
-import { Openfish } from '../community/openfish';
-import { ICommunity } from '../community/i-community';
 
 interface EngineResult {
   isPhishing: boolean;
@@ -25,18 +23,12 @@ const PHISHING_RESULT: DetectionResult = {
 
 export class Engine {
   private _rules_sets: PhishingRules[] = [];
-  private _community_urls: string[] = [];
 
-  constructor(community_sources: ICommunity[], ...rules: PhishingRules[]) {
+  constructor(
+    private _community_urls: string[],
+    ...rules: PhishingRules[]
+  ) {
     this._rules_sets = rules;
-
-    // Community urls
-    community_sources.map(source =>
-      source
-        .fetch()
-        .then(res => (this._community_urls = [...this._community_urls, ...res]))
-        .then(() => console.log('community urls', this._community_urls))
-    );
   }
 
   detect(url: string): DetectionResult[] {

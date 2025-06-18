@@ -4,6 +4,7 @@ import { FirefoxStorage } from './storage';
 import { DetectionResult } from '../../model/detection-result';
 import BlockingResponse = browser.webRequest.BlockingResponse;
 import _OnBeforeRequestDetails = browser.webRequest._OnBeforeRequestDetails;
+import { Openfish } from '../../community/_openfish';
 
 export class FirefoxPlugin {
   constructor(private _storage: FirefoxStorage) {

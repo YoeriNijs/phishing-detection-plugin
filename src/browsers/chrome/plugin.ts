@@ -4,19 +4,17 @@ import { ChromeStorage } from './storage';
 import { DetectionResult } from '../../model/detection-result';
 import { PhishingRules } from '../../model/phishing-rules';
 import { calculateBatchScore } from './badge';
+import { CommunityLoader } from '../../community/community-loader';
 
 const URL_PATTERN = '*://*/*';
 
-interface UrlAndResult {
-  url: string;
-  result: DetectionResult;
-}
-
 export class ChromePlugin {
   private _rules: PhishingRules[] = [];
+  private _communityUrls: string[] = [];
 
   constructor(private _storage: ChromeStorage) {
     this.updateRules();
+    this.loadCommunityUrls();
 
     chrome.webRequest.onBeforeRequest.addListener(
       details => {
@@ -57,7 +55,7 @@ export class ChromePlugin {
   }
 
   private detectPhishing(url: string): DetectionResult[] {
-    const engine = new Engine([], ...this._rules);
+    const engine = new Engine(this._communityUrls, ...this._rules);
     return engine.detect(url);
   }
 
@@ -75,6 +73,11 @@ export class ChromePlugin {
 
   private updateRules(): void {
     this._storage.getRules(rules => (this._rules = rules));
+  }
+
+  private loadCommunityUrls() {
+    const loader = new CommunityLoader();
+    loader.getCommunityUrls().then(urls => (this._communityUrls = urls));
   }
 }
 

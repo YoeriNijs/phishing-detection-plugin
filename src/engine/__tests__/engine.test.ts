@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { Engine } from '../engine';
 import { createContainsRule } from '../../testing';
-import { ICommunity } from '../../community/i-community';
+import { ICommunity } from '../../community/_i-community';
 
 describe('Engine tests', () => {
   it('should init', () => {
@@ -107,19 +107,14 @@ describe('Engine tests', () => {
 
   describe('# Community urls', () => {
     it('should resolve the community urls', async () => {
-      const fetchData = () => Promise.resolve(['https://www.google.com']);
-      const mockFetchData = jest.fn(fetchData);
-      class CommunityImpl implements ICommunity {
-        fetch(): Promise<string[]> {
-          return mockFetchData();
-        }
-      }
-      const engine = new Engine([new CommunityImpl()], {
+      const community_urls = ['https://www.google.com'];
+      const engine = new Engine(community_urls, {
         include: [],
         threshold: 0
       });
-      expect(engine).toBeDefined();
-      expect(mockFetchData).toHaveBeenCalledTimes(1);
+      expect(engine.detect('https://www.anotherdomain.com')).toEqual([
+        { isPhishing: false, phishingProbability: 0, threshold: 0 }
+      ]);
     });
   });
 });
