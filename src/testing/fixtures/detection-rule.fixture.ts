@@ -44,3 +44,16 @@ export const createStartWithRule = (
     rule
   );
 };
+
+export const createRegexRule = (rule: Partial<PhishingRule>): PhishingRule => {
+  return Object.assign(
+    {
+      name: 'phishing_rule',
+      description: 'phishing_rule_description',
+      phishingRuleType: 'regex',
+      value: 'regex-value',
+      weight: 1
+    },
+    rule
+  );
+};
