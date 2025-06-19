@@ -11,7 +11,6 @@
 - [ ] Link repository, add favicon contributor
 - [ ] Add real world rules
 - [ ] Add engine tests based on real world phishing urls
-- [ ] Dropdown for selecting rules sets
 - [x] Clean up duplicate Chrome and Firefox code (programming against interface)
 - [x] Fix community urls implementation
 - [x] Clean up project structure
@@ -21,3 +20,4 @@
 
 - [ ] Mark site as phishing site
 - [ ] Implement Naive Bayes Classifier to manually classify phishing panels locally
+- [ ] Dropdown for selecting rules sets
