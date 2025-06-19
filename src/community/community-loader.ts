@@ -1,14 +1,23 @@
 import { Openfish } from './_openfish';
+import { PhishingDatabase } from './_phishing-database';
+import { ICommunity } from './_i-community';
 
 export class CommunityLoader {
+  private readonly _sources: ICommunity[] = [
+    new Openfish(),
+    new PhishingDatabase()
+  ];
   private _communityUrls: string[] = [];
 
   async getCommunityUrls(): Promise<string[]> {
-    const sources = [new Openfish()];
-    const communitySources$ = sources.map(source =>
+    const communitySources$ = this._sources.map(source =>
       source
         .fetch()
-        .then(res => (this._communityUrls = [...this._communityUrls, ...res]))
+        .then(res => {
+          if (res && Array.isArray(res) && res.length > 0) {
+            this._communityUrls = [...this._communityUrls, ...res];
+          }
+        })
         .catch(err => {
           throw Error(`Cannot fetch community data: ${err}`);
         })
