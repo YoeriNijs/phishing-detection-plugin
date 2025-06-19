@@ -2,6 +2,7 @@ import {
   createStorageForBrowserImpl,
   getBrowserImpl
 } from './util/browser-util';
+import { getTranslationForKey } from './i18n/i18n';
 
 function getRandomNumber(): number {
   return Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
@@ -11,16 +12,15 @@ const btnEl: HTMLButtonElement = document.querySelector('button');
 if (btnEl) {
   btnEl.addEventListener('click', () => {
     const code = getRandomNumber(); // We need a better solution to make it more unattractive to unblock the page
-    const answer = prompt(
-      `Type the following code to whitelist the current domain: ${code}`
-    );
+    const msg = getTranslationForKey('whitelist-domain');
+    const answer = prompt(`${msg}: ${code}`);
     if (`${answer}` === `${code}`) {
       const storage = createStorageForBrowserImpl();
       storage.getTempUrl((domain: string) => {
         storage.addWhitelistedUrl(domain);
 
         // Notify
-        alert(`Domain ${domain} is whitelisted!`);
+        alert(getTranslationForKey('domain-whitelisted'));
 
         // Close current window
         const browserImpl = getBrowserImpl();
@@ -29,7 +29,7 @@ if (btnEl) {
         });
       });
     } else {
-      alert('Invalid code. Try again.');
+      alert(getTranslationForKey('invalid-code-try-again'));
     }
   });
 }

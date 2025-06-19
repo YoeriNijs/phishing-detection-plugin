@@ -1,6 +1,7 @@
 import { ChromeStorage } from '../chrome/chrome-storage';
 import { DEFAULT_RULES } from '../../rules/default';
 import { PhishingRules } from '../../model/phishing-rules';
+import { getTranslationForKey } from './i18n/i18n';
 
 const storage: ChromeStorage = new ChromeStorage(DEFAULT_RULES);
 
@@ -31,13 +32,16 @@ async function updateRules() {
     try {
       const rules = JSON.parse(settingsTextArea.value);
       if (!isPhishingRules(rules)) {
-        alert('Invalid rules: missing include or exclude fields!');
+        const msg = getTranslationForKey('invalid-rules-missing-fields');
+        alert(msg);
         return;
       }
       storage.updateRules(rules);
-      alert('Rules saved!');
+      const msg = getTranslationForKey('rules-saved');
+      alert(msg);
     } catch (e: any) {
-      alert(`Invalid rules!`);
+      const msg = getTranslationForKey('invalid-rules');
+      alert(msg);
     }
   }
 }
