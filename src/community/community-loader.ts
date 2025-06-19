@@ -5,7 +5,7 @@ export class CommunityLoader {
 
   async getCommunityUrls(): Promise<string[]> {
     const sources = [new Openfish()];
-    const $community_sources = sources.map(source =>
+    const communitySources$ = sources.map(source =>
       source
         .fetch()
         .then(res => (this._communityUrls = [...this._communityUrls, ...res]))
@@ -13,8 +13,9 @@ export class CommunityLoader {
           throw Error(`Cannot fetch community data: ${err}`);
         })
     );
-    return await Promise.all($community_sources).then(
-      () => this._communityUrls
-    );
+    return await Promise.all(communitySources$).then(() => {
+      const uniqueCommunityUrls = new Set(this._communityUrls);
+      return [...uniqueCommunityUrls];
+    });
   }
 }
