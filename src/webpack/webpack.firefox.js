@@ -23,10 +23,10 @@ const common = {
 };
 
 const pluginConf = merge(common, {
-  entry: './src/browsers/chrome/chrome-plugin.ts',
+  entry: './src/browsers/firefox/firefox-plugin.ts',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, '..', '..', 'build', 'chrome'),
+    path: path.resolve(__dirname, '..', '..', 'build', 'firefox'),
     filename: 'plugin.js'
   },
   devtool: false,
@@ -37,10 +37,10 @@ const pluginConf = merge(common, {
 });
 
 const storageConf = merge(common, {
-  entry: './src/browsers/chrome/chrome-storage.ts',
+  entry: './src/browsers/firefox/firefox-storage.ts',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, '..', '..', 'build', 'chrome'),
+    path: path.resolve(__dirname, '..', '..', 'build', 'firefox'),
     filename: 'storage.js'
   },
   devtool: false,
@@ -54,7 +54,7 @@ const settingsConf = merge(common, {
   entry: './src/browsers/_shared/settings.ts',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, '..', '..', 'build', 'chrome'),
+    path: path.resolve(__dirname, '..', '..', 'build', 'firefox'),
     filename: 'settings.js'
   },
   devtool: false,
@@ -73,7 +73,7 @@ const reportConf = merge(common, {
   entry: './src/browsers/_shared/report.ts',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, '..', '..', 'build', 'chrome'),
+    path: path.resolve(__dirname, '..', '..', 'build', 'firefox'),
     filename: 'report.js'
   },
   devtool: false,
@@ -85,7 +85,7 @@ const reportConf = merge(common, {
     new CopyPlugin({
       patterns: [
         {
-          from: './src/browsers/chrome/chrome-report.html',
+          from: './src/browsers/firefox/firefox-report.html',
           to: './report.html'
         }
       ]
@@ -97,7 +97,7 @@ const unblockConf = merge(common, {
   entry: './src/browsers/_shared/unblock.ts',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, '..', '..', 'build', 'chrome'),
+    path: path.resolve(__dirname, '..', '..', 'build', 'firefox'),
     filename: 'unblock.js'
   },
   devtool: false,
@@ -113,7 +113,7 @@ const unblockConf = merge(common, {
         { from: 'src/browsers/_shared/icons/blocked.png', to: '.' },
         { from: 'src/browsers/_shared/blocked.html', to: '.' },
         {
-          from: './src/browsers/chrome/chrome-unblock.html',
+          from: './src/browsers/firefox/firefox-unblock.html',
           to: './unblock.html'
         }
       ]

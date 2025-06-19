@@ -1,7 +1,6 @@
-import { ChromeStorage } from './storage';
+import { ChromeStorage } from '../chrome/chrome-storage';
 import { DEFAULT_RULES } from '../../rules/default';
 import { PhishingRules } from '../../model/phishing-rules';
-import { Engine } from '../../engine/engine';
 
 const storage: ChromeStorage = new ChromeStorage(DEFAULT_RULES);
 
@@ -43,33 +42,9 @@ async function updateRules() {
   }
 }
 
-function initializeReport(): void {
-  // // @ts-ignore
-  // chrome.webNavigation.onCompleted.addListener(async details => {
-  //   const rules = await storage.getRules();
-  //   const engine = new Engine(...rules);
-  //   const results = engine.detect(details.url);
-  //   const resultWithHighestScore = results
-  //     .sort((a, b) => {
-  //       if (a.phishingProbability > b.phishingProbability) {
-  //         return -1;
-  //       } else {
-  //         return 1;
-  //       }
-  //     })
-  //     .map(v => v.phishingProbability)
-  //     .pop()
-  //     .toFixed(1);
-  //   console.log('Navigation completed:', resultWithHighestScore);
-  // });
-}
-
 function initialize(): void {
   // Show rules
   showRules();
-
-  // Initialize listener
-  initializeReport();
 
   const updateBtn = document.querySelector('button');
   if (updateBtn) {

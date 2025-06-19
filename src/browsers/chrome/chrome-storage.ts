@@ -1,14 +1,8 @@
 import { PhishingRules } from '../../model/phishing-rules';
+import { IStorage } from '../_shared/i-storage';
+import { PluginStorageObject } from '../../model/plugin-storage-object';
 
-export interface ChromeStorageObject {
-  settings: {
-    rules: PhishingRules[];
-    whitelistedUrls: string[];
-    tempUrl?: string;
-  };
-}
-
-export class ChromeStorage {
+export class ChromeStorage implements IStorage {
   constructor(initialRules?: PhishingRules[]) {
     if (initialRules) {
       this.initializeStorage(initialRules);
@@ -18,8 +12,8 @@ export class ChromeStorage {
   getRules(fn: (rules: PhishingRules[]) => void): void {
     chrome.storage.local.get(
       'settings',
-      (chromeStorageObject: ChromeStorageObject) => {
-        const rules = chromeStorageObject.settings.rules;
+      (storageObject: PluginStorageObject) => {
+        const rules = storageObject.settings.rules;
         fn(rules);
       }
     );
@@ -33,10 +27,10 @@ export class ChromeStorage {
     }
 
     chrome.storage.local.get('settings', storageObject => {
-      const updatedStorageObject: ChromeStorageObject = {
+      const updatedStorageObject: PluginStorageObject = {
         settings: {
           rules: rules_sets,
-          whitelistedUrls: (storageObject as ChromeStorageObject).settings
+          whitelistedUrls: (storageObject as PluginStorageObject).settings
             .whitelistedUrls
         }
       };
@@ -47,7 +41,7 @@ export class ChromeStorage {
   getWhitelistedUrls(fn: (urls: string[]) => void): void {
     chrome.storage.local.get(
       'settings',
-      (chromeStorageObject: ChromeStorageObject) => {
+      (chromeStorageObject: PluginStorageObject) => {
         const urls = chromeStorageObject.settings.whitelistedUrls;
         fn(urls);
       }
@@ -58,13 +52,13 @@ export class ChromeStorage {
     const baseUrl = this.getBaseUrl(url);
     chrome.storage.local.get('settings', storageObject => {
       const whiteListedUrls = [
-        ...(storageObject as ChromeStorageObject).settings.whitelistedUrls,
+        ...(storageObject as PluginStorageObject).settings.whitelistedUrls,
         baseUrl
       ];
       const uniqueWhitelistedUrls = new Set(whiteListedUrls);
-      const updatedStorageObject: ChromeStorageObject = {
+      const updatedStorageObject: PluginStorageObject = {
         settings: {
-          rules: (storageObject as ChromeStorageObject).settings.rules,
+          rules: (storageObject as PluginStorageObject).settings.rules,
           whitelistedUrls: [...uniqueWhitelistedUrls]
         }
       };
@@ -75,10 +69,10 @@ export class ChromeStorage {
   updateTempUrl(tempUrl: string): void {
     const baseUrl = this.getBaseUrl(tempUrl);
     chrome.storage.local.get('settings', storageObject => {
-      const updatedStorageObject: ChromeStorageObject = {
+      const updatedStorageObject: PluginStorageObject = {
         settings: {
-          rules: (storageObject as ChromeStorageObject).settings.rules,
-          whitelistedUrls: (storageObject as ChromeStorageObject).settings
+          rules: (storageObject as PluginStorageObject).settings.rules,
+          whitelistedUrls: (storageObject as PluginStorageObject).settings
             .whitelistedUrls,
           tempUrl: baseUrl
         }
@@ -90,7 +84,7 @@ export class ChromeStorage {
   getTempUrl(fn: (url: string) => void): void {
     chrome.storage.local.get(
       'settings',
-      (chromeStorageObject: ChromeStorageObject) => {
+      (chromeStorageObject: PluginStorageObject) => {
         const url = chromeStorageObject.settings.tempUrl || undefined;
         if (url) {
           fn(url);
@@ -114,7 +108,7 @@ export class ChromeStorage {
   }
 
   private initializeStorageObject(initialRules: PhishingRules[]) {
-    const storageObject: ChromeStorageObject = {
+    const storageObject: PluginStorageObject = {
       settings: {
         rules: initialRules,
         whitelistedUrls: []
@@ -123,7 +117,7 @@ export class ChromeStorage {
     chrome.storage.local.set(storageObject);
   }
 
-  private isStorageObject(object: any): object is ChromeStorageObject {
+  private isStorageObject(object: any): object is PluginStorageObject {
     return object.rules && object.threshold && object.whitelistedUrls;
   }
 }

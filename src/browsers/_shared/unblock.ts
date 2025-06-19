@@ -1,4 +1,7 @@
-import { ChromeStorage } from './storage';
+import {
+  createStorageForBrowserImpl,
+  getBrowserImpl
+} from './util/browser-util';
 
 function getRandomNumber(): number {
   return Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
@@ -12,7 +15,7 @@ if (btnEl) {
       `Type the following code to whitelist the current domain: ${code}`
     );
     if (`${answer}` === `${code}`) {
-      const storage = new ChromeStorage();
+      const storage = createStorageForBrowserImpl();
       storage.getTempUrl((domain: string) => {
         storage.addWhitelistedUrl(domain);
 
@@ -20,8 +23,9 @@ if (btnEl) {
         alert(`Domain ${domain} is whitelisted!`);
 
         // Close current window
-        chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-          chrome.tabs.remove(tabs[0].id);
+        const browserImpl = getBrowserImpl();
+        browserImpl.tabs.query({ active: true, currentWindow: true }, tabs => {
+          browserImpl.tabs.remove(tabs[0].id);
         });
       });
     } else {
