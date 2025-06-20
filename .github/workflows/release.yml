@@ -39,10 +39,11 @@ jobs:
             | sed 's/[",]//g' \
             | tr -d '[[:space:]]')f
           echo "NEW_VERSION=$NEW_FRAMEWORK_VERSION" >> $GITHUB_ENV
+          git add package.json
 
       - name: update manifest.json
         run: |
-          jq --arg version "$NEW_VERSION" '.version = $version' src/browsers/_shared/manifest.json > src/browsers/_shared/tmp.json && mv tmp.json src/browsers/_shared/manifest.json
+          jq --arg version "$NEW_VERSION" '.version = $version' src/browsers/_shared/manifest.json > src/browsers/_shared/tmp.json && mv src/browsers/_shared/tmp.json src/browsers/_shared/manifest.json
           git add src/browsers/_shared/manifest.json
 
       - name: commit
