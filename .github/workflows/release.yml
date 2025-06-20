@@ -51,7 +51,7 @@ jobs:
       - name: commit
         run: |
           export CI_MODE=true
-          git add --force ./build
+          git add --force build/
           git commit -m "build(extension): release '$NEW_VERSION'" --no-verify
           git push origin main --no-verify
           git tag -a "$NEW_VERSION" -m "Release $NEW_VERSION"
