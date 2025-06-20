@@ -40,18 +40,18 @@ jobs:
             | sed 's/[",]//g' \
             | tr -d '[[:space:]]')f
           echo "NEW_VERSION=$NEW_FRAMEWORK_VERSION" >> $GITHUB_ENV
-          git add package.json
+          git add --force package.json
 
       - name: update manifest.json
         run: |
           export CI_MODE=true
           jq --arg version "$NEW_VERSION" '.version = $version' src/browsers/_shared/manifest.json > src/browsers/_shared/tmp.json && mv src/browsers/_shared/tmp.json src/browsers/_shared/manifest.json
-          git add src/browsers/_shared/manifest.json
+          git add --force src/browsers/_shared/manifest.json
 
       - name: commit
         run: |
           export CI_MODE=true
-          git add .
+          git add --force .
           git commit -m "build(extension): release '$NEW_VERSION'" --no-verify
           git push origin main --no-verify
           git tag -a "$NEW_VERSION" -m "Release $NEW_VERSION"
