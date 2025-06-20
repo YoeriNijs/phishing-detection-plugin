@@ -1,13 +1,27 @@
 {
   "manifest_version": 2,
   "name": "Phishing Detection Plugin",
-  "version": "0.1",
+  "version": "0.0.1f",
   "description": "Blocks possible phishing requests",
-  "permissions": ["storage", "webRequest", "webRequestBlocking", "<all_urls>"],
-  "web_accessible_resources": ["blocked.html", "blocked.png", "shield.png"],
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    "blocked.html",
+    "blocked.png",
+    "shield.png"
+  ],
   "content_security_policy": "script-src 'self';",
   "background": {
-    "scripts": ["plugin.js", "settings.js", "report.js", "unblock.js"]
+    "scripts": [
+      "plugin.js",
+      "settings.js",
+      "report.js",
+      "unblock.js"
+    ]
   },
   "icons": {
     "48": "shield.png"
