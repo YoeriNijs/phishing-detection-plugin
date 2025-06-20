@@ -4,6 +4,7 @@ export const LANG_EN: ILanguageItem[] = [
   { key: 'yes', value: 'yes' },
   { key: 'unlikely', value: 'unlikely' },
   { key: 'url', value: 'URL' },
+  { key: 'save', value: 'Save' },
   { key: 'is-phishing', value: 'Is phishing' },
   { key: 'probability', value: 'Probability' },
   { key: 'threshold', value: 'Threshold' },
@@ -25,5 +26,13 @@ export const LANG_EN: ILanguageItem[] = [
     key: 'invalid-code-try-again',
     value: 'Invalid code. Try again.'
   },
-  { key: 'title-report', value: 'Detection Report' }
+  { key: 'title-report', value: 'Detection Report' },
+  { key: 'possible-phishing-attempt', value: 'Possible phishing attempt' },
+  {
+    key: 'possible-phishing-attempt-details',
+    value:
+      'The request you made is a possible phishing attempt. Please check the URL and try again.'
+  },
+  { key: 'phishing-settings-title', value: 'Phishing Detection Settings' },
+  { key: 'whitelist-button', value: 'Whitelist current page' }
 ];

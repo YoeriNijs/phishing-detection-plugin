@@ -3,11 +3,11 @@ import {
   createStorageForBrowserImpl,
   getBrowserImpl
 } from './util/browser-util';
-import { getTranslationForKey } from './i18n/i18n';
+import { I18n } from './i18n/i18n';
 
 const h1Element: HTMLElement = document.querySelector('h1');
 if (h1Element) {
-  h1Element.innerText = getTranslationForKey('title-report');
+  h1Element.innerText = I18n.translate('title-report');
 }
 
 const htmlParagraphElement: HTMLParagraphElement = document.querySelector('p');
@@ -21,17 +21,17 @@ if (htmlParagraphElement) {
       storage.getRules(rules => {
         const resultWithHighestScore = calculateBatchScore(rules, currentUrl);
         const data = [
-          { key: getTranslationForKey('url'), value: currentUrl },
+          { key: I18n.translate('url'), value: currentUrl },
           {
-            key: getTranslationForKey('is-phishing'),
+            key: I18n.translate('is-phishing'),
             value: resultWithHighestScore.isPhishing
           },
           {
-            key: getTranslationForKey('probability'),
+            key: I18n.translate('probability'),
             value: resultWithHighestScore.phishingProbability
           },
           {
-            key: getTranslationForKey('threshold'),
+            key: I18n.translate('threshold'),
             value: resultWithHighestScore.threshold
           }
         ];

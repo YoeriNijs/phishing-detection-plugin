@@ -69,6 +69,20 @@ const settingsConf = merge(common, {
   ]
 });
 
+const i18nConf = merge(common, {
+  entry: './src/browsers/_shared/i18n/i18n.ts',
+  mode: 'production',
+  output: {
+    path: path.resolve(__dirname, '..', '..', 'build', 'chrome'),
+    filename: 'i18n.js'
+  },
+  devtool: false,
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()]
+  }
+});
+
 const reportConf = merge(common, {
   entry: './src/browsers/_shared/report.ts',
   mode: 'production',
@@ -121,4 +135,11 @@ const unblockConf = merge(common, {
   ]
 });
 
-export default [pluginConf, storageConf, settingsConf, reportConf, unblockConf];
+export default [
+  pluginConf,
+  i18nConf,
+  storageConf,
+  settingsConf,
+  reportConf,
+  unblockConf
+];
