@@ -32,6 +32,7 @@ jobs:
       - name: get new version
         id: get_version
         run: |
+          export CI_MODE=true
           NEW_FRAMEWORK_VERSION=$(cat package.json \
             | grep version \
             | head -1 \

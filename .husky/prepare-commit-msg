@@ -1,2 +1,9 @@
-npm run lint
-exec < /dev/tty && npx cz --hook || true
+#!/bin/bash
+. "$(dirname "$0")/_/husky.sh"
+
+if [ -z "${CI_MODE}" ]; then
+    npm run lint
+    exec < /dev/tty && npx cz --hook || true
+else
+    echo "In ci mode, so skip Husky prepare commit hook"
+fi
