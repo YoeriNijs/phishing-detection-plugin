@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>⚠️</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        color: #fff;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+      }
+
+      img {
+        max-width: 80%;
+        height: auto;
+      }
+
+      .container {
+        padding: 20px;
+        border-radius: 15px;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <i18n>possible-phishing-attempt</i18n>
+      </h1>
+      <p>
+        <i18n>possible-phishing-attempt-details</i18n>
+      </p>
+      <img alt="Blocked" src="blocked.png" />
+    </div>
+    <script defer src="i18n.js"></script>
+  </body>
+</html>
