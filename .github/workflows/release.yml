@@ -44,11 +44,13 @@ jobs:
 
       - name: update manifest.json
         run: |
+          export CI_MODE=true
           jq --arg version "$NEW_VERSION" '.version = $version' src/browsers/_shared/manifest.json > src/browsers/_shared/tmp.json && mv src/browsers/_shared/tmp.json src/browsers/_shared/manifest.json
           git add src/browsers/_shared/manifest.json
 
       - name: commit
         run: |
+          export CI_MODE=true
           git add .
           git commit -m "build(extension): release '$NEW_VERSION'" --no-verify
           git push origin main --no-verify
