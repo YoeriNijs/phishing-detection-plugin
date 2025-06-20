@@ -14,7 +14,8 @@
 - [x] Clean up duplicate Chrome and Firefox code (programming against interface)
 - [x] Fix community urls implementation
 - [x] Clean up project structure
-- [ ] Finalize i18n
+- [x] Finalize i18n
+- [ ] Implement release pipeline
 
 ## Future backlog
 

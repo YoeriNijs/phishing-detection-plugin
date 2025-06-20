@@ -8,7 +8,8 @@ export const BREWERIES_RULES: PhishingRules = {
       description: 'Brewery gamification rule',
       weight: 1,
       phishingRuleType: 'regex',
-      value: '^https?:\\/\\/([a-zA-Z0-9-]+\\.)?(www\\.)?wplnkr\\.cc(\\/.*)?$'
+      value:
+        '^https?:\\/\\/([a-zA-Z0-9-]+\\.)?(www\\.)?wplnkr\\.(help|info|cc|xyz|tk|icu)(\\/.*)?$'
     }
   ]
 };

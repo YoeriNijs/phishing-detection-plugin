@@ -16,6 +16,12 @@ describe('Phishing rule host tests', () => {
     ).toBe(true);
   });
 
+  it('should return true if the url contains no http and no www', () => {
+    const rule = new PhishingRuleHost();
+    const regexRule = createHostRule({ value: 'google.com' });
+    expect(rule.isApplicable(regexRule, 'google.com/search?q=test')).toBe(true);
+  });
+
   it('should return true if the host is the same', () => {
     const rule = new PhishingRuleHost();
     const regexRule = createHostRule({ value: 'google.com' });

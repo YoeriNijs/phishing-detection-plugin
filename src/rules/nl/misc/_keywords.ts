@@ -6,6 +6,14 @@ export const NL_KEYWORDS_RULES: PhishingRules = {
     {
       name: 'nl_keyword',
       description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'regex',
+      value:
+        '\\bhttps?://[^\\s/$.?#].[^\\s]*\\.(help|info|cc|xyz|tk|icu)([^\\s]*)?\\b',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
       phishingRuleType: 'contains',
       value: 'opwaardeer',
       weight: 0.5
@@ -14,7 +22,28 @@ export const NL_KEYWORDS_RULES: PhishingRules = {
       name: 'nl_keyword',
       description: 'A phishing rule to detect common scam keywords',
       phishingRuleType: 'contains',
+      value: 'veilig',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'waarschuwing',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
       value: 'opwaarderen',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'deurwaarder',
       weight: 0.5
     },
     {
@@ -428,6 +457,69 @@ export const NL_KEYWORDS_RULES: PhishingRules = {
       description: 'A phishing rule to detect common scam keywords',
       phishingRuleType: 'contains',
       value: 'kenmerk',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'belasting',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'herstel',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'odido',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'kpn',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'ziggo',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'vodafone',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'simkaart',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'sim-kaart',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'contains',
+      value: 'sim-',
       weight: 0.5
     }
   ],

@@ -101,11 +101,10 @@ export class Engine {
       return NO_PHISHING_RESULT;
     }
 
-    const totalNumbers = filteredNumbers.reduce(
+    const probability = filteredNumbers.reduce(
       (acc, number) => acc + number,
       0
     );
-    const probability = totalNumbers / filteredNumbers.length;
     return {
       isPhishing: probability >= threshold,
       phishingProbability: probability

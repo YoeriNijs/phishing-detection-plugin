@@ -5,11 +5,6 @@ import {
 } from './util/browser-util';
 import { I18n } from './i18n/i18n';
 
-const h1Element: HTMLElement = document.querySelector('h1');
-if (h1Element) {
-  h1Element.innerText = I18n.translate('title-report');
-}
-
 const htmlParagraphElement: HTMLParagraphElement = document.querySelector('p');
 if (htmlParagraphElement) {
   const browserImpl = getBrowserImpl();

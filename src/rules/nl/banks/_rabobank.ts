@@ -86,6 +86,14 @@ export const RABOBANK_RULES: PhishingRules = {
       phishingRuleType: 'contains',
       value: '.xyz',
       weight: 0.5
+    },
+    {
+      name: 'rabo_phishing_include_rule_13',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'regex',
+      value:
+        '\\bhttps?://[^\\s/$.?#].[^\\s]*\\.(help|info|cc|xyz|tk|icu)([^\\s]*)?\\b',
+      weight: 0.5
     }
   ],
   exclude: [
