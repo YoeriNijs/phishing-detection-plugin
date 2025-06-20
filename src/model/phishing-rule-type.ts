@@ -1,1 +1,6 @@
-export type PhishingRuleType = 'contains' | 'startswith' | 'endswith' | 'regex';
+export type PhishingRuleType =
+  | 'contains'
+  | 'startswith'
+  | 'endswith'
+  | 'regex'
+  | 'host';

@@ -57,3 +57,16 @@ export const createRegexRule = (rule: Partial<PhishingRule>): PhishingRule => {
     rule
   );
 };
+
+export const createHostRule = (rule: Partial<PhishingRule>): PhishingRule => {
+  return Object.assign(
+    {
+      name: 'phishing_rule',
+      description: 'phishing_rule_description',
+      phishingRuleType: 'host',
+      value: 'host-value',
+      weight: 1
+    },
+    rule
+  );
+};
