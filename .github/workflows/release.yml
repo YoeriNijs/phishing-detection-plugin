@@ -38,7 +38,7 @@ jobs:
             | head -1 \
             | awk -F: '{ print $2 }' \
             | sed 's/[",]//g' \
-            | tr -d '[[:space:]]')f
+            | tr -d '[[:space:]]')
           echo "NEW_VERSION=$NEW_FRAMEWORK_VERSION" >> $GITHUB_ENV
           git add --force package.json
 
@@ -51,7 +51,7 @@ jobs:
       - name: commit
         run: |
           export CI_MODE=true
-          git add --force .
+          git add --force ./build
           git commit -m "build(extension): release '$NEW_VERSION'" --no-verify
           git push origin main --no-verify
           git tag -a "$NEW_VERSION" -m "Release $NEW_VERSION"
