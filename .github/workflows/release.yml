@@ -1,0 +1,54 @@
+name: Publish Package
+on:
+  push:
+    branches:
+      - main
+jobs:
+  sanity-check:
+    uses: yoerinijs/phishing-detection-plugin/.github/workflows/sanity_checks.yml@main
+
+  Release:
+    runs-on: ubuntu-latest
+    needs: sanity-check
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: setup
+        run: |
+          npm install
+          npm run build
+
+      - name: setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: get new version
+        id: get_version
+        run: |
+          NEW_FRAMEWORK_VERSION=$(cat package.json \
+            | grep version \
+            | head -1 \
+            | awk -F: '{ print $2 }' \
+            | sed 's/[",]//g' \
+            | tr -d '[[:space:]]')f
+          echo "NEW_VERSION=$NEW_FRAMEWORK_VERSION" >> $GITHUB_ENV
+
+      - name: update manifest.json
+        run: |
+          jq --arg version "$NEW_VERSION" '.version = $version' src/browsers/_shared/manifest.json > src/browsers/_shared/tmp.json && mv tmp.json src/browsers/_shared/manifest.json
+          git add src/browsers/_shared/manifest.json
+
+      - name: commit
+        run: |
+          git add .
+          git commit -m "build(extension): release '$NEW_VERSION'" --no-verify
+          git push origin main --no-verify
+          git tag -a "$NEW_VERSION" -m "Release $NEW_VERSION"
+          git push --tags --no-verify
