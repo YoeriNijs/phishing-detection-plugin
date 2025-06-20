@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   sanity-check:
-    uses: yoerinijs/phishing-detection-plugin/.github/workflows/sanity_checks.yml@main
+    uses: yoerinijs/phishing-detection-plugin/.github/workflows/sanity_check.yml@main
 
   Release:
     runs-on: ubuntu-latest
