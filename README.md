@@ -9,13 +9,13 @@
 - [x] Logic for whitelisting domains
 - [x] Remove http(s) from domain that needs to be checked
 - [ ] Link repository, add favicon contributor
-- [ ] Add real world rules
-- [ ] Add engine tests based on real world phishing urls
+- [x] Add real world rules
+- [x] Add engine tests based on real world phishing urls
 - [x] Clean up duplicate Chrome and Firefox code (programming against interface)
 - [x] Fix community urls implementation
 - [x] Clean up project structure
 - [x] Finalize i18n
-- [ ] Implement release pipeline
+- [x] Implement release pipeline
 
 ## Future backlog
 
