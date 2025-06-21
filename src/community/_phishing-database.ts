@@ -1,6 +1,6 @@
 import { ICommunity } from './_i-community';
 
-class PhishingDatabaseCache {
+export class PhishingDatabaseCache {
   private static CACHED_FEED: string[] = null;
 
   private constructor() {
@@ -20,18 +20,24 @@ export class PhishingDatabase implements ICommunity {
   private readonly _feed_url =
     'https://raw.githubusercontent.com/Phishing-Database/Phishing.Database/refs/heads/master/phishing-links-NEW-today.txt';
 
-  fetch(): Promise<string[]> {
+  async fetch(): Promise<string[]> {
     const cachedValue = PhishingDatabaseCache.getCache();
     if (cachedValue === null) {
-      return fetch(this._feed_url)
-        .then(res => res.text())
-        .then(text => text.split('\n'))
-        .then(value => {
-          PhishingDatabaseCache.updateCache(value);
-          return value;
-        });
+      try {
+        const response = await fetch(this._feed_url);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const text = await response.text();
+        const value = text.split('\n').filter(link => link.trim() !== ''); // Filter out empty lines
+        PhishingDatabaseCache.updateCache(value);
+        return value;
+      } catch (error) {
+        console.error('Fetch error:', error);
+        throw error; // Rethrow the error for handling in the calling code
+      }
     } else {
-      return Promise.resolve(PhishingDatabaseCache.getCache());
+      return Promise.resolve(cachedValue);
     }
   }
 }

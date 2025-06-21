@@ -8,6 +8,18 @@ export class I18n {
   }
 
   static translate(key: string) {
+    const languageSet = this.determineLanguageSet();
+    const translation = languageSet.find(
+      k => k.key.toLowerCase() === key.toLowerCase()
+    );
+    if (translation) {
+      return translation.value;
+    } else {
+      return key; // Just return the key
+    }
+  }
+
+  private static determineLanguageSet() {
     const userLocale = navigator.language.toLowerCase();
     let set: ILanguageItem[] = [];
     switch (true) {
@@ -21,13 +33,7 @@ export class I18n {
         set = LANG_EN;
         break;
     }
-
-    const res = set.find(k => k.key.toLowerCase() === key.toLowerCase());
-    if (res) {
-      return res.value;
-    } else {
-      return key; // Just return the key
-    }
+    return set;
   }
 }
 

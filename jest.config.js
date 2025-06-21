@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
   transform: {
     '^.+\\.ts$': 'ts-jest'
