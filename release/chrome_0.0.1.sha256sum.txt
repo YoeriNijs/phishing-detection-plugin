@@ -1,1 +1,1 @@
-5e709f27893ea84d74e6f723fbc5c803ad2555b1cd14c72a9b9f4dedc4834853  ./release/chrome.zip
+25a7d347079fadf1e2a0bf36b7d18c696bc2d85557793ad6667bbfa73554c761  ./release/chrome.zip
