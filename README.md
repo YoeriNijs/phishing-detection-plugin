@@ -1,6 +1,6 @@
 # Phishing Detection Plugin for Chrome and Firefox
 
-*A modular phishing detection plugin for Chrome and Firefox*
+_A modular phishing detection plugin for Chrome and Firefox_
 
 ![Plugin logo](https://raw.githubusercontent.com/YoeriNijs/phishing-detection-plugin/main/src/browsers/_shared/icons/shield.png)
 
@@ -21,6 +21,16 @@
 - [x] Finalize i18n
 - [x] Implement release pipeline
 - [ ] Update this readme
+- [ ] U moet de broncode van uw extensie indienen:
+
+```
+Uw broncode moet het volgende bevatten:
+
+    Stap-voor-stap-buildinstructies om een exacte kopie van de add-on-code te maken, in een README-bestand in uw broncode of in de beoordelaarsopmerkingen op de volgende pagina.
+    Een buildscript dat alle benodigde technische stappen uitvoert.
+    Eisen voor het besturingssysteem en de buildomgeving.
+    De vereiste versie en installatie-instructies van alle programma’s die in het buildproces worden gebruikt (zoals node en npm).
+```
 
 ## Future backlog
 
