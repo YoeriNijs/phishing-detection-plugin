@@ -127,7 +127,7 @@ const unblockConf = merge(common, {
         { from: 'src/browsers/_shared/icons/blocked.png', to: '.' },
         { from: 'src/browsers/_shared/blocked.html', to: '.' },
         {
-          from: './src/browsers/chrome/chrome-unblock.html',
+          from: './src/browsers/_shared/unblock.html',
           to: './unblock.html'
         }
       ]
