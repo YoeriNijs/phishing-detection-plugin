@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      body {
+        background-color: #212327;
+        color: #fff;
+        margin: 0;
+        /*height: 500px;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        overflow: auto;
+        width: 500px;
+      }
+
+      h1 {
+        margin-bottom: 3px;
+      }
+
+      p {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+      }
+
+      p.code,
+      p.user-code,
+      p.details {
+        padding: 0;
+        height: 15px;
+        width: 100%;
+        text-align: center;
+      }
+
+      p.user-code {
+        font-size: x-large;
+        height: 0;
+      }
+
+      button {
+        background-color: #fff;
+        color: #000;
+        padding: 5px;
+        border: 1px solid #000;
+      }
+
+      .calculator {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 6px;
+      }
+
+      .calculator .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .row button {
+        margin: 4px 2px;
+        width: 40px;
+      }
+
+      button {
+        cursor: pointer;
+        transition: opacity 0.5s ease;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      button:disabled {
+        opacity: 0.4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <i18n>possible-phishing-attempt</i18n>
+    </h1>
+    <p class="details">
+      <i18n>possible-phishing-attempt-details</i18n>
+    </p>
+    <p class="code"></p>
+    <p class="user-code"></p>
+    <div class="calculator">
+      <div class="row">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+      </div>
+      <div class="row">
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+      </div>
+      <div class="row">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+      </div>
+      <div class="row">
+        <button>0</button>
+        <button><<</button>
+      </div>
+    </div>
+    <button class="submit" disabled>
+      <i18n>whitelist-button</i18n>
+    </button>
+    <script defer src="unblock.js"></script>
+    <script defer src="i18n.js"></script>
+  </body>
+</html>
