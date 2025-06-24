@@ -1,1 +1,1 @@
-bcfcc8eba400c3172a9ffbe23fbcf7b650f3e4f43947548cfb82b6c27f3ef6ff  ../../release/firefox.zip
+5d3bce730aec90066f16786ba1f211fb93785ba77919848da182e74e8770d14f  ../../release/firefox.zip
