@@ -13,6 +13,27 @@ export const WETRANSFER_RULES: PhishingRules = {
     {
       name: 'wetransfer_rule',
       description: 'Detect WeTransfer scams',
+      weight: 1,
+      phishingRuleType: 'contains',
+      value: 'download-wetransfer'
+    },
+    {
+      name: 'wetransfer_rule',
+      description: 'Detect WeTransfer scams',
+      weight: 1,
+      phishingRuleType: 'contains',
+      value: '/wetr/'
+    },
+    {
+      name: 'wetransfer_rule',
+      description: 'Detect WeTransfer scams',
+      weight: 1,
+      phishingRuleType: 'contains',
+      value: 'wetr11'
+    },
+    {
+      name: 'wetransfer_rule',
+      description: 'Detect WeTransfer scams',
       weight: 0.5,
       phishingRuleType: 'host',
       value: 'onrender.com'
