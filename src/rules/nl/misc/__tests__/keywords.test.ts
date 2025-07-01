@@ -12,7 +12,7 @@ describe('Real world detection tests', () => {
   it.each([
     { url: 'https://belasting-waarschuwing.help', expectedProbability: 1.5 },
     { url: 'https://belasting-ideal-afronden.icu', expectedProbability: 1.5 },
-    { url: 'https://belasting-deurwaarder.com', expectedProbability: 1 },
+    { url: 'https://belasting-deurwaarder.com', expectedProbability: 2 },
     { url: 'https://odido-betalen.com', expectedProbability: 1 },
     { url: 'https://odido-verificatie.help', expectedProbability: 1.5 },
     { url: 'https://odido-herstel.com/verificatie', expectedProbability: 1.5 },

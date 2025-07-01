@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (element.childNodes.length > 0) {
       element.childNodes.forEach(node => {
         const key = node.textContent;
-        console.log('key');
         node.textContent = I18n.translate(key);
       });
     }
