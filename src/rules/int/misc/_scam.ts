@@ -7,8 +7,8 @@ export const SCAM_RULES: PhishingRules = {
       name: 'scam_rule',
       description: 'Detect scams',
       weight: 1,
-      phishingRuleType: 'contains',
-      value: 'scampage'
+      phishingRuleType: 'regex',
+      value: '[s5$][cÃ§][a4@][mÐ¼]'
     }
   ]
 };

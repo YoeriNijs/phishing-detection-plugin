@@ -5,6 +5,45 @@ export const NL_KEYWORDS_RULES: PhishingRules = {
   include: [
     {
       name: 'nl_keyword',
+      description: 'A phishing rule to detect aanmaning with dots in between',
+      phishingRuleType: 'regex',
+      value: '(?=.*\\.)a\\.?a\\.?n\\.?m\\.?a\\.?n\\.?i\\.?n\\.?g',
+      weight: 1
+    },
+    {
+      name: 'nl_keyword',
+      description:
+        'A phishing rule to detect voorkombeslag with dots in between',
+      phishingRuleType: 'regex',
+      value:
+        '(?=.*\\.)v\\.?o\\.?o\\.?r\\.?k\\.?o\\.?m\\.?b\\.?e\\.?s\\.?l\\.?a\\.?g',
+      weight: 1
+    },
+    {
+      name: 'nl_keyword',
+      description:
+        'A phishing rule to detect belastingdienst with dots in between',
+      phishingRuleType: 'regex',
+      value:
+        '(?=.*\\.)b\\.?e\\.?l\\.?a\\.?s\\.?t\\.?i\\.?n\\.?g\\.?d\\.?i\\.?en\\.?s\\.?t',
+      weight: 1
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect deurwaarder with dots in between',
+      phishingRuleType: 'regex',
+      value: '(?=.*\\.)d\\.?e\\.?u\\.?r\\.?w\\.?a\\.?a\\.?r\\.?d\\.?e\\.?r',
+      weight: 1
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect aangifte with dots in between',
+      phishingRuleType: 'regex',
+      value: '(?=.*\\.)a\\.?a\\.?n\\.?g\\.?i\\.?f\\.?t\\.?e',
+      weight: 1
+    },
+    {
+      name: 'nl_keyword',
       description: 'A phishing rule to detect common scam keywords',
       phishingRuleType: 'regex',
       value:
