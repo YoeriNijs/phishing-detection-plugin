@@ -32,6 +32,7 @@ jobs:
       - name: increment version
         id: increment_version
         run: |
+          export CI_MODE=true
           CURRENT_VERSION=$(jq -r .version package.json)
           NEW_VERSION=$(echo $CURRENT_VERSION | awk -F. -v OFS=. '{$NF += 1; print}')
           jq --arg version "$NEW_VERSION" '.version = $version' package.json > tmp.json && mv tmp.json package.json
