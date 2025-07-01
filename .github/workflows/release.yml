@@ -29,18 +29,15 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
 
-      - name: get new version
-        id: get_version
+      - name: increment version
+        id: increment_version
         run: |
-          export CI_MODE=true
-          NEW_FRAMEWORK_VERSION=$(cat package.json \
-            | grep version \
-            | head -1 \
-            | awk -F: '{ print $2 }' \
-            | sed 's/[",]//g' \
-            | tr -d '[[:space:]]')
-          echo "NEW_VERSION=$NEW_FRAMEWORK_VERSION" >> $GITHUB_ENV
+          CURRENT_VERSION=$(jq -r .version package.json)
+          NEW_VERSION=$(echo $CURRENT_VERSION | awk -F. -v OFS=. '{$NF += 1; print}')
+          jq --arg version "$NEW_VERSION" '.version = $version' package.json > tmp.json && mv tmp.json package.json
           git add --force package.json
+          git commit -m "chore(package.json): bump version to $NEW_VERSION" --no-verify
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
 
       - name: update manifest.json
         run: |
@@ -52,7 +49,7 @@ jobs:
         run: |
           sh ./.github/create_release.sh
 
-      - name: commit
+      - name: commit release
         run: |
           export CI_MODE=true
           git add --force release/
