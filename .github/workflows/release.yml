@@ -46,9 +46,18 @@ jobs:
           jq --arg version "$NEW_VERSION" '.version = $version' src/browsers/_shared/manifest.json > src/browsers/_shared/tmp.json && mv src/browsers/_shared/tmp.json src/browsers/_shared/manifest.json
           git add --force src/browsers/_shared/manifest.json
 
+      - name: install crx-cli
+        run: npm install -g crx
+
+      - name: create PEM file
+        run: echo "${{ secrets.CRX_PEM }}" > ./plugin.pem
+
       - name: create release
         run: |
           sh ./.github/create_release.sh
+
+      - name: remove PEM file
+        run: rm -rf ./plugin.pem
 
       - name: commit release
         run: |
