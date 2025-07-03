@@ -1,1 +1,0 @@
-a2162a24236f6e2e946329d9e6af6e7a780e36bee4f9018f5e29ae930b0d753f  ../../release/firefox_source_0.0.8.zip

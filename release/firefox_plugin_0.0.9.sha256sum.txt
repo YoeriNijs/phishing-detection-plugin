@@ -1,0 +1,1 @@
+696d09f0fed5ad61c0847e47c85cca097402b00521b77d57a17351dce93073bd  ../../release/firefox_plugin_0.0.9.crx
