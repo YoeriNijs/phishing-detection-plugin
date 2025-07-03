@@ -77,7 +77,7 @@ export const NL_KEYWORDS_RULES: PhishingRules = {
       name: 'nl_keyword',
       description: 'A phishing rule to detect veilig keywords',
       phishingRuleType: 'regex',
-      value: '[vʋ𝓋𝒱][e𝑒𝓮][i𝑖𝒾𝓲][l1|𝓵𝒍][i𝑖𝒾𝓲][g9𝑔𝓰]\n',
+      value: '[vʋ𝓋𝒱][e𝑒𝓮][i𝑖𝒾𝓲][l1|𝓵𝒍][i𝑖𝒾𝓲][g9𝑔𝓰]',
       weight: 0.5
     },
     {
