@@ -1,0 +1,1 @@
+045257db5fd1f3439980f931f1a2d5a63ed48ed54f7f86bcfd8a75c4821f7be8  ../../release/firefox_plugin_0.0.8.crx

@@ -1,0 +1,1 @@
+22f2ca24d23309a3c4422b523c108279a55b65de0c1d21c22148a1d4390879ce  ../../release/chrome_plugin_0.0.8.crx

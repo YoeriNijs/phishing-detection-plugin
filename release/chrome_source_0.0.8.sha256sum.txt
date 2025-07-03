@@ -1,0 +1,1 @@
+83b5c089d39e02fe75eb2957b441e83acce819a41ee53ed4c3671b4bdeb4bb1e  ../../release/chrome_source_0.0.8.zip
