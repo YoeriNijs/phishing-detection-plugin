@@ -1,0 +1,1 @@
+cab36ae9883db47cace929dba928fc14f4369b0bc3a92dc9ba445070b76279a5  ../../release/firefox.zip
