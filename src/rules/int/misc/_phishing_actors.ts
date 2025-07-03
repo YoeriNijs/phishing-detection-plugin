@@ -9,6 +9,20 @@ export const PHISHING_ACTORS_RULES: PhishingRules = {
       weight: 1,
       phishingRuleType: 'host',
       value: '3-a.net'
+    },
+    {
+      name: 'scam_rule',
+      description: 'Belongs to phishing panel',
+      weight: 1,
+      phishingRuleType: 'contains',
+      value: 'phish-bypass'
+    },
+    {
+      name: 'scam_rule',
+      description: 'Belongs to phishing panel',
+      weight: 1,
+      phishingRuleType: 'contains',
+      value: 'atok='
     }
   ]
 };
