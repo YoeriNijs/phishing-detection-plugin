@@ -5,6 +5,22 @@ export const NL_KEYWORDS_RULES: PhishingRules = {
   include: [
     {
       name: 'nl_keyword',
+      description:
+        'A phishing rule to detect meld with possible hyphens and dots',
+      phishingRuleType: 'regex',
+      value: 'm[-.]?e[-.]?l[-.]?d',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
+      description:
+        'A phishing rule to detect wijzig with possible hyphens and dots',
+      phishingRuleType: 'regex',
+      value: 'w[-.]?i[-.]?j[-.]?z[-.]?i[-.]?g',
+      weight: 0.5
+    },
+    {
+      name: 'nl_keyword',
       description: 'A phishing rule to detect aanmaning with dots in between',
       phishingRuleType: 'regex',
       value: '(?=.*\\.)a\\.?a\\.?n\\.?m\\.?a\\.?n\\.?i\\.?n\\.?g',
@@ -52,23 +68,23 @@ export const NL_KEYWORDS_RULES: PhishingRules = {
     },
     {
       name: 'nl_keyword',
-      description: 'A phishing rule to detect common scam keywords',
-      phishingRuleType: 'contains',
-      value: 'opwaardeer',
+      description: 'A phishing rule to detect opwaardeer keywords',
+      phishingRuleType: 'regex',
+      value: '[o0𝑜𝓞][pр𝓹𝒑][wʍ𝓌𝒲][aɑα𝒶𝓪][aɑα𝒶𝓪][rг𝓻𝒓][d𝒹𝓭][e𝑒𝓮][e𝑒𝓮][rг𝓻𝒓]',
       weight: 0.5
     },
     {
       name: 'nl_keyword',
-      description: 'A phishing rule to detect common scam keywords',
-      phishingRuleType: 'contains',
-      value: 'veilig',
+      description: 'A phishing rule to detect veilig keywords',
+      phishingRuleType: 'regex',
+      value: '[vʋ𝓋𝒱][e𝑒𝓮][i𝑖𝒾𝓲][l1|𝓵𝒍][i𝑖𝒾𝓲][g9𝑔𝓰]',
       weight: 0.5
     },
     {
       name: 'nl_keyword',
-      description: 'A phishing rule to detect common scam keywords',
-      phishingRuleType: 'contains',
-      value: 'waarschuwing',
+      description: 'A phishing rule to detect waarschuw keywords',
+      phishingRuleType: 'regex',
+      value: '[wʍ𝓌𝒲][aɑα𝒶𝓪][aɑα𝒶𝓪][rг𝓻𝒓][s5𝓈𝓼][cϲ𝒸𝓬][h𝒽𝓱][u𝓾][wʍ𝓌𝒲]',
       weight: 0.5
     },
     {
@@ -581,13 +597,6 @@ export const NL_KEYWORDS_RULES: PhishingRules = {
       name: 'nl_keyword',
       description: 'A phishing rule to detect common scam keywords',
       phishingRuleType: 'host',
-      value: 'rabobank.nl',
-      weight: 0.5
-    },
-    {
-      name: 'nl_keyword',
-      description: 'A phishing rule to detect common scam keywords',
-      phishingRuleType: 'host',
       value: 'bunq.nl',
       weight: 0.5
     },
@@ -765,13 +774,6 @@ export const NL_KEYWORDS_RULES: PhishingRules = {
       phishingRuleType: 'host',
       value: 'instagram.com',
       weight: 0.3
-    },
-    {
-      name: 'nl_keyword',
-      description: 'A phishing rule to detect common scam keywords',
-      phishingRuleType: 'host',
-      value: 'anwb.nl',
-      weight: 0.5
     },
     {
       name: 'nl_keyword',
