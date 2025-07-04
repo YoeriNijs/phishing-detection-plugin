@@ -1,0 +1,1 @@
+ee588277626921ccf879200d61d2b68200f735d6662d98d96703c0ea8de7fae1  ../../release/firefox_source_0.0.10.zip
