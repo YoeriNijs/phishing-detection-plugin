@@ -23,6 +23,11 @@ export const LANG_EN: ILanguageItem[] = [
     value: 'The domain is added to the whitelist'
   },
   {
+    key: 'domain-whitelist-warning',
+    value:
+      'WARNING! Whitelisting a domain can result in phishing. Do you really want to add this domain to the whitelist?'
+  },
+  {
     key: 'invalid-code-try-again',
     value: 'Invalid code. Try again.'
   },

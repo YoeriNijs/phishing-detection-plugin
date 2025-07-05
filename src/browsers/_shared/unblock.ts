@@ -58,19 +58,25 @@ const submitBtn: HTMLButtonElement = document.querySelector('button.submit');
 if (submitBtn) {
   submitBtn.addEventListener('click', () => {
     if (Number(codeByUser.join('')) === code) {
-      const storage = createStorageForBrowserImpl();
-      storage.getTempUrl((domain: string) => {
-        storage.addWhitelistedUrl(domain);
+      const confirmed = confirm(I18n.translate('domain-whitelist-warning'));
+      if (confirmed) {
+        const storage = createStorageForBrowserImpl();
+        storage.getTempUrl((domain: string) => {
+          storage.addWhitelistedUrl(domain);
 
-        // Notify
-        alert(I18n.translate('domain-whitelisted'));
+          // Notify
+          alert(I18n.translate('domain-whitelisted'));
 
-        // Close current window
-        const browserImpl = getBrowserImpl();
-        browserImpl.tabs.query({ active: true, currentWindow: true }, tabs => {
-          browserImpl.tabs.remove(tabs[0].id);
+          // Close current window
+          const browserImpl = getBrowserImpl();
+          browserImpl.tabs.query(
+            { active: true, currentWindow: true },
+            tabs => {
+              browserImpl.tabs.remove(tabs[0].id);
+            }
+          );
         });
-      });
+      }
     } else {
       submitBtn.disabled = true;
       codeByUser = [];

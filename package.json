@@ -8,12 +8,14 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "prepare": "husky",
+    "dev:firefox": "npm run clean:firefox && webpack --watch --config src/webpack/webpack.firefox.js",
+    "dev:chrome": "npm run clean:chrome && webpack --watch --config src/webpack/webpack.chrome.js",
     "clean": "npm run clean:firefox && npm run clean:chrome",
     "clean:firefox": "rm -rf ./build/firefox",
     "clean:chrome": "rm -rf ./build/chrome",
     "build": "npm run build:firefox && npm run build:chrome",
-    "build:firefox": "npm run clean:firefox && npm run test && webpack --config src/webpack/webpack.firefox.js",
-    "build:chrome": "npm run clean:chrome && npm run test && webpack --config src/webpack/webpack.chrome.js"
+    "build:firefox": "npm run clean:firefox && webpack --config src/webpack/webpack.firefox.js",
+    "build:chrome": "npm run clean:chrome && webpack --config src/webpack/webpack.chrome.js"
   },
   "author": "Yoeri Nijs",
   "license": "MIT",
