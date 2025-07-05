@@ -1,1 +1,0 @@
-64d26b9bd607b94ac2e5ebeb6c5107e8d4fe605ada3385fb9072f81419374a00  ../../release/chrome_source_0.0.10.zip

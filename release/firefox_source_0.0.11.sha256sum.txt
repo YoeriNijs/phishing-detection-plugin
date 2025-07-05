@@ -1,0 +1,1 @@
+4fdf4fde58720763157f759fde145c830824ddcf87e9834adc57058c69059968  ../../release/firefox_source_0.0.11.zip
