@@ -1,11 +1,9 @@
 import { Engine } from '../../engine/engine';
 import { DetectionResult } from '../../model/detection-result';
 import { PhishingRules } from '../../model/phishing-rules';
-import { calculateBatchScore } from './badge';
 import { CommunityLoader } from '../../community/community-loader';
 import { IStorage } from './i-storage';
-
-const URL_PATTERN = '*://*/*';
+import { calculateBatchScore } from './badge';
 
 export class PhishingDetectionPlugin {
   private _rules: PhishingRules[] = [];
@@ -20,36 +18,41 @@ export class PhishingDetectionPlugin {
     this.loadCommunityUrls();
     this.setWhitelistedUrls();
 
-    this._browserImpl.webRequest.onBeforeRequest.addListener(
-      details => {
-        this.updateRules();
-        this.updateBadgeScore();
-        this.setWhitelistedUrls();
+    this._browserImpl.tabs.onUpdated.addListener((tabId, _, tab) => {
+      this.updateRules();
+      this.setWhitelistedUrls();
 
-        if (details.method === 'GET') {
-          const url = details.url;
+      const currentUrl = tab.url;
+      const isWhitelisted = this._whitelistedUrls.some(wlu =>
+        currentUrl.startsWith(wlu)
+      );
+      if (isWhitelisted) {
+        this.updateResult('shield.png', 'report.html', 'X');
+        return;
+      }
 
-          const isWhitelisted = this._whitelistedUrls.some(wlu =>
-            url.startsWith(wlu)
-          );
-          const detectionResults = this.detectPhishing(url);
-          const isPhishingDetected = detectionResults.some(r => r.isPhishing);
-          if (isPhishingDetected && !isWhitelisted) {
-            this.updateTempUrl(url);
-            this.updateIcon('blocked.png');
-            this.updatePopup('unblock.html');
-            return {
-              redirectUrl: this._browserImpl.runtime.getURL('blocked.html')
-            };
-          } else {
-            this.updateIcon('shield.png');
-            this.updatePopup('report.html');
-          }
-        }
-      },
-      { urls: [URL_PATTERN] },
-      ['blocking']
-    );
+      const badgeScore = calculateBatchScore(this._rules, currentUrl);
+      this.updateResult(
+        'shield.png',
+        'report.html',
+        badgeScore.phishingProbability
+      );
+
+      const detectionResults = this.detectPhishing(currentUrl);
+      const isPhishingDetected = detectionResults.some(r => r.isPhishing);
+      if (isPhishingDetected) {
+        this.updateTempUrl(currentUrl);
+        this.updateResult(
+          'blocked.png',
+          'unblock.html',
+          badgeScore.phishingProbability
+        );
+
+        const blockedUrl = this._browserImpl.runtime.getURL('blocked.html');
+        // @ts-ignore
+        this._browserImpl.tabs.update(tabId, { url: blockedUrl, active: true });
+      }
+    });
   }
 
   private setWhitelistedUrls() {
@@ -58,46 +61,19 @@ export class PhishingDetectionPlugin {
     });
   }
 
-  private updateBadgeScore() {
-    this._browserImpl.tabs.query(
-      { active: true, currentWindow: true },
-      tabs => {
-        if (tabs.length > 0) {
-          const currentTab = tabs[0];
-          const currentUrl = currentTab.url;
-          if (!currentUrl || currentUrl.startsWith('chrome-extension://')) {
-            this.updateBadge('');
-            return;
-          }
-          const isWhitelisted = this._whitelistedUrls.some(wlu =>
-            currentUrl.startsWith(wlu)
-          );
-          if (isWhitelisted) {
-            this.updateBadge('X');
-            return;
-          }
-          const badgeScore = calculateBatchScore(this._rules, currentUrl);
-          this.updateBadge(badgeScore.phishingProbability);
-        }
-      }
-    );
-  }
-
   private detectPhishing(url: string): DetectionResult[] {
     const engine = new Engine(this._communityUrls, ...this._rules);
     return engine.detect(url);
   }
 
-  private updateIcon(path: string): void {
-    this._browserImpl.browserAction.setIcon({ path: path });
-  }
-
-  private updatePopup(path: string): void {
-    this._browserImpl.browserAction.setPopup({ popup: path });
-  }
-
-  private updateBadge(text: string): void {
-    this._browserImpl.browserAction.setBadgeText({ text: text });
+  private updateResult(
+    iconPath: string,
+    popupPath: string,
+    badge: string
+  ): void {
+    this._browserImpl.browserAction.setIcon({ path: iconPath });
+    this._browserImpl.browserAction.setPopup({ popup: popupPath });
+    this._browserImpl.browserAction.setBadgeText({ text: badge });
   }
 
   private updateRules(): void {

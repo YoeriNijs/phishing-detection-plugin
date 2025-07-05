@@ -23,6 +23,11 @@ export const LANG_NL: ILanguageItem[] = [
     value: 'Het domein is uitgesloten'
   },
   {
+    key: 'domain-whitelist-warning',
+    value:
+      'WAARSCHUWING! Het uitsluiten van een domein kan leiden tot phishing. Weet je het zeker dat je door wilt gaan?'
+  },
+  {
     key: 'invalid-code-try-again',
     value: 'Ongeldige code. Probeer opnieuw.'
   },
