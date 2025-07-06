@@ -1,9 +1,9 @@
-import { calculateBatchScore } from './badge';
 import {
   createStorageForBrowserImpl,
   getBrowserImpl
 } from './util/browser-util';
 import { I18n } from './i18n/i18n';
+import { BadgeScorer } from './badge-scorer';
 
 const htmlParagraphElement: HTMLParagraphElement = document.querySelector('p');
 if (htmlParagraphElement) {
@@ -14,7 +14,7 @@ if (htmlParagraphElement) {
       const currentUrl = currentTab.url;
       const storage = createStorageForBrowserImpl();
       storage.getRules(rules => {
-        const resultWithHighestScore = calculateBatchScore(rules, currentUrl);
+        const resultWithHighestScore = BadgeScorer.calculate(rules, currentUrl);
         const data = [
           { key: I18n.translate('url'), value: currentUrl },
           {

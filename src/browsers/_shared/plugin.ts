@@ -3,7 +3,7 @@ import { DetectionResult } from '../../model/detection-result';
 import { PhishingRules } from '../../model/phishing-rules';
 import { CommunityLoader } from '../../community/community-loader';
 import { IStorage } from './i-storage';
-import { calculateBatchScore } from './badge';
+import { BadgeScorer } from './badge-scorer';
 
 export class PhishingDetectionPlugin {
   private _rules: PhishingRules[] = [];
@@ -31,7 +31,7 @@ export class PhishingDetectionPlugin {
         return;
       }
 
-      const badgeScore = calculateBatchScore(this._rules, currentUrl);
+      const badgeScore = BadgeScorer.calculate(this._rules, currentUrl);
       this.updateResult(
         'shield.png',
         'report.html',
