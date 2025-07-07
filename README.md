@@ -17,6 +17,9 @@ If applicable, install this plugin by using the Chrome Web Store or the Firefox 
   the [releases](https://github.com/YoeriNijs/phishing-detection-plugin/tree/main/release). Enable extension developer
   mode, unzip the file, and select the manifest.json to install it.
 
+## Privacy
+This plugin only uses the current web browser activity (browser url) to detect whether there is a possible phishing attempt. All settings and activities are stored on your computer alone. We do not store and share any of your data.
+
 ## How to build
 
 ### Requirements
