@@ -1,6 +1,6 @@
 import { PhishingRules } from '../../../model/phishing-rules';
 import { PhishingRule } from '../../../model/phishing-rule';
-import { NL_KEYWORDS_RULES } from '../misc/_keywords';
+import { ALL_DUTCH_KEYWORDS } from '../__boilerplate__/_all_dutch_keywords';
 
 const SPECIFIC_RABOBANK_RULES: PhishingRule[] = [
   {
@@ -97,77 +97,40 @@ const SPECIFIC_RABOBANK_RULES: PhishingRule[] = [
   }
 ];
 
-const GENERIC_NL_KEYWORDS: PhishingRule[] = NL_KEYWORDS_RULES.include;
-
 export const RABOBANK_RULES: PhishingRules = {
   threshold: 1,
-  include: [...SPECIFIC_RABOBANK_RULES, ...GENERIC_NL_KEYWORDS],
+  include: [...SPECIFIC_RABOBANK_RULES, ...ALL_DUTCH_KEYWORDS],
   exclude: [
     {
-      name: 'rabo_phishing_exclude_rule_1',
+      name: 'rabo_phishing_exclude_rule',
       description: 'A phishing rule to detect rabobank phishing attempts',
-      phishingRuleType: 'startswith',
-      value: 'www.rabobank.nl',
-      weight: 2
-    },
-    {
-      name: 'rabo_phishing_exclude_rule_2',
-      description: 'A phishing rule to detect rabobank phishing attempts',
-      phishingRuleType: 'startswith',
+      phishingRuleType: 'host',
       value: 'rabobank.nl',
       weight: 2
     },
     {
-      name: 'rabo_phishing_exclude_rule_3',
+      name: 'rabo_phishing_exclude_rule',
       description: 'A phishing rule to detect rabobank phishing attempts',
-      phishingRuleType: 'startswith',
-      value: 'www.rabo-clubsupport.nl',
-      weight: 2
-    },
-    {
-      name: 'rabo_phishing_exclude_rule_4',
-      description: 'A phishing rule to detect rabobank phishing attempts',
-      phishingRuleType: 'startswith',
+      phishingRuleType: 'host',
       value: 'rabo-clubsupport.nl',
       weight: 2
     },
     {
-      name: 'rabo_phishing_exclude_rule_5',
-      description: 'A phishing rule to detect rabobank phishing attempts',
-      phishingRuleType: 'endswith',
-      value: 'rabobank.nl',
-      weight: 2
-    },
-    {
-      name: 'rabo_phishing_exclude_rule_6',
+      name: 'rabo_phishing_exclude_rule',
       description: 'A phishing rule to detect rabobank phishing attempts',
       phishingRuleType: 'startswith',
       value: 'media.rabobank.com',
       weight: 2
     },
     {
-      name: 'rabo_phishing_exclude_rule_7',
-      description: 'A phishing rule to detect rabobank phishing attempts',
-      phishingRuleType: 'startswith',
-      value: 'rabobank.com',
-      weight: 2
-    },
-    {
-      name: 'rabo_phishing_exclude_rule_8',
-      description: 'A phishing rule to detect rabobank phishing attempts',
-      phishingRuleType: 'startswith',
-      value: 'www.rabobank.com',
-      weight: 2
-    },
-    {
-      name: 'rabo_phishing_exclude_rule_9',
+      name: 'rabo_phishing_exclude_rule',
       description: 'A phishing rule to detect rabobank phishing attempts',
       phishingRuleType: 'startswith',
       value: 'apps.apple.com',
       weight: 2
     },
     {
-      name: 'rabo_phishing_exclude_rule_10',
+      name: 'rabo_phishing_exclude_rule',
       description: 'A phishing rule to detect rabobank phishing attempts',
       phishingRuleType: 'startswith',
       value: 'play.google.com',
