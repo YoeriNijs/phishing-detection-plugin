@@ -2,7 +2,7 @@
 
 _A modular phishing detection plugin for Chrome and Firefox_
 
-<img src="[drawing.jpg](https://raw.githubusercontent.com/YoeriNijs/phishing-detection-plugin/main/src/browsers/_shared/icons/shield.png)" alt="Plugin logo" width="200"/>
+<img src="https://raw.githubusercontent.com/YoeriNijs/phishing-detection-plugin/main/src/browsers/_shared/icons/shield.png" alt="Plugin logo" width="200"/>
 
 ## Installation
 
