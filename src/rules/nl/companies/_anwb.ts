@@ -1,6 +1,6 @@
 import { PhishingRules } from '../../../model/phishing-rules';
-import { NL_KEYWORDS_RULES } from '../misc/_keywords';
 import { PhishingRule } from '../../../model/phishing-rule';
+import { ALL_DUTCH_KEYWORDS } from '../__boilerplate__/_all_dutch_keywords';
 
 const SPECIFIC_ANWB_INCLUDES: PhishingRule[] = [
   {
@@ -12,11 +12,9 @@ const SPECIFIC_ANWB_INCLUDES: PhishingRule[] = [
   }
 ];
 
-const COMMON_NL_KEYWORDS = NL_KEYWORDS_RULES.include;
-
 export const ANWB_RULES: PhishingRules = {
   threshold: 1,
-  include: [...SPECIFIC_ANWB_INCLUDES, ...COMMON_NL_KEYWORDS],
+  include: [...SPECIFIC_ANWB_INCLUDES, ...ALL_DUTCH_KEYWORDS],
   exclude: [
     {
       name: 'anwb_phishing_exclude_rule',
