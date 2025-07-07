@@ -1,1 +1,0 @@
-64f6022ff8cf997aab86044833978e3c1e8d734bfb40b3bc348c23c2176943cf  ../../release/chrome_source_0.1.1.zip
