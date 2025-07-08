@@ -2,7 +2,6 @@ import { ChromeStorage } from '../chrome/chrome-storage';
 import { DEFAULT_RULES } from '../../rules/default';
 import { PhishingRules } from '../../model/phishing-rules';
 import { I18n } from './i18n/i18n';
-import { translateI18nElements } from './util/browser-util';
 
 const storage: ChromeStorage = new ChromeStorage(DEFAULT_RULES);
 

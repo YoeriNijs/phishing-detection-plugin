@@ -1,7 +1,6 @@
 import {
   createStorageForBrowserImpl,
-  getBrowserImpl,
-  translateI18nElements
+  getBrowserImpl
 } from './util/browser-util';
 import { I18n } from './i18n/i18n';
 

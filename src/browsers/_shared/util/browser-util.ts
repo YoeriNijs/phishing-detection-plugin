@@ -28,16 +28,3 @@ export function createStorageForBrowserImpl() {
   }
   throw new UnsupportedBrowserError('Unsupported browser!');
 }
-
-export function translateI18nElements() {
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('i18n').forEach(element => {
-      if (element.childNodes.length > 0) {
-        element.childNodes.forEach(node => {
-          const key = node.textContent;
-          node.textContent = I18n.translate(key);
-        });
-      }
-    });
-  });
-}
