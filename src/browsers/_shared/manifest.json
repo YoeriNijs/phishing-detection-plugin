@@ -5,7 +5,9 @@
   "description": "Blocks highly likely phishing attempts based on a dynamic rule set",
   "permissions": ["storage", "scripting", "tabs", "activeTab"],
   "background": {
-    "service_worker": "plugin.js"
+    "service_worker": "plugin.js",
+    "type": "module",
+    "scripts": ["plugin.js"]
   },
   "host_permissions": ["*://*/*"],
   "web_accessible_resources": [

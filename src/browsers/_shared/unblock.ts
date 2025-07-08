@@ -1,6 +1,7 @@
 import {
   createStorageForBrowserImpl,
-  getBrowserImpl
+  getBrowserImpl,
+  translateI18nElements
 } from './util/browser-util';
 import { I18n } from './i18n/i18n';
 
@@ -85,3 +86,5 @@ if (submitBtn) {
     }
   });
 }
+
+I18n.translateI18NElements();

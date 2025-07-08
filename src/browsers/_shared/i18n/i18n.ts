@@ -19,6 +19,19 @@ export class I18n {
     }
   }
 
+  static translateI18NElements(): void {
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('i18n').forEach(element => {
+        if (element.childNodes.length > 0) {
+          element.childNodes.forEach(node => {
+            const key = node.textContent;
+            node.textContent = I18n.translate(key);
+          });
+        }
+      });
+    });
+  }
+
   private static determineLanguageSet() {
     const userLocale = navigator.language.toLowerCase();
     let set: ILanguageItem[] = [];
@@ -36,14 +49,3 @@ export class I18n {
     return set;
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('i18n').forEach(element => {
-    if (element.childNodes.length > 0) {
-      element.childNodes.forEach(node => {
-        const key = node.textContent;
-        node.textContent = I18n.translate(key);
-      });
-    }
-  });
-});

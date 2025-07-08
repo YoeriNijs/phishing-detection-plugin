@@ -2,6 +2,7 @@ import { ChromeStorage } from '../chrome/chrome-storage';
 import { DEFAULT_RULES } from '../../rules/default';
 import { PhishingRules } from '../../model/phishing-rules';
 import { I18n } from './i18n/i18n';
+import { translateI18nElements } from './util/browser-util';
 
 const storage: ChromeStorage = new ChromeStorage(DEFAULT_RULES);
 
@@ -47,6 +48,9 @@ async function updateRules() {
 }
 
 function initialize(): void {
+  // Translate first
+  I18n.translateI18NElements();
+
   // Show rules
   showRules();
 
@@ -55,6 +59,3 @@ function initialize(): void {
     updateBtn.addEventListener('click', () => updateRules());
   }
 }
-
-// Init settings page
-initialize();
