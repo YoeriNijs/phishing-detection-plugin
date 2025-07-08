@@ -1,0 +1,1 @@
+ad705a19fbcfd23454099a66f0238c45574f1e75d74c14eeef327fa40ac60fa6  ../../release/firefox_source_0.1.6.zip

@@ -1,0 +1,1 @@
+53c4d49a69bf869836087c2e56c30b960e51ded34ee33cd0c0c5f1d1f3d83a4e  ../../release/chrome_source_0.1.6.zip
