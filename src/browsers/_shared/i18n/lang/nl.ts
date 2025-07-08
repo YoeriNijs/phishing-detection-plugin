@@ -20,7 +20,7 @@ export const LANG_NL: ILanguageItem[] = [
   },
   {
     key: 'domain-whitelisted',
-    value: 'Het domein is uitgesloten'
+    value: 'Het domein is uitgesloten.'
   },
   {
     key: 'domain-whitelist-warning',
