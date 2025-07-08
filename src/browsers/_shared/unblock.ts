@@ -85,3 +85,5 @@ if (submitBtn) {
     }
   });
 }
+
+I18n.translateI18NElements();

@@ -47,6 +47,9 @@ async function updateRules() {
 }
 
 function initialize(): void {
+  // Translate first
+  I18n.translateI18NElements();
+
   // Show rules
   showRules();
 
@@ -55,6 +58,3 @@ function initialize(): void {
     updateBtn.addEventListener('click', () => updateRules());
   }
 }
-
-// Init settings page
-initialize();

@@ -49,3 +49,5 @@ if (htmlParagraphElement) {
     }
   });
 }
+
+I18n.translateI18NElements();

@@ -13,6 +13,8 @@ describe('I18n tests', () => {
       <i18n>unlikely</i18n>
     `;
 
+    I18n.translateI18NElements();
+
     // Execute
     const event = new Event('DOMContentLoaded');
     document.dispatchEvent(event);

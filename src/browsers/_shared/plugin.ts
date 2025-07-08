@@ -71,9 +71,9 @@ export class PhishingDetectionPlugin {
     popupPath: string,
     badge: string
   ): void {
-    this._browserImpl.browserAction.setIcon({ path: iconPath });
-    this._browserImpl.browserAction.setPopup({ popup: popupPath });
-    this._browserImpl.browserAction.setBadgeText({ text: badge });
+    this._browserImpl.action.setIcon({ path: iconPath });
+    this._browserImpl.action.setPopup({ popup: popupPath });
+    this._browserImpl.action.setBadgeText({ text: badge });
   }
 
   private updateRules(): void {
