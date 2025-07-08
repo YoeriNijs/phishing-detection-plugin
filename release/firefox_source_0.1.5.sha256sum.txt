@@ -1,0 +1,1 @@
+85d729f75eedd2f37c33ae24ff4081dac44041893cb2632d7f38c97651e76038  ../../release/firefox_source_0.1.5.zip
