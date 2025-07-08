@@ -1,0 +1,1 @@
+984406ff904fd1273809239dbd3971d4097e64610d2282cd993758ff48a867f2  ../../release/firefox_source_0.1.4.zip
