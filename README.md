@@ -32,7 +32,7 @@ This plugin only uses the current web browser activity (browser url) to detect w
 - Clone this repository
 - Run `npm install` (make sure you've [Node](https://nodejs.org/en) or higher installed)
 - Run `npm run build:chrome` for Chrome or `npm run build:firefox` for Firefox
-- Build output is saved in the `/release` directory.
+- Build output is saved in the `/build` directory.
 
 ## V1 backlog
 
