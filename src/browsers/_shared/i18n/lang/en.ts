@@ -8,6 +8,7 @@ export const LANG_EN: ILanguageItem[] = [
   { key: 'is-phishing', value: 'Is phishing' },
   { key: 'probability', value: 'Probability' },
   { key: 'threshold', value: 'Threshold' },
+  { key: 'rules', value: 'Rules' },
   {
     key: 'invalid-rules-missing-fields',
     value: 'Invalid rules: missing include or exclude fields!'

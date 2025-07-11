@@ -16,30 +16,55 @@ if (htmlParagraphElement) {
       storage.getRules(rules => {
         const resultWithHighestScore = BadgeScorer.calculate(rules, currentUrl);
         const data = [
-          { key: I18n.translate('url'), value: currentUrl },
           {
+            name: 'url',
+            key: I18n.translate('url'),
+            value: currentUrl
+          },
+          {
+            name: 'is-phishing',
             key: I18n.translate('is-phishing'),
             value: resultWithHighestScore.isPhishing
           },
           {
+            name: 'probability',
             key: I18n.translate('probability'),
             value: resultWithHighestScore.phishingProbability
           },
           {
+            name: 'threshold',
             key: I18n.translate('threshold'),
             value: resultWithHighestScore.threshold
           }
         ];
 
+        if (resultWithHighestScore.matchingRules !== null) {
+          data.push({
+            name: 'rules',
+            key: I18n.translate('rules'),
+            value: JSON.stringify(resultWithHighestScore.matchingRules)
+          });
+        }
+
         const table = document.createElement('table');
         const tbody = document.createElement('tbody');
         data.forEach(item => {
           const row = document.createElement('tr');
-          Object.values(item).forEach(text => {
-            const td = document.createElement('td');
-            td.textContent = text;
-            row.appendChild(td);
-          });
+
+          const td1 = document.createElement('td');
+          td1.appendChild(document.createTextNode(item.key));
+          row.appendChild(td1);
+
+          const td2 = document.createElement('td');
+          if (item.name === 'rules') {
+            const pre = document.createElement('pre');
+            pre.innerText = item.value;
+            td2.appendChild(pre);
+          } else {
+            td2.innerText = item.value;
+          }
+          row.appendChild(td2);
+
           tbody.appendChild(row);
         });
         table.appendChild(tbody);

@@ -1,7 +1,6 @@
 import { ChromeStorage } from '../../chrome/chrome-storage';
 import { DEFAULT_RULES } from '../../../rules/default';
 import { FirefoxStorage } from '../../firefox/firefox-storage';
-import { I18n } from '../i18n/i18n';
 
 class UnsupportedBrowserError extends Error {
   constructor(msg: string) {
