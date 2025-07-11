@@ -14,7 +14,11 @@ describe('BadgeScorer', () => {
     expect(score).toEqual({
       isPhishing: 'yes',
       phishingProbability: '1.0',
-      threshold: '1.0'
+      threshold: '1.0',
+      matchingRules: {
+        exclude: [],
+        include: [createHostRule({ value: 'google.com' })]
+      }
     });
   });
 
@@ -29,7 +33,8 @@ describe('BadgeScorer', () => {
     expect(score).toEqual({
       isPhishing: 'unlikely',
       phishingProbability: '0.0',
-      threshold: '1.0'
+      threshold: '1.0',
+      matchingRules: null
     });
   });
 
@@ -38,7 +43,8 @@ describe('BadgeScorer', () => {
     expect(score).toEqual({
       isPhishing: 'unlikely',
       phishingProbability: '0.0',
-      threshold: '0.0'
+      threshold: '0.0',
+      matchingRules: null
     });
   });
 
@@ -49,7 +55,8 @@ describe('BadgeScorer', () => {
       expect(score).toEqual({
         isPhishing: 'unlikely',
         phishingProbability: '0.0',
-        threshold: '0.0'
+        threshold: '0.0',
+        matchingRules: null
       });
     }
   );

@@ -13,7 +13,11 @@ describe('Engine tests', () => {
     expect(result).toEqual({
       isPhishing: false,
       phishingProbability: 0,
-      threshold: 0.9
+      threshold: 0.9,
+      matchingRules: {
+        exclude: [],
+        include: []
+      }
     });
   });
 
@@ -23,7 +27,11 @@ describe('Engine tests', () => {
     expect(result).toEqual({
       isPhishing: false,
       phishingProbability: 0,
-      threshold: 0.9
+      threshold: 0.9,
+      matchingRules: {
+        exclude: [],
+        include: []
+      }
     });
   });
 
@@ -33,7 +41,8 @@ describe('Engine tests', () => {
     expect(result).toEqual({
       isPhishing: false,
       phishingProbability: 0,
-      threshold: 0.9
+      threshold: 0.9,
+      matchingRules: { exclude: [], include: [] }
     });
   });
 
@@ -112,10 +121,20 @@ describe('Engine tests', () => {
         threshold: 0
       });
       expect(engine.detect('https://www.anotherdomain.com')).toEqual([
-        { isPhishing: false, phishingProbability: 0, threshold: 0 }
+        {
+          isPhishing: false,
+          phishingProbability: 0,
+          threshold: 0,
+          matchingRules: { exclude: [], include: [] }
+        }
       ]);
       expect(engine.detect('https://www.google.com')).toEqual([
-        { isPhishing: true, phishingProbability: 1, threshold: 0 }
+        {
+          isPhishing: true,
+          phishingProbability: 1,
+          threshold: 0,
+          matchingRules: { exclude: [], include: [] }
+        }
       ]);
     });
   });

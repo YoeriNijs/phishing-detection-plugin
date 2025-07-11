@@ -100,8 +100,7 @@ export class ChromeStorage implements IStorage {
 
   private initializeStorage(initialRules: PhishingRules[]) {
     chrome.storage.local.get('settings', (settings: any) => {
-      // If the object is missing required fields, we still save the initial object
-      if (!this.isStorageObject(settings)) {
+      if (settings === null) {
         this.initializeStorageObject(initialRules);
       }
     });
@@ -115,9 +114,5 @@ export class ChromeStorage implements IStorage {
       }
     };
     chrome.storage.local.set(storageObject);
-  }
-
-  private isStorageObject(object: any): object is PluginStorageObject {
-    return object.rules && object.threshold && object.whitelistedUrls;
   }
 }

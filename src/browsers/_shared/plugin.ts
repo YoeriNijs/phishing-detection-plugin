@@ -18,6 +18,11 @@ export class PhishingDetectionPlugin {
     this.loadCommunityUrls();
     this.setWhitelistedUrls();
 
+    chrome.tabs.onRemoved.addListener(tabId => {
+      this.updateRules();
+      this.setWhitelistedUrls();
+    });
+
     this._browserImpl.tabs.onUpdated.addListener((tabId, _, tab) => {
       this.updateRules();
       this.setWhitelistedUrls();
@@ -47,6 +52,9 @@ export class PhishingDetectionPlugin {
           'unblock.html',
           badgeScore.phishingProbability
         );
+
+        // Log for debugging purposes
+        console.log(detectionResults);
 
         const blockedUrl = this._browserImpl.runtime.getURL('blocked.html');
         // @ts-ignore

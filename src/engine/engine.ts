@@ -12,13 +12,15 @@ interface EngineResult {
 const NO_PHISHING_RESULT: DetectionResult = {
   isPhishing: false,
   phishingProbability: 0,
-  threshold: 0
+  threshold: 0,
+  matchingRules: { include: [], exclude: [] }
 };
 
 const PHISHING_RESULT: DetectionResult = {
   isPhishing: true,
   phishingProbability: 1,
-  threshold: 0
+  threshold: 0,
+  matchingRules: { include: [], exclude: [] }
 };
 
 export class Engine {
@@ -61,7 +63,11 @@ export class Engine {
       return {
         isPhishing: engineResult.isPhishing,
         phishingProbability: engineResult.phishingProbability,
-        threshold: rules.threshold
+        threshold: rules.threshold,
+        matchingRules: {
+          include: rules.include || [],
+          exclude: rules.exclude || []
+        }
       };
     });
   }
