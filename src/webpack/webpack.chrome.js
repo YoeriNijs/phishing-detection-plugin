@@ -124,7 +124,6 @@ const unblockConf = merge(common, {
       patterns: [
         { from: 'src/browsers/_shared/manifest.json', to: '.' },
         { from: 'src/browsers/_shared/icons/shield.png', to: '.' },
-        { from: 'src/browsers/_shared/icons/blocked.png', to: '.' },
         { from: 'src/browsers/_shared/blocked.html', to: '.' },
         {
           from: './src/browsers/_shared/unblock.html',

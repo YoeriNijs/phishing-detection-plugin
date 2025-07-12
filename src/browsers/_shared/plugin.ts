@@ -32,26 +32,18 @@ export class PhishingDetectionPlugin {
         currentUrl.startsWith(wlu)
       );
       if (isWhitelisted) {
-        this.updateResult('shield.png', 'report.html', 'X');
+        this.updateResult('report.html', 'X');
         return;
       }
 
       const badgeScore = BadgeScorer.calculate(this._rules, currentUrl);
-      this.updateResult(
-        'shield.png',
-        'report.html',
-        badgeScore.phishingProbability
-      );
+      this.updateResult('report.html', badgeScore.phishingProbability);
 
       const detectionResults = this.detectPhishing(currentUrl);
       const isPhishingDetected = detectionResults.some(r => r.isPhishing);
       if (isPhishingDetected) {
         this.updateTempUrl(currentUrl);
-        this.updateResult(
-          'blocked.png',
-          'unblock.html',
-          badgeScore.phishingProbability
-        );
+        this.updateResult('unblock.html', badgeScore.phishingProbability);
 
         // Log for debugging purposes
         console.log(detectionResults);
@@ -74,12 +66,7 @@ export class PhishingDetectionPlugin {
     return engine.detect(url);
   }
 
-  private updateResult(
-    iconPath: string,
-    popupPath: string,
-    badge: string
-  ): void {
-    this._browserImpl.action.setIcon({ path: iconPath });
+  private updateResult(popupPath: string, badge: string): void {
     this._browserImpl.action.setPopup({ popup: popupPath });
     this._browserImpl.action.setBadgeText({ text: badge });
   }
