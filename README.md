@@ -54,7 +54,7 @@ attempt. All settings and activities are stored on your computer alone. We do no
 - [x] Update this readme
 
 ## Future backlog
-
+- [ ] Retrieve rules from Github directly
 - [ ] Mark site as phishing site
 - [ ] Implement Naive Bayes Classifier to manually classify phishing panels locally
 - [ ] Dropdown for selecting rules sets
@@ -62,4 +62,4 @@ attempt. All settings and activities are stored on your computer alone. We do no
 
 ## Acknowledgement
 
-- Icons: [Freepik](https://www.flaticon.com/free-icons/shield)
+- Icon: [Freepik](https://www.flaticon.com/free-icons/shield)
