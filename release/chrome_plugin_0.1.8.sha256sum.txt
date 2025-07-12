@@ -1,1 +1,0 @@
-97656d996be28ccdfb52d6963b429bcebccbc2747e6a415d26eb25a74fef062f  ../../release/chrome_plugin_0.1.8.crx

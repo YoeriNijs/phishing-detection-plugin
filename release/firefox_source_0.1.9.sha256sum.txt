@@ -1,0 +1,1 @@
+adb1b47786c8cde38d35bbeb982efab8a916c5af89eef5d04c15c3c33c30099b  ../../release/firefox_source_0.1.9.zip
