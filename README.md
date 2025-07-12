@@ -19,7 +19,8 @@ If applicable, install this plugin by using the Chrome Web Store or the Firefox 
 
 ## Privacy
 
-This plugin only uses the current web browser activity (browser url) to detect whether there is a possible phishing attempt. All settings and activities are stored on your computer alone. We do not store and share any of your data.
+This plugin only uses the current web browser activity (browser url) to detect whether there is a possible phishing
+attempt. All settings and activities are stored on your computer alone. We do not store and share any of your data.
 
 ## How to build
 
@@ -61,4 +62,4 @@ This plugin only uses the current web browser activity (browser url) to detect w
 
 ## Acknowledgement
 
-- Icons: [Timplaru Emil](https://www.vecteezy.com/members/emiltimplaru)
+- Icons: [Freepik](https://www.flaticon.com/free-icons/shield)
