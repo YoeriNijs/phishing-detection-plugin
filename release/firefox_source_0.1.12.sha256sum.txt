@@ -1,0 +1,1 @@
+389b1a9999f0863e2b0e4f16cf25438231e7945e98d0f0178323c7af0f037b62  ../../release/firefox_source_0.1.12.zip
