@@ -1,6 +1,7 @@
 import { ILanguageItem } from '../i-language-item';
 
 export const LANG_NL: ILanguageItem[] = [
+  { key: 'close', value: 'Sluiten' },
   { key: 'yes', value: 'ja' },
   { key: 'unlikely', value: 'onwaarschijnlijk' },
   { key: 'url', value: 'URL' },
@@ -8,7 +9,8 @@ export const LANG_NL: ILanguageItem[] = [
   { key: 'is-phishing', value: 'Is phishing' },
   { key: 'probability', value: 'Waarschijnlijkheid' },
   { key: 'threshold', value: 'Drempelwaarde' },
-  { key: 'rules', value: 'Regels' },
+  { key: 'source', value: 'Bron' },
+  { key: 'detection-based-on', value: 'Detectie gebaseerd op:' },
   {
     key: 'invalid-rules-missing-fields',
     value: 'Ongeldige regels: include- of exclude-velden missen!'
@@ -33,6 +35,7 @@ export const LANG_NL: ILanguageItem[] = [
     value: 'Ongeldige code. Probeer opnieuw.'
   },
   { key: 'title-report', value: 'Detectierapport' },
+  { key: 'show-rules-btn', value: 'Toon regels' },
   { key: 'possible-phishing-attempt', value: 'Mogelijke phishingpoging' },
   {
     key: 'possible-phishing-attempt-details',

@@ -99,7 +99,7 @@ const reportConf = merge(common, {
     new CopyPlugin({
       patterns: [
         {
-          from: './src/browsers/firefox/firefox-report.html',
+          from: './src/browsers/_shared/report.html',
           to: './report.html'
         }
       ]

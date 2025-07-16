@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <style>
+      body {
+          background-color: #212327;
+          color: #fff;
+          margin: 0;
+          height: 300px;
+          align-items: center;
+          font-family: Arial, sans-serif;
+          padding: 0 20px;
+          overflow: hidden;
+          width: 250px;
+      }
+
+      h1 {
+          margin-bottom: 3px;
+      }
+
+      p {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+      }
+
+      table {
+          height: 100%;
+      }
+
+      div.rules-details {
+          background-color: #212327;
+          display: none;
+          flex-direction: column;
+          padding: 20px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+      }
+
+      div.rules-body {
+          overflow: auto;
+      }
+
+      button.close-rules-details {
+          max-width: 70px;
+      }
+  </style>
+</head>
+<body>
+<h1>
+  <i18n>title-report</i18n>
+</h1>
+<p></p>
+<div class="rules-details"></div>
+<script defer src="report.js"></script>
+<script defer src="i18n.js"></script>
+</body>
+</html>
