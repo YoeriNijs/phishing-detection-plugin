@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Phishing Detection Plugin",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Blocks highly likely phishing attempts based on a dynamic rule set",
   "permissions": [
     "storage",
