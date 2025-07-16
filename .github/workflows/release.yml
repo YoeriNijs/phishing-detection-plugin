@@ -56,6 +56,11 @@ jobs:
         run: |
           sh ./.github/create_release.sh
 
+      - name: create rules release
+        run: |
+          export CI_MODE=true
+          sh ./.github/create_rules_release.sh
+
       - name: remove PEM file
         run: rm -rf ./plugin.pem
 

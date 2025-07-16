@@ -10,3 +10,6 @@ util/**/*.*
 
 release/**/*
 !release/.gitkeep
+
+release-rules/**/*
+!release-rules/rules_to_json.js
