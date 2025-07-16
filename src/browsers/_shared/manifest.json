@@ -51,5 +51,15 @@
     "default_title": "Phishing Detection Plugin",
     "default_popup": "report.html"
   },
-  "options_page": "settings.html"
+  "options_page": "settings.html",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pdp_gecko@yoeri.dev",
+      "strict_min_version": "58.0"
+    },
+    "gecko_android": {
+      "id": "pdp_gecko_android@yoeri.dev",
+      "strict_min_version": "58.0"
+    }
+  }
 }
