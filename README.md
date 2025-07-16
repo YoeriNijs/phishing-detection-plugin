@@ -35,10 +35,14 @@ attempt. All settings and activities are stored on your computer alone. We do no
 - Run `npm run build:chrome` for Chrome or `npm run build:firefox` for Firefox
 - Build output is saved in the `/build` directory.
 
-## V1 backlog
-
-- [x] Combine Webpack configs
+## Backlog
 - [ ] Add additional tests for Chrome and Firefox
+- [ ] Mark site as phishing site
+- [ ] Implement Naive Bayes Classifier to manually classify phishing panels locally
+- [ ] Dropdown for selecting rules sets
+- [ ] Keep latest community urls in localstorage for a while
+    
+- [x] Combine Webpack configs
 - [x] Reimplement Firefox plugin based on new Chrome code
 - [x] Window for whitelisting domains
 - [x] Logic for whitelisting domains
@@ -52,13 +56,7 @@ attempt. All settings and activities are stored on your computer alone. We do no
 - [x] Finalize i18n
 - [x] Implement release pipeline
 - [x] Update this readme
-
-## Future backlog
-- [ ] Retrieve rules from Github directly
-- [ ] Mark site as phishing site
-- [ ] Implement Naive Bayes Classifier to manually classify phishing panels locally
-- [ ] Dropdown for selecting rules sets
-- [ ] Keep latest community urls in localstorage for a while
+- [x] Retrieve rules from Github directly
 
 ## Acknowledgement
 
