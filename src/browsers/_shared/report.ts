@@ -40,9 +40,9 @@ if (htmlParagraphElement) {
 
         if (resultWithHighestScore.matchingRules !== null) {
           data.push({
-            name: 'rules',
-            key: I18n.translate('rules'),
-            value: JSON.stringify(resultWithHighestScore.matchingRules)
+            name: 'source',
+            key: I18n.translate('source'),
+            value: JSON.stringify(resultWithHighestScore.matchingRules, null, 2) // format properly
           });
         }
 
@@ -56,10 +56,35 @@ if (htmlParagraphElement) {
           row.appendChild(td1);
 
           const td2 = document.createElement('td');
-          if (item.name === 'rules') {
-            const pre = document.createElement('pre');
-            pre.innerText = item.value;
-            td2.appendChild(pre);
+          if (item.name === 'source') {
+            const rulesDetailsArea: HTMLElement =
+              document.querySelector('div.rules-details');
+            const closeRulesDetailsAreBtn = document.createElement('button');
+            closeRulesDetailsAreBtn.classList.add('close-rules-details');
+            closeRulesDetailsAreBtn.innerText = I18n.translate('close');
+            closeRulesDetailsAreBtn.onclick = () =>
+              (rulesDetailsArea.style.display = 'none');
+
+            const rulesDetailsAreaTitle = document.createElement('h2');
+            rulesDetailsAreaTitle.innerText =
+              I18n.translate('detection-based-on');
+
+            const rulesDetailsAreaBody = document.createElement('div');
+            rulesDetailsAreaBody.classList.add('rules-body');
+            const rulesDetailsAreaBodyPre = document.createElement('pre');
+            rulesDetailsAreaBodyPre.innerText = item.value;
+            rulesDetailsAreaBody.append(rulesDetailsAreaBodyPre);
+
+            rulesDetailsArea.append(
+              closeRulesDetailsAreBtn,
+              rulesDetailsAreaTitle,
+              rulesDetailsAreaBody
+            );
+
+            const btn = document.createElement('button');
+            btn.innerText = I18n.translate('show-rules-btn');
+            btn.onclick = () => (rulesDetailsArea.style.display = 'flex');
+            td2.appendChild(btn);
           } else {
             td2.innerText = item.value;
           }

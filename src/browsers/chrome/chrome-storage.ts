@@ -100,7 +100,7 @@ export class ChromeStorage implements IStorage {
 
   private initializeStorage(initialRules: PhishingRules[]) {
     chrome.storage.local.get('settings', (settings: any) => {
-      if (settings === null) {
+      if (settings === null || !settings) {
         this.initializeStorageObject(initialRules);
       }
     });
