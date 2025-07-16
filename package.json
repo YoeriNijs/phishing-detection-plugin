@@ -14,9 +14,11 @@
     "clean": "npm run clean:firefox && npm run clean:chrome",
     "clean:firefox": "rm -rf ./build/firefox",
     "clean:chrome": "rm -rf ./build/chrome",
+    "clean:rules": "rm -rf ./release-rules/all_rules.js",
     "build": "npm run build:firefox && npm run build:chrome",
     "build:firefox": "npm run clean:firefox && webpack --config src/webpack/webpack.firefox.js",
-    "build:chrome": "npm run clean:chrome && webpack --config src/webpack/webpack.chrome.js"
+    "build:chrome": "npm run clean:chrome && webpack --config src/webpack/webpack.chrome.js",
+    "build:rules": "npm run clean:rules && webpack --config src/webpack/webpack.rules.js && node release-rules/rules_to_json.js"
   },
   "author": "Yoeri Nijs",
   "license": "MIT",
