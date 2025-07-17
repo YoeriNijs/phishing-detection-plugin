@@ -97,11 +97,19 @@ export class FirefoxStorage implements IStorage {
 
   private initializeStorage(initialRules: PhishingRules[]) {
     browser.storage.local.get('settings').then((settings: any) => {
-      // If the object is missing required fields, we still save the initial object
-      if (!this.isStorageObject(settings)) {
+      if (this.hasInvalidSettings(settings)) {
         this.initializeStorageObject(initialRules);
       }
     });
+  }
+
+  private hasInvalidSettings(settings: any): boolean {
+    return (
+      settings === null ||
+      !settings ||
+      !settings.rules ||
+      !settings.whitelistedUrls
+    );
   }
 
   private initializeStorageObject(initialRules: PhishingRules[]) {
@@ -112,9 +120,5 @@ export class FirefoxStorage implements IStorage {
       }
     };
     browser.storage.local.set(storageObject);
-  }
-
-  private isStorageObject(object: any): object is PluginStorageObject {
-    return object.rules && object.threshold && object.whitelistedUrls;
   }
 }

@@ -36,12 +36,12 @@ attempt. All settings and activities are stored on your computer alone. We do no
 - Build output is saved in the `/build` directory.
 
 ## Backlog
+
 - [ ] Add additional tests for Chrome and Firefox
 - [ ] Mark site as phishing site
 - [ ] Implement Naive Bayes Classifier to manually classify phishing panels locally
 - [ ] Dropdown for selecting rules sets
 - [ ] Keep latest community urls in localstorage for a while
-    
 - [x] Combine Webpack configs
 - [x] Reimplement Firefox plugin based on new Chrome code
 - [x] Window for whitelisting domains
