@@ -3,29 +3,17 @@
   "name": "Phishing Detection Plugin",
   "version": "0.1.14",
   "description": "Blocks highly likely phishing attempts based on a dynamic rule set",
-  "permissions": [
-    "storage",
-    "activeTab"
-  ],
+  "permissions": ["storage", "activeTab"],
   "background": {
     "service_worker": "plugin.js",
     "type": "module",
-    "scripts": [
-      "plugin.js"
-    ]
+    "scripts": ["plugin.js"]
   },
-  "host_permissions": [
-    "*://*/*"
-  ],
+  "host_permissions": ["*://*/*"],
   "web_accessible_resources": [
     {
-      "resources": [
-        "blocked.html",
-        "shield.png"
-      ],
-      "matches": [
-        "*://*/*"
-      ]
+      "resources": ["blocked.html", "shield.png"],
+      "matches": ["*://*/*"]
     }
   ],
   "content_security_policy": {
@@ -33,14 +21,8 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://*/*"
-      ],
-      "js": [
-        "settings.js",
-        "report.js",
-        "unblock.js"
-      ]
+      "matches": ["*://*/*"],
+      "js": ["settings.js", "report.js", "unblock.js"]
     }
   ],
   "icons": {
