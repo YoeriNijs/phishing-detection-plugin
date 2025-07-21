@@ -18,41 +18,63 @@ export class PhishingDetectionPlugin {
     this.loadCommunityUrls();
     this.setWhitelistedUrls();
 
-    chrome.tabs.onRemoved.addListener(tabId => {
+    this._browserImpl.tabs.onRemoved.addListener(() => {
       this.updateRules();
       this.setWhitelistedUrls();
+    });
+
+    this._browserImpl.tabs.onActivated.addListener(activeInfo => {
+      console.log('onActivatd');
+      this._browserImpl.tabs.get(activeInfo.tabId, tab => {
+        if (this._browserImpl.runtime.lastError) {
+          return;
+        }
+        this.runDetectionAttempt(tab, activeInfo.tabId);
+      });
     });
 
     this._browserImpl.tabs.onUpdated.addListener((tabId, _, tab) => {
-      this.updateRules();
-      this.setWhitelistedUrls();
+      console.log('onUpdated');
+      this.runDetectionAttempt(tab, tabId);
+    });
+  }
 
-      const currentUrl = tab.url;
-      const isWhitelisted = this._whitelistedUrls.some(wlu =>
-        currentUrl.startsWith(wlu)
-      );
-      if (isWhitelisted) {
-        this.updateResult('report.html', 'X');
-        return;
-      }
+  private runDetectionAttempt(tab: Partial<{ url: string }>, tabId: number) {
+    this.updateRules();
+    this.setWhitelistedUrls();
 
-      const badgeScore = BadgeScorer.calculate(this._rules, currentUrl);
-      this.updateResult('report.html', badgeScore.phishingProbability);
+    const currentUrl = tab.url;
+    console.log('url', currentUrl);
+    if (!currentUrl) {
+      return;
+    }
 
-      const detectionResults = this.detectPhishing(currentUrl);
-      const isPhishingDetected = detectionResults.some(r => r.isPhishing);
-      if (isPhishingDetected) {
+    const isWhitelisted = this._whitelistedUrls.some(wlu =>
+      currentUrl.startsWith(wlu)
+    );
+    if (isWhitelisted) {
+      this.updateResult('report.html', '--');
+      return;
+    }
+
+    const badgeScore = BadgeScorer.calculate(this._rules, currentUrl);
+    this.updateResult('report.html', badgeScore.phishingProbability);
+
+    const detectionResults = this.detectPhishing(currentUrl);
+    const isPhishingDetected = detectionResults.some(r => r.isPhishing);
+    if (isPhishingDetected) {
+      if (!currentUrl.startsWith('chrome-extension:')) {
         this.updateTempUrl(currentUrl);
         this.updateResult('unblock.html', badgeScore.phishingProbability);
-
-        // Log for debugging purposes
-        console.log(detectionResults);
-
-        const blockedUrl = this._browserImpl.runtime.getURL('blocked.html');
-        // @ts-ignore
-        this._browserImpl.tabs.update(tabId, { url: blockedUrl, active: true });
       }
-    });
+
+      // Log for debugging purposes
+      console.log(detectionResults);
+
+      const blockedUrl = this._browserImpl.runtime.getURL('blocked.html');
+      // @ts-ignore
+      this._browserImpl.tabs.update(tabId, { url: blockedUrl, active: true });
+    }
   }
 
   private setWhitelistedUrls() {

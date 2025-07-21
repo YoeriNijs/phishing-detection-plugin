@@ -36,11 +36,6 @@ const calculatorBtns = document.querySelectorAll('.row button');
 if (calculatorBtns) {
   calculatorBtns.forEach((btn: HTMLButtonElement) => {
     btn.addEventListener('click', () => {
-      const submitBtn: HTMLButtonElement =
-        document.querySelector('button.submit');
-      if (submitBtn) {
-        submitBtn.disabled = false;
-      }
       const calculatorValue = btn.textContent;
       if (calculatorValue === '<<') {
         clearUserCode();
@@ -49,6 +44,14 @@ if (calculatorBtns) {
       } else {
         codeByUser.push(+calculatorValue);
         showUserCode(calculatorValue);
+      }
+
+      const submitBtn: HTMLButtonElement =
+        document.querySelector('button.submit');
+      const userCode = document.querySelector('p.user-code');
+      if (submitBtn && userCode) {
+        const nUserCode = userCode.textContent.length;
+        submitBtn.disabled = nUserCode < 4;
       }
     });
   });

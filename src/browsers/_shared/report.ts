@@ -56,7 +56,11 @@ if (htmlParagraphElement) {
           row.appendChild(td1);
 
           const td2 = document.createElement('td');
-          if (item.name === 'source') {
+          if (item.name === 'url') {
+            td2.classList.add('shorten');
+            td2.innerText = item.value;
+            td2.onclick = () => alert(item.value);
+          } else if (item.name === 'source') {
             const rulesDetailsArea: HTMLElement =
               document.querySelector('div.rules-details');
             const closeRulesDetailsAreBtn = document.createElement('button');
