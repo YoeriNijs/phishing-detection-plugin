@@ -68,7 +68,7 @@ if (submitBtn) {
           storage.addWhitelistedUrl(domain);
 
           // Notify
-          alert(I18n.translate('domain-whitelisted'));
+          alert(I18n.translate('domain-whitelisted', domain));
 
           // Close current window
           const browserImpl = getBrowserImpl();
