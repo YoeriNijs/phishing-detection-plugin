@@ -6,26 +6,40 @@ const SPECIFIC_ING_RULES: PhishingRule[] = [
   {
     name: 'ing_phishing_include_rule_1',
     description: 'A phishing rule to detect ING phishing attempts',
-    phishingRuleType: 'contains',
+    phishingRuleType: 'startswith',
     value: 'ing',
     weight: 0.5
   },
   {
     name: 'ing_phishing_include_rule_2',
     description: 'A phishing rule to detect ING phishing attempts',
-    phishingRuleType: 'contains',
-    value: 'іng',
-    weight: 1
+    phishingRuleType: 'endswith',
+    value: 'ing',
+    weight: 0.5
   },
   {
     name: 'ing_phishing_include_rule_3',
+    description: 'A phishing rule to detect ING phishing attempts',
+    phishingRuleType: 'regex',
+    value: '[-_]*ing[-_]+|[-_]+ing[-_]*',
+    weight: 0.5
+  },
+  {
+    name: 'ing_phishing_include_rule_4',
+    description: 'A phishing rule to detect ING phishing attempts',
+    phishingRuleType: 'regex',
+    value: '[-_]*nl[-_]+|[-_]+nl[-_]*',
+    weight: 0.5
+  },
+  {
+    name: 'ing_phishing_include_rule_5',
     description: 'A phishing rule to detect ING phishing attempts',
     phishingRuleType: 'contains',
     value: 'íng',
     weight: 1
   },
   {
-    name: 'ing_phishing_include_rule_4',
+    name: 'ing_phishing_include_rule_6',
     description: 'A phishing rule to detect ING phishing attempts',
     phishingRuleType: 'contains',
     value: 'ïng',
@@ -35,13 +49,13 @@ const SPECIFIC_ING_RULES: PhishingRule[] = [
 
 export const ING_RULES: PhishingRules = {
   threshold: 1,
-  include: [...SPECIFIC_ING_RULES, ...ALL_DUTCH_KEYWORDS],
+  include: [...SPECIFIC_ING_RULES],
   exclude: [
     {
       name: 'ing_exclude_rule',
       description: 'A phishing rule to detect common scam keywords',
       phishingRuleType: 'host',
-      value: 'abnamro.nl',
+      value: 'ing.nl',
       weight: 99
     },
     {
