@@ -5,7 +5,34 @@ import {
 import { I18n } from './i18n/i18n';
 import { BadgeScorer } from './badge-scorer';
 
+interface DataItem {
+  name: string;
+  key: string;
+  value: string;
+}
+
 const htmlParagraphElement: HTMLParagraphElement = document.querySelector('p');
+
+function showReport(item: DataItem) {
+  const overlay: HTMLElement = document.querySelector('div.report-overlay');
+  if (overlay) {
+    overlay.style.display = 'flex';
+    overlay.onclick = () => (overlay.style.display = 'none');
+
+    const closeButton: HTMLElement = document.querySelector(
+      'button.close-report'
+    );
+    if (closeButton) {
+      closeButton.innerText = I18n.translate('close');
+    }
+
+    const report: HTMLElement = document.querySelector('div.report');
+    if (report) {
+      report.innerText = item.value;
+    }
+  }
+}
+
 if (htmlParagraphElement) {
   const browserImpl = getBrowserImpl();
   browserImpl.tabs.query({ active: true, currentWindow: true }, tabs => {
@@ -19,7 +46,7 @@ if (htmlParagraphElement) {
           rules,
           currentUrl
         );
-        const data = [
+        const data: DataItem[] = [
           {
             name: 'url',
             key: I18n.translate('url'),
@@ -63,7 +90,7 @@ if (htmlParagraphElement) {
           if (item.name === 'url') {
             td2.classList.add('shorten');
             td2.innerText = item.value;
-            td2.onclick = () => alert(item.value);
+            td2.onclick = () => showReport(item);
           } else if (item.name === 'source') {
             const rulesDetailsArea: HTMLElement =
               document.querySelector('div.rules-details');
