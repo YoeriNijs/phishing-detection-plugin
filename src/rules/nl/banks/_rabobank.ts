@@ -60,34 +60,6 @@ const SPECIFIC_RABOBANK_RULES: PhishingRule[] = [
     weight: 0.5
   },
   {
-    name: 'rabo_phishing_include_rule_9',
-    description: 'A phishing rule to detect rabobank phishing attempts',
-    phishingRuleType: 'contains',
-    value: '.com',
-    weight: 0.5
-  },
-  {
-    name: 'rabo_phishing_include_rule_10',
-    description: 'A phishing rule to detect rabobank phishing attempts',
-    phishingRuleType: 'contains',
-    value: '.cc',
-    weight: 0.5
-  },
-  {
-    name: 'rabo_phishing_include_rule_11',
-    description: 'A phishing rule to detect rabobank phishing attempts',
-    phishingRuleType: 'contains',
-    value: '.info',
-    weight: 0.5
-  },
-  {
-    name: 'rabo_phishing_include_rule_12',
-    description: 'A phishing rule to detect rabobank phishing attempts',
-    phishingRuleType: 'contains',
-    value: '.xyz',
-    weight: 0.5
-  },
-  {
     name: 'rabo_phishing_include_rule_13',
     description: 'A phishing rule to detect common scam keywords',
     phishingRuleType: 'regex',
