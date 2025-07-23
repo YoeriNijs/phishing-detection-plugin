@@ -45,4 +45,18 @@ describe('I18n tests', () => {
     const translation = I18n.translate('this-does-totally-not-exist');
     expect(translation).toBe('this-does-totally-not-exist');
   });
+
+  it('should translate value with %s', () => {
+    Object.defineProperty(window.navigator, 'language', {
+      value: 'nl-NL',
+      configurable: true
+    });
+    const translation = I18n.translate(
+      'domain-whitelisted',
+      'https://www.google.com'
+    );
+    expect(translation).toBe(
+      "Het domein 'https://www.google.com' is uitgesloten."
+    );
+  });
 });

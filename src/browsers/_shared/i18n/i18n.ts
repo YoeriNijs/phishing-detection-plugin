@@ -7,13 +7,20 @@ export class I18n {
     // do not instantiate
   }
 
-  static translate(key: string) {
+  static translate(key: string, ...translations: string[]) {
     const languageSet = this.determineLanguageSet();
     const translation = languageSet.find(
       k => k.key.toLowerCase() === key.toLowerCase()
     );
     if (translation) {
-      return translation.value;
+      return translations.reduce((prev, curr) => {
+        const index = prev.indexOf('%s');
+        if (index === -1) {
+          return curr;
+        } else {
+          return prev.slice(0, index) + curr + prev.slice(index + 2);
+        }
+      }, translation.value);
     } else {
       return key; // Just return the key
     }

@@ -23,7 +23,7 @@ export const LANG_NL: ILanguageItem[] = [
   },
   {
     key: 'domain-whitelisted',
-    value: 'Het domein is uitgesloten.'
+    value: "Het domein '%s' is uitgesloten."
   },
   {
     key: 'domain-whitelist-warning',
@@ -40,7 +40,7 @@ export const LANG_NL: ILanguageItem[] = [
   {
     key: 'possible-phishing-attempt-details',
     value:
-      'Je probeerde een pagina te bezoeken waar mogelijk een phishingsite op actief is. Pas de URL aan en probeer het opnieuw.'
+      'Je probeerde een pagina te bezoeken waar mogelijk een phishingsite op actief is. Controleer de URL en probeer het opnieuw.'
   },
   {
     key: 'phishing-settings-title',

@@ -9,7 +9,7 @@ export interface IStorage {
 
   addWhitelistedUrl(url: string): void;
 
-  updateTempUrl(tempUrl: string): void;
+  updateLastKnownPhishingUrl(url: string): void;
 
   getTempUrl(fn: (url: string) => void): void;
 }
