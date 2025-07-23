@@ -23,7 +23,7 @@ export const LANG_EN: ILanguageItem[] = [
   },
   {
     key: 'domain-whitelisted',
-    value: 'The domain is added to the whitelist.'
+    value: "The domain '%s' is added to the whitelist."
   },
   {
     key: 'domain-whitelist-warning',

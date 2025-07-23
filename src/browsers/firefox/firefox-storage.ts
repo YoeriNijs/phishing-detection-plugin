@@ -64,7 +64,7 @@ export class FirefoxStorage implements IStorage {
     });
   }
 
-  updateTempUrl(tempUrl: string): void {
+  updateLastKnownPhishingUrl(tempUrl: string): void {
     const baseUrl = this.getBaseUrl(tempUrl);
     browser.storage.local.get('settings').then(storageObject => {
       const updatedStorageObject: PluginStorageObject = {
@@ -72,7 +72,7 @@ export class FirefoxStorage implements IStorage {
           rules: (storageObject as PluginStorageObject).settings.rules,
           whitelistedUrls: (storageObject as PluginStorageObject).settings
             .whitelistedUrls,
-          tempUrl: baseUrl
+          lastKnownPhishingUrl: baseUrl
         }
       };
       return browser.storage.local.set(updatedStorageObject);
@@ -83,7 +83,7 @@ export class FirefoxStorage implements IStorage {
     browser.storage.local
       .get('settings')
       .then((storageObject: PluginStorageObject) => {
-        const url = storageObject.settings.tempUrl || undefined;
+        const url = storageObject.settings.lastKnownPhishingUrl || undefined;
         if (url) {
           fn(url);
         }

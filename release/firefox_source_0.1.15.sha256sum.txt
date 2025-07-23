@@ -1,1 +1,0 @@
-c86e30f61bb0e022448f372ffcd6b1ff77b1388b37a97ed34cda422539e819cf  ../../release/firefox_source_0.1.15.zip

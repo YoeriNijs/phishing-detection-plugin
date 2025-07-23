@@ -4,6 +4,6 @@ export interface PluginStorageObject {
   settings: {
     rules: PhishingRules[];
     whitelistedUrls: string[];
-    tempUrl?: string;
+    lastKnownPhishingUrl?: string;
   };
 }

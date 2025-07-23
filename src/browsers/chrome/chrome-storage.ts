@@ -66,7 +66,7 @@ export class ChromeStorage implements IStorage {
     });
   }
 
-  updateTempUrl(tempUrl: string): void {
+  updateLastKnownPhishingUrl(tempUrl: string): void {
     const baseUrl = this.getBaseUrl(tempUrl);
     chrome.storage.local.get('settings', storageObject => {
       const updatedStorageObject: PluginStorageObject = {
@@ -74,7 +74,7 @@ export class ChromeStorage implements IStorage {
           rules: (storageObject as PluginStorageObject).settings.rules,
           whitelistedUrls: (storageObject as PluginStorageObject).settings
             .whitelistedUrls,
-          tempUrl: baseUrl
+          lastKnownPhishingUrl: baseUrl
         }
       };
       chrome.storage.local.set(updatedStorageObject);
@@ -85,7 +85,8 @@ export class ChromeStorage implements IStorage {
     chrome.storage.local.get(
       'settings',
       (chromeStorageObject: PluginStorageObject) => {
-        const url = chromeStorageObject.settings.tempUrl || undefined;
+        const url =
+          chromeStorageObject.settings.lastKnownPhishingUrl || undefined;
         if (url) {
           fn(url);
         }
