@@ -14,7 +14,11 @@ if (htmlParagraphElement) {
       const currentUrl = currentTab.url;
       const storage = createStorageForBrowserImpl();
       storage.getRules(rules => {
-        const resultWithHighestScore = BadgeScorer.calculate(rules, currentUrl);
+        const resultWithHighestScore = BadgeScorer.calculate(
+          [],
+          rules,
+          currentUrl
+        );
         const data = [
           {
             name: 'url',

@@ -15,9 +15,14 @@ export class BadgeScorer {
     // Do not instantiate
   }
 
-  static calculate(rules: PhishingRules[], url: string): BadgeScore {
-    const engine = new Engine([], ...rules);
+  static calculate(
+    communityUrls: string[],
+    rules: PhishingRules[],
+    url: string
+  ): BadgeScore {
+    const engine = new Engine(communityUrls, ...rules);
     const results = engine.detect(url);
+    console.log('results', results);
     const resultWithHighestScore = results
       .sort((a, b) => {
         if (a.phishingProbability > b.phishingProbability) {
