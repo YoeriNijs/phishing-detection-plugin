@@ -1,0 +1,1 @@
+23a7e469894308389de73ac7b725237f5c5cbb5bc9f87d5e791a190dde7a2408  ../../release/chrome_plugin_0.1.19.crx
