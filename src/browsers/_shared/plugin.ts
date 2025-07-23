@@ -57,6 +57,18 @@ export class PhishingDetectionPlugin {
         this.loadCommunityUrls();
         this.setWhitelistedUrls();
 
+        // Close all previous phishing tabs first. If the user has activated
+        // another tab, we assume he is not interested anymore in the phishing
+        // tab, so we close it for him in order to protect further unwanted
+        // interactions. Also, this helps us to prevent messy behaviour with
+        // other new phishing detections, since we may have multiple phishing
+        // urls to deal with.
+        Array.from(this._tabIdsAndDetectionResults)
+          .filter(item => item.detectionResults)
+          .filter(item => item.detectionResults.some(r => r.isPhishing))
+          .map(item => item.tabId)
+          .forEach(tabId => this._browserImpl.tabs.remove(tabId));
+
         const activeTabResults = Array.from(
           this._tabIdsAndDetectionResults
         ).find(item => item.tabId === tab.id);
