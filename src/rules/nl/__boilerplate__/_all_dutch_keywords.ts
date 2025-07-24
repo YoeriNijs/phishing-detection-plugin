@@ -615,5 +615,12 @@ export const ALL_DUTCH_KEYWORDS: PhishingRule[] = [
     phishingRuleType: 'contains',
     value: 'sim-',
     weight: 0.5
+  },
+  {
+    name: 'nl_keyword',
+    description: 'A phishing rule to detect common scam keywords',
+    phishingRuleType: 'contains',
+    value: '-sim',
+    weight: 0.5
   }
 ];

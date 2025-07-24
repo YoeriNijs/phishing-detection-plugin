@@ -83,9 +83,9 @@ export class PhishingDetectionPlugin {
         const isWhitelisted = this._whitelistedUrls.some(wlu =>
           activeTabResults.url.startsWith(wlu)
         );
-        const isPhishing = activeTabResults.detectionResults.some(
-          res => res.isPhishing
-        );
+        const isPhishing =
+          activeTabResults.detectionResults &&
+          activeTabResults.detectionResults.some(res => res.isPhishing);
         const badgeScore = BadgeScorer.calculate(
           this._communityUrls,
           this._rules,
@@ -122,9 +122,9 @@ export class PhishingDetectionPlugin {
         const isWhitelisted = this._whitelistedUrls.some(wlu =>
           url.startsWith(wlu)
         );
-        const isPhishing = itemToUpdate.detectionResults.some(
-          res => res.isPhishing
-        );
+        const isPhishing =
+          itemToUpdate.detectionResults &&
+          itemToUpdate.detectionResults.some(res => res.isPhishing);
         const badgeScore = BadgeScorer.calculate(
           this._communityUrls,
           this._rules,
@@ -186,7 +186,9 @@ export class PhishingDetectionPlugin {
 
   private setWhitelistedUrls() {
     this._storage.getWhitelistedUrls((whitelistedUrls: string[]) => {
-      this._whitelistedUrls = whitelistedUrls;
+      if (whitelistedUrls && Array.isArray(whitelistedUrls)) {
+        this._whitelistedUrls = whitelistedUrls;
+      }
     });
   }
 

@@ -11,9 +11,10 @@ const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
       "n1" (typo with number)
       "n-l" (hyphenated)
       "nl" (without hyphen)
+      "nl-"
     `,
     phishingRuleType: 'regex',
-    value: 'b[-]?n[l1]\\b',
+    value: 'b[-]?n[l1][-]?\\b',
     weight: 0.5
   },
   {
@@ -21,6 +22,13 @@ const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
     description: `Regex rule for detecting "-nl" with homoglyphs`,
     phishingRuleType: 'regex',
     value: '\\b[-]?n[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯]\\b',
+    weight: 0.5
+  },
+  {
+    name: 'generic_isp_phishing_homoglyps',
+    description: `Regex rule for detecting "nl-" with homoglyphs`,
+    phishingRuleType: 'regex',
+    value: '\\bn[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯][-]?\\b',
     weight: 0.5
   },
   {
