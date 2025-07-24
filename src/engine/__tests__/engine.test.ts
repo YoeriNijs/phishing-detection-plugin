@@ -35,6 +35,24 @@ describe('Engine tests', () => {
     });
   });
 
+  it.each([undefined, null, ''])(
+    'should return no phishing result when url is %s',
+    scenario => {
+      const rule = createContainsRule({ value: 'google.com', weight: 1 });
+      const engine = new Engine([], { include: [rule], threshold: 0.5 });
+      const [result] = engine.detect(scenario);
+      expect(result).toEqual({
+        isPhishing: false,
+        phishingProbability: 0,
+        threshold: 0,
+        matchingRules: {
+          exclude: [],
+          include: []
+        }
+      });
+    }
+  );
+
   it('should run isPhishing false and isPhishingProbability 0 when exclude is empty', () => {
     const engine = new Engine([], { exclude: [], threshold: 0.9 });
     const [result] = engine.detect('https://some_evil_domain.com');
