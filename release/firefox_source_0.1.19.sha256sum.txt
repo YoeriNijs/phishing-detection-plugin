@@ -1,1 +1,0 @@
-8f9c5834a021a486d05755a89b4111fa85b9df47bdd9c9caf3a010c43bd7f96b  ../../release/firefox_source_0.1.19.zip
