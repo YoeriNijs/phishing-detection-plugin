@@ -1,6 +1,6 @@
 {
   "name": "phishing-detection-plugin",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "A modular phishing detection plugin for Chrome and Firefox",
   "main": "index.js",
   "type": "module",
