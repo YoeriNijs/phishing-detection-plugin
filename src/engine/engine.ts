@@ -35,7 +35,7 @@ export class Engine {
 
   detect(url: string): DetectionResult[] {
     // When we have no rules, then just mark the url as safe
-    if (this._rules_sets.length < 1) {
+    if (this._rules_sets.length < 1 || !url) {
       return [NO_PHISHING_RESULT];
     }
 
