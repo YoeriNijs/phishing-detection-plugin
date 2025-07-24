@@ -841,6 +841,13 @@
         "phishingRuleType": "contains",
         "value": "sim-",
         "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "-sim",
+        "weight": 0.5
       }
     ],
     "exclude": [
@@ -1505,6 +1512,13 @@
         "description": "A phishing rule to detect common scam keywords",
         "phishingRuleType": "contains",
         "value": "sim-",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "-sim",
         "weight": 0.5
       }
     ],
@@ -2227,6 +2241,13 @@
         "phishingRuleType": "contains",
         "value": "sim-",
         "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "-sim",
+        "weight": 0.5
       }
     ],
     "exclude": [
@@ -2871,6 +2892,13 @@
         "phishingRuleType": "contains",
         "value": "sim-",
         "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "-sim",
+        "weight": 0.5
       }
     ],
     "exclude": [
@@ -2895,9 +2923,9 @@
     "include": [
       {
         "name": "generic_isp_phishing_typosquats",
-        "description": "\n      This regex will match:\n      \"-nl\"\n      \"n1\" (typo with number)\n      \"n-l\" (hyphenated)\n      \"nl\" (without hyphen)\n    ",
+        "description": "\n      This regex will match:\n      \"-nl\"\n      \"n1\" (typo with number)\n      \"n-l\" (hyphenated)\n      \"nl\" (without hyphen)\n      \"nl-\"\n    ",
         "phishingRuleType": "regex",
-        "value": "b[-]?n[l1]\\b",
+        "value": "b[-]?n[l1][-]?\\b",
         "weight": 0.5
       },
       {
@@ -2905,6 +2933,13 @@
         "description": "Regex rule for detecting \"-nl\" with homoglyphs",
         "phishingRuleType": "regex",
         "value": "\\b[-]?n[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯]\\b",
+        "weight": 0.5
+      },
+      {
+        "name": "generic_isp_phishing_homoglyps",
+        "description": "Regex rule for detecting \"nl-\" with homoglyphs",
+        "phishingRuleType": "regex",
+        "value": "\\bn[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯][-]?\\b",
         "weight": 0.5
       },
       {
@@ -3570,6 +3605,13 @@
         "description": "A phishing rule to detect common scam keywords",
         "phishingRuleType": "contains",
         "value": "sim-",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "-sim",
         "weight": 0.5
       }
     ],

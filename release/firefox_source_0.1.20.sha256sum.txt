@@ -1,1 +1,0 @@
-57f20b10a6c5838011669dde54e86c8ad364cf5e7b2d70fd5fe945b0707711d4  ../../release/firefox_source_0.1.20.zip
