@@ -1,0 +1,1 @@
+e5980169c1724740420c1e307f8302aee271c00b31d9b396a124e5377dc409f2  ../../release/chrome_plugin_0.1.22.crx
