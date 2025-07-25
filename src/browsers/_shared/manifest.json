@@ -31,18 +31,6 @@
   "content_security_policy": {
     "extension_pages": "script-src 'self';"
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "*://*/*"
-      ],
-      "js": [
-        "settings.js",
-        "report.js",
-        "unblock.js"
-      ]
-    }
-  ],
   "icons": {
     "48": "shield.png"
   },
