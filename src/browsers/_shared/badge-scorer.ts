@@ -22,7 +22,6 @@ export class BadgeScorer {
   ): BadgeScore {
     const engine = new Engine(communityUrls, ...rules);
     const results = engine.detect(url);
-    console.log('results', results);
     const resultWithHighestScore = results
       .sort((a, b) => {
         if (a.phishingProbability > b.phishingProbability) {

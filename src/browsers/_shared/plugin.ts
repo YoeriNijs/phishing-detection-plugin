@@ -142,6 +142,7 @@ export class PhishingDetectionPlugin {
       // If we have an URL, this means that we have something to check on. So check it, and then update the state in
       // our tabs set. Also, report the phishing detection, and redirect the user to the unblock page if it is phishing.
       const detectionResults: DetectionResult[] = this.detectPhishing(url);
+      console.log(`URL: ${url}`, detectionResults);
       const updatedItem = Object.assign({}, itemToUpdate);
       this._tabIdsAndDetectionResults.delete(itemToUpdate);
       updatedItem.url = tab.url;
