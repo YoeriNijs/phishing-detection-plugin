@@ -8,7 +8,7 @@ const SPECIFIC_BUNQ_RULES: PhishingRule[] = [
     description: 'A phishing rule to detect bunq typosquats',
     phishingRuleType: 'regex',
     value:
-      '\\b[b6][uuv][nм][qg]\\b|\\bbunq\\b|\\b[b6][uuv][nм][qg]{0,1}\\w{0,2}\\b|\\b[b6][uuv]{0,1}[nм]{0,1}[qg]{0,1}\\w{0,2}\\b',
+      '/\\b[b6][uuv][nм][qg]\\b|\\bbunq\\b|\\b[b6][uuv][nм][qg]{0,1}\\w{0,2}\\b|\\b[b6][uuv]{0,1}[nм]{0,1}[qg]{0,1}\\w{0,2}\\b/',
     weight: 0.5
   },
   {
@@ -16,7 +16,7 @@ const SPECIFIC_BUNQ_RULES: PhishingRule[] = [
     description: 'A phishing rule to detect bunq homoglyps',
     phishingRuleType: 'regex',
     value:
-      '\\b[6b][uuv][nм][qg9]\\b|\\bbunq\\b|\\b[6b][uuv]{0,1}[nм]{0,1}[qg9]{0,1}\\w{0,2}\\b',
+      '/\\b[6b][uuv][nм][qg9]\\b|\\bbunq\\b|\\b[6b][uuv]{0,1}[nм]{0,1}[qg9]{0,1}\\w{0,2}\\b/',
     weight: 0.5
   }
 ];

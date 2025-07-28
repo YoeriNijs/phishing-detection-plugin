@@ -23,14 +23,14 @@ const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
     name: 'generic_isp_phishing_homoglyps',
     description: `Regex rule for detecting "-nl" with homoglyphs`,
     phishingRuleType: 'regex',
-    value: '\\b[-]?n[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯]\\b',
+    value: '/\\b[-]?n[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯]\\b/',
     weight: 0.5
   },
   {
     name: 'generic_isp_phishing_homoglyps',
     description: `Regex rule for detecting "nl-" with homoglyphs`,
     phishingRuleType: 'regex',
-    value: '\\bn[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯][-]?\\b',
+    value: '/\\bn[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯][-]?\\b/',
     weight: 0.5
   },
   {
@@ -38,7 +38,7 @@ const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
     description: `A regex pattern that can find variations of the word "odido" with potential typosquats`,
     phishingRuleType: 'regex',
     value:
-      '\\b[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?\\b',
+      '/\\b[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?\\b/',
     weight: 0.5
   },
   {
@@ -46,7 +46,7 @@ const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
     description: `A regex pattern that can find variations of the word "vodafone" with potential typosquats`,
     phishingRuleType: 'regex',
     value:
-      '\\b[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}|[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}|[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}\\b',
+      '/\\b[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}|[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}|[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}\\b/',
     weight: 0.5
   },
   {
@@ -54,7 +54,7 @@ const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
     description: `A regex pattern that can find variations of the word "kpn" with potential typosquats`,
     phishingRuleType: 'regex',
     value:
-      '\\b[k]{1,2}[p]{1,2}[n]{1,2}|[k]{1,2}[p]{1,2}[n]{1,2}|[k]{1,2}[p]{1,2}[n]{1,2}\\b',
+      '/\\b[k]{1,2}[p]{1,2}[n]{1,2}|[k]{1,2}[p]{1,2}[n]{1,2}|[k]{1,2}[p]{1,2}[n]{1,2}\\b/',
     weight: 0.5
   },
   {
@@ -62,21 +62,21 @@ const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
     description: `A regex pattern that can find variations of the word "ziggo" with potential typosquats`,
     phishingRuleType: 'regex',
     value:
-      '\\b[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}|[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}|[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}\\b',
+      '/\\b[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}|[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}|[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}\\b/',
     weight: 0.5
   },
   {
     name: 'generic_isp_phishing_kpn_homoglyps',
     description: `A regex pattern that can find variations of the word "kpn" with potential homoglyps`,
     phishingRuleType: 'regex',
-    value: '\\b[k|к|q|K]{1,2}[p|р|P]{1,2}[n|и|N]{1,2}\\b',
+    value: '/\\b[k|к|q|K]{1,2}[p|р|P]{1,2}[n|и|N]{1,2}\\b/',
     weight: 0.5
   },
   {
     name: 'generic_isp_phishing_odido_homoglyps',
     description: `A regex pattern that can find variations of the word "odido" with potential homoglyps`,
     phishingRuleType: 'regex',
-    value: '\\b[o|0|о]{1,2}[d|д]{1,2}[i|1|и]{1,2}[d|д]{1,2}[o|0|о]{1,2}\\b',
+    value: '/\\b[o|0|о]{1,2}[d|д]{1,2}[i|1|и]{1,2}[d|д]{1,2}[o|0|о]{1,2}\\b/',
     weight: 0.5
   },
   {
@@ -84,14 +84,15 @@ const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
     description: `A regex pattern that can find variations of the word "vodafone" with potential homoglyps`,
     phishingRuleType: 'regex',
     value:
-      '\\b[v|v|5]{1,2}[o|0|о]{1,2}[d|д]{1,2}[a|4|а]{1,2}[f|ф]{1,2}[o|0|о]{1,2}[n|и|N]{1,2}[e|3|е]{1,2}\\b',
+      '/\\b[v|v|5]{1,2}[o|0|о]{1,2}[d|д]{1,2}[a|4|а]{1,2}[f|ф]{1,2}[o|0|о]{1,2}[n|и|N]{1,2}[e|3|е]{1,2}\\b/',
     weight: 0.5
   },
   {
     name: 'generic_isp_phishing_ziggo_homoglyps',
     description: `A regex pattern that can find variations of the word "ziggo" with potential homoglyps`,
     phishingRuleType: 'regex',
-    value: '\\b[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}\\b',
+    value:
+      '/\\b[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}\\b/',
     weight: 0.5
   }
 ];
@@ -140,7 +141,7 @@ export const GENERIC_ISP_RULES: PhishingRules = {
       description: 'dot nl',
       phishingRuleType: 'contains',
       value: '.nl',
-      weight: 0.5
+      weight: 99
     }
   ]
 };

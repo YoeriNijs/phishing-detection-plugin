@@ -111,6 +111,9 @@ export class PhishingDetectionPlugin {
       // We expect a tab state here (which was created in the onCreated events). If it does not exist here, this means
       // that we made an error.
       if (!itemToUpdate) {
+        // TODO: decide whether we need to keep this here, since it may cause unwanted behaviour.
+        this.updateResult('report.html', '--');
+
         throw new NotCreatedTabIdAndDetectionResults(
           `Not created tabId ${tab.id}, while it should be!`
         );
@@ -142,7 +145,13 @@ export class PhishingDetectionPlugin {
       // If we have an URL, this means that we have something to check on. So check it, and then update the state in
       // our tabs set. Also, report the phishing detection, and redirect the user to the unblock page if it is phishing.
       const detectionResults: DetectionResult[] = this.detectPhishing(url);
-      console.log(`URL: ${url}`, detectionResults);
+
+      // Log for transparency/debug
+      console.log(
+        `URL: ${url}. Enable debug logging for applicable rules.`,
+        detectionResults
+      );
+
       const updatedItem = Object.assign({}, itemToUpdate);
       this._tabIdsAndDetectionResults.delete(itemToUpdate);
       updatedItem.url = tab.url;
