@@ -50,7 +50,7 @@ export const WETRANSFER_RULES: PhishingRules = {
       description: 'A phishing rule to detect common scam keywords',
       phishingRuleType: 'regex',
       value:
-        '\\bhttps?://[^\\s/$.?#].[^\\s]*\\.(help|info|cc|xyz|tk|icu)([^\\s]*)?\\b',
+        '/\\bhttps?://[^\\s/$.?#].[^\\s]*\\.(help|info|cc|xyz|tk|icu)([^\\s]*)?\\b/',
       weight: 0.5
     }
   ],

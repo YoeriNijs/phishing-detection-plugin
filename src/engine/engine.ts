@@ -85,7 +85,10 @@ export class Engine {
       rules.include
         .filter(r => r.phishingRuleType === type)
         .filter(r => phishingRuleImpl.isApplicable(r, url))
-        .map(r => r.weight)
+        .map(r => {
+          console.debug(`Applicable rule for url ${url}`, r);
+          return r.weight;
+        })
         .forEach((weight: number) => (totalWeight += weight));
     }
 

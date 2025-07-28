@@ -8,10 +8,10 @@ const SPECIFIC_ABN_AMRO_RULES: PhishingRule[] = [
     description: 'A phishing rule to detect ABN AMRO typosquats',
     phishingRuleType: 'regex',
     value:
-      '\\b[aA][bB][nN][aA][mM][rR][oO]\\b| \n' +
+      '/\\b[aA][bB][nN][aA][mM][rR][oO]\\b| \n' +
       '\\b[aA][bB][nN][aA][mM][rR][0o]\\b| \n' +
       '\\b[aA][bB][nN][aA][mM][rR][oO][wW]?\\b| \n' +
-      '\\b[aA][bB][nN][aA][mM][rR][oO][.]{0,1}[cC][oO][mM]?\\b',
+      '\\b[aA][bB][nN][aA][mM][rR][oO][.]{0,1}[cC][oO][mM]?\\b/',
     weight: 0.5
   },
   {
@@ -19,7 +19,7 @@ const SPECIFIC_ABN_AMRO_RULES: PhishingRule[] = [
     description: 'A phishing rule to detect ABN AMRO homoglyps',
     phishingRuleType: 'regex',
     value:
-      '\\b[aA][bB][nN][aA][mM][rR][oO]|[aA][bB][nN][aA][mM][rR][0O]|[aA][bB][nN][aA][mM][rR][оO]|[aA][bB][nN][aA][mM][rR][оO]|[aA][bB][nN][aA][mM][rR][oO][wW]?\\b',
+      '/\\b[aA][bB][nN][aA][mM][rR][oO]|[aA][bB][nN][aA][mM][rR][0O]|[aA][bB][nN][aA][mM][rR][оO]|[aA][bB][nN][aA][mM][rR][оO]|[aA][bB][nN][aA][mM][rR][oO][wW]?\\b/',
     weight: 0.5
   }
 ];

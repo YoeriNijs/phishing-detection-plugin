@@ -10,7 +10,7 @@ async function showRules() {
     document.querySelector('textarea');
   if (settingsTextArea) {
     storage.getRules(rules => {
-      console.log('rules', rules);
+      console.debug('Stored rules', rules);
       settingsTextArea.value = JSON.stringify(rules, null, 4); // 4 spaces for indentation
     });
   }
