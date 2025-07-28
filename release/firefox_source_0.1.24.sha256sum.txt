@@ -1,0 +1,1 @@
+700598a1d9c93662428bb44c2aa19e2c4a1422c825346b56d823c53d567677a8  ../../release/firefox_source_0.1.24.zip

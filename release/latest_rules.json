@@ -115,7 +115,7 @@
         "name": "wetransfer-rule",
         "description": "A phishing rule to detect common scam keywords",
         "phishingRuleType": "regex",
-        "value": "\\bhttps?://[^\\s/$.?#].[^\\s]*\\.(help|info|cc|xyz|tk|icu)([^\\s]*)?\\b",
+        "value": "/\\bhttps?://[^\\s/$.?#].[^\\s]*\\.(help|info|cc|xyz|tk|icu)([^\\s]*)?\\b/",
         "weight": 0.5
       }
     ],
@@ -895,14 +895,14 @@
         "name": "bunq_phishing_rule",
         "description": "A phishing rule to detect bunq typosquats",
         "phishingRuleType": "regex",
-        "value": "\\b[b6][uuv][nм][qg]\\b|\\bbunq\\b|\\b[b6][uuv][nм][qg]{0,1}\\w{0,2}\\b|\\b[b6][uuv]{0,1}[nм]{0,1}[qg]{0,1}\\w{0,2}\\b",
+        "value": "/\\b[b6][uuv][nм][qg]\\b|\\bbunq\\b|\\b[b6][uuv][nм][qg]{0,1}\\w{0,2}\\b|\\b[b6][uuv]{0,1}[nм]{0,1}[qg]{0,1}\\w{0,2}\\b/",
         "weight": 0.5
       },
       {
         "name": "bunq_phishing_rule",
         "description": "A phishing rule to detect bunq homoglyps",
         "phishingRuleType": "regex",
-        "value": "\\b[6b][uuv][nм][qg9]\\b|\\bbunq\\b|\\b[6b][uuv]{0,1}[nм]{0,1}[qg9]{0,1}\\w{0,2}\\b",
+        "value": "/\\b[6b][uuv][nм][qg9]\\b|\\bbunq\\b|\\b[6b][uuv]{0,1}[nм]{0,1}[qg9]{0,1}\\w{0,2}\\b/",
         "weight": 0.5
       },
       {
@@ -1623,14 +1623,14 @@
         "name": "abn_amro_phishing_rule",
         "description": "A phishing rule to detect ABN AMRO typosquats",
         "phishingRuleType": "regex",
-        "value": "\\b[aA][bB][nN][aA][mM][rR][oO]\\b| \n\\b[aA][bB][nN][aA][mM][rR][0o]\\b| \n\\b[aA][bB][nN][aA][mM][rR][oO][wW]?\\b| \n\\b[aA][bB][nN][aA][mM][rR][oO][.]{0,1}[cC][oO][mM]?\\b",
+        "value": "/\\b[aA][bB][nN][aA][mM][rR][oO]\\b| \n\\b[aA][bB][nN][aA][mM][rR][0o]\\b| \n\\b[aA][bB][nN][aA][mM][rR][oO][wW]?\\b| \n\\b[aA][bB][nN][aA][mM][rR][oO][.]{0,1}[cC][oO][mM]?\\b/",
         "weight": 0.5
       },
       {
         "name": "abn_amro_phishing_rule",
         "description": "A phishing rule to detect ABN AMRO homoglyps",
         "phishingRuleType": "regex",
-        "value": "\\b[aA][bB][nN][aA][mM][rR][oO]|[aA][bB][nN][aA][mM][rR][0O]|[aA][bB][nN][aA][mM][rR][оO]|[aA][bB][nN][aA][mM][rR][оO]|[aA][bB][nN][aA][mM][rR][oO][wW]?\\b",
+        "value": "/\\b[aA][bB][nN][aA][mM][rR][oO]|[aA][bB][nN][aA][mM][rR][0O]|[aA][bB][nN][aA][mM][rR][оO]|[aA][bB][nN][aA][mM][rR][оO]|[aA][bB][nN][aA][mM][rR][oO][wW]?\\b/",
         "weight": 0.5
       },
       {
@@ -2932,70 +2932,70 @@
         "name": "generic_isp_phishing_homoglyps",
         "description": "Regex rule for detecting \"-nl\" with homoglyphs",
         "phishingRuleType": "regex",
-        "value": "\\b[-]?n[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯]\\b",
+        "value": "/\\b[-]?n[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯]\\b/",
         "weight": 0.5
       },
       {
         "name": "generic_isp_phishing_homoglyps",
         "description": "Regex rule for detecting \"nl-\" with homoglyphs",
         "phishingRuleType": "regex",
-        "value": "\\bn[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯][-]?\\b",
+        "value": "/\\bn[l1|𝑙|ℓ|l̷|ĺ|l̀|l̃|l̄|l̅|l̈|l̇|l̩|l̪|l̬|l̯][-]?\\b/",
         "weight": 0.5
       },
       {
         "name": "generic_isp_phishing_odido_typosquats",
         "description": "A regex pattern that can find variations of the word \"odido\" with potential typosquats",
         "phishingRuleType": "regex",
-        "value": "\\b[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?\\b",
+        "value": "/\\b[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?|[o0]?d{1,2}[i1]?d{1,2}[o0]?\\b/",
         "weight": 0.5
       },
       {
         "name": "generic_isp_phishing_vodafone_typosquats",
         "description": "A regex pattern that can find variations of the word \"vodafone\" with potential typosquats",
         "phishingRuleType": "regex",
-        "value": "\\b[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}|[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}|[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}\\b",
+        "value": "/\\b[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}|[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}|[v5]?[o0]?d{1,2}[a4]?f{1,2}[o0]?n{1,2}e{1,2}\\b/",
         "weight": 0.5
       },
       {
         "name": "generic_isp_phishing_kpn_typosquats",
         "description": "A regex pattern that can find variations of the word \"kpn\" with potential typosquats",
         "phishingRuleType": "regex",
-        "value": "\\b[k]{1,2}[p]{1,2}[n]{1,2}|[k]{1,2}[p]{1,2}[n]{1,2}|[k]{1,2}[p]{1,2}[n]{1,2}\\b",
+        "value": "/\\b[k]{1,2}[p]{1,2}[n]{1,2}|[k]{1,2}[p]{1,2}[n]{1,2}|[k]{1,2}[p]{1,2}[n]{1,2}\\b/",
         "weight": 0.5
       },
       {
         "name": "generic_isp_phishing_ziggo_typosquats",
         "description": "A regex pattern that can find variations of the word \"ziggo\" with potential typosquats",
         "phishingRuleType": "regex",
-        "value": "\\b[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}|[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}|[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}\\b",
+        "value": "/\\b[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}|[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}|[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}\\b/",
         "weight": 0.5
       },
       {
         "name": "generic_isp_phishing_kpn_homoglyps",
         "description": "A regex pattern that can find variations of the word \"kpn\" with potential homoglyps",
         "phishingRuleType": "regex",
-        "value": "\\b[k|к|q|K]{1,2}[p|р|P]{1,2}[n|и|N]{1,2}\\b",
+        "value": "/\\b[k|к|q|K]{1,2}[p|р|P]{1,2}[n|и|N]{1,2}\\b/",
         "weight": 0.5
       },
       {
         "name": "generic_isp_phishing_odido_homoglyps",
         "description": "A regex pattern that can find variations of the word \"odido\" with potential homoglyps",
         "phishingRuleType": "regex",
-        "value": "\\b[o|0|о]{1,2}[d|д]{1,2}[i|1|и]{1,2}[d|д]{1,2}[o|0|о]{1,2}\\b",
+        "value": "/\\b[o|0|о]{1,2}[d|д]{1,2}[i|1|и]{1,2}[d|д]{1,2}[o|0|о]{1,2}\\b/",
         "weight": 0.5
       },
       {
         "name": "generic_isp_phishing_vodafone_homoglyps",
         "description": "A regex pattern that can find variations of the word \"vodafone\" with potential homoglyps",
         "phishingRuleType": "regex",
-        "value": "\\b[v|v|5]{1,2}[o|0|о]{1,2}[d|д]{1,2}[a|4|а]{1,2}[f|ф]{1,2}[o|0|о]{1,2}[n|и|N]{1,2}[e|3|е]{1,2}\\b",
+        "value": "/\\b[v|v|5]{1,2}[o|0|о]{1,2}[d|д]{1,2}[a|4|а]{1,2}[f|ф]{1,2}[o|0|о]{1,2}[n|и|N]{1,2}[e|3|е]{1,2}\\b/",
         "weight": 0.5
       },
       {
         "name": "generic_isp_phishing_ziggo_homoglyps",
         "description": "A regex pattern that can find variations of the word \"ziggo\" with potential homoglyps",
         "phishingRuleType": "regex",
-        "value": "\\b[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}\\b",
+        "value": "/\\b[z|2|з]{1,2}[i|1|и]{1,2}[g|9|г]{1,2}[g|9|г]{1,2}[o|0|о]{1,2}\\b/",
         "weight": 0.5
       },
       {
@@ -3656,7 +3656,7 @@
         "description": "dot nl",
         "phishingRuleType": "contains",
         "value": ".nl",
-        "weight": 0.5
+        "weight": 99
       }
     ]
   }

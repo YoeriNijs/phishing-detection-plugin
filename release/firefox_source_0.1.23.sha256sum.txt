@@ -1,1 +1,0 @@
-5493331c933dacbe93ca555ab60a70450dda7aaf71845579a8e5875176aac3a8  ../../release/firefox_source_0.1.23.zip
