@@ -12,9 +12,11 @@ const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
       "n-l" (hyphenated)
       "nl" (without hyphen)
       "nl-"
+      This regex will exclude:
+      ".nl"
     `,
     phishingRuleType: 'regex',
-    value: 'b[-]?n[l1][-]?\\b',
+    value: 'b[-]?n[l1][-]?(?!\\.nl)\\b\n',
     weight: 0.5
   },
   {
@@ -132,6 +134,13 @@ export const GENERIC_ISP_RULES: PhishingRules = {
       phishingRuleType: 'host',
       value: 'kpn.com',
       weight: 1
+    },
+    {
+      name: '.nl',
+      description: 'dot nl',
+      phishingRuleType: 'contains',
+      value: '.nl',
+      weight: 0.5
     }
   ]
 };
