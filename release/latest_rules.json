@@ -2923,9 +2923,9 @@
     "include": [
       {
         "name": "generic_isp_phishing_typosquats",
-        "description": "\n      This regex will match:\n      \"-nl\"\n      \"n1\" (typo with number)\n      \"n-l\" (hyphenated)\n      \"nl\" (without hyphen)\n      \"nl-\"\n    ",
+        "description": "\n      This regex will match:\n      \"-nl\"\n      \"n1\" (typo with number)\n      \"n-l\" (hyphenated)\n      \"nl\" (without hyphen)\n      \"nl-\"\n      This regex will exclude:\n      \".nl\"\n    ",
         "phishingRuleType": "regex",
-        "value": "b[-]?n[l1][-]?\\b",
+        "value": "b[-]?n[l1][-]?(?!\\.nl)\\b\n",
         "weight": 0.5
       },
       {
@@ -3650,6 +3650,13 @@
         "phishingRuleType": "host",
         "value": "kpn.com",
         "weight": 1
+      },
+      {
+        "name": ".nl",
+        "description": "dot nl",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 0.5
       }
     ]
   }

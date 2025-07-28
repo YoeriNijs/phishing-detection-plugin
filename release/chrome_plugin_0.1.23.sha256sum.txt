@@ -1,0 +1,1 @@
+e8bd13816ae2499128f2b9220fde78e70c497e037258b1ae5a69defdf5c14ab3  ../../release/chrome_plugin_0.1.23.crx

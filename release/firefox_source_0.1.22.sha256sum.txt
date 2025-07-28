@@ -1,1 +1,0 @@
-8a0111864baaa37b5d55eba2ad9853a9502f1a9955e1d6cff9e31d0832e6f772  ../../release/firefox_source_0.1.22.zip

@@ -1,1 +1,1 @@
-2916a1abf9282faa42fbcfed5fa078053408cfac8b6e5d4880b0a30026f71210  ./release/latest_rules.json
+3711143e80f7c3678b09acf31b2aae28cb49955a4587697b002a395e91f50a1e  ./release/latest_rules.json
