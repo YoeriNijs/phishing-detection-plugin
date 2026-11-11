@@ -1,5 +1,6 @@
 // TODO Just for testing purposes, remove in prod
 import { PhishingRules } from '../../../model/phishing-rules';
+import { ALL_WHITELISTED } from '../../__whitelisted__';
 
 export const MISC_BANK_RULES: PhishingRules = {
   threshold: 0.2,
@@ -19,5 +20,5 @@ export const MISC_BANK_RULES: PhishingRules = {
       weight: 0.8
     }
   ],
-  exclude: []
+  exclude: [...ALL_WHITELISTED]
 };

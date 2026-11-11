@@ -1,6 +1,7 @@
 import { PhishingRules } from '../../../model/phishing-rules';
 import { PhishingRule } from '../../../model/phishing-rule';
 import { ALL_DUTCH_KEYWORDS } from '../__boilerplate__/_all_dutch_keywords';
+import { ALL_WHITELISTED } from '../../__whitelisted__';
 
 const SPECIFIC_GENERIC_ISP_RULES: PhishingRule[] = [
   {
@@ -101,6 +102,7 @@ export const GENERIC_ISP_RULES: PhishingRules = {
   threshold: 1,
   include: [...SPECIFIC_GENERIC_ISP_RULES, ...ALL_DUTCH_KEYWORDS],
   exclude: [
+    ...ALL_WHITELISTED,
     {
       name: 'isp_odido_exclude',
       description: 'An Odido exclude rule',

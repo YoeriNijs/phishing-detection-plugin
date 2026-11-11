@@ -1,0 +1,3 @@
+import { WHITELIST_WIKIPEDIA } from './_wikipedia';
+
+export const ALL_WHITELISTED_KNOWLEDGE_PLATFORMS = [...WHITELIST_WIKIPEDIA];
