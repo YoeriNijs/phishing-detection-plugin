@@ -45,7 +45,7 @@
   "options_page": "settings.html",
   "browser_specific_settings": {
     "gecko": {
-      "id": "pdp_gecko@yoeri.dev",
+      "id": "5ffc8c60-a2da-4192-bf96-0133b7fa5534",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
         "required": [
@@ -54,7 +54,7 @@
       }
     },
     "gecko_android": {
-      "id": "pdp_gecko_android@yoeri.dev",
+      "id": "5ffc8c60-a2da-4192-bf96-0133b7fa5534",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
         "required": [
