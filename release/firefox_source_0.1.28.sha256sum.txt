@@ -1,1 +1,0 @@
-c9e1797fce5f78e7e6d44c57afa0329c4d0ccd6573fec43a336dae23ad5e563f  ../../release/firefox_source_0.1.28.zip
