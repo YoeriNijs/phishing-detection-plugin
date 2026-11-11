@@ -54,25 +54,53 @@ export const ING_RULES: PhishingRules = {
   exclude: [
     ...ALL_WHITELISTED,
     {
-      name: 'ing_exclude_rule',
+      name: 'ing_phishing_exclude_rule_1',
       description: 'A phishing rule to detect common scam keywords',
       phishingRuleType: 'host',
       value: 'ing.nl',
       weight: 99
     },
     {
-      name: 'ing_phishing_exclude_rule',
+      name: 'ing_phishing_exclude_rule_2',
       description: 'A phishing rule to detect ING phishing attempts',
       phishingRuleType: 'startswith',
       value: 'apps.apple.com',
       weight: 2
     },
     {
-      name: 'ing_phishing_exclude_rule',
+      name: 'ing_phishing_exclude_rule_3',
       description: 'A phishing rule to detect ING phishing attempts',
       phishingRuleType: 'startswith',
       value: 'play.google.com',
       weight: 2
+    },
+    {
+      name: 'ing_phishing_exclude_rule_4',
+      description: 'A phishing rule to detect ING phishing attempts',
+      phishingRuleType: 'contains',
+      value: 'storing',
+      weight: 1
+    },
+    {
+      name: 'ing_phishing_exclude_rule_5',
+      description: 'A phishing rule to detect ING phishing attempts',
+      phishingRuleType: 'contains',
+      value: 'opleiding',
+      weight: 1
+    },
+    {
+      name: 'ing_phishing_exclude_rule_6',
+      description: 'A phishing rule to detect ING phishing attempts',
+      phishingRuleType: 'contains',
+      value: 'regering',
+      weight: 1
+    },
+    {
+      name: 'ing_phishing_exclude_rule_7',
+      description: 'A phishing rule to detect ING phishing attempts',
+      phishingRuleType: 'contains',
+      value: 'vergadering',
+      weight: 1
     }
   ]
 };
