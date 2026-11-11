@@ -1,9 +1,10 @@
-import { ChromeStorage } from '../chrome/chrome-storage';
 import { DEFAULT_RULES } from '../../rules/default';
 import { PhishingRules } from '../../model/phishing-rules';
 import { I18n } from './i18n/i18n';
+import { createStorageForBrowserImpl } from './util/browser-util';
+import { IStorage } from './i-storage';
 
-const storage: ChromeStorage = new ChromeStorage(DEFAULT_RULES);
+const storage: IStorage = createStorageForBrowserImpl();
 
 async function showRules() {
   const settingsTextArea: HTMLTextAreaElement =
@@ -11,7 +12,7 @@ async function showRules() {
   if (settingsTextArea) {
     storage.getRules(rules => {
       console.debug('Stored rules', rules);
-      settingsTextArea.value = JSON.stringify(rules, null, 4); // 4 spaces for indentation
+      settingsTextArea.value = JSON.stringify(rules || DEFAULT_RULES, null, 4);
     });
   }
 }
@@ -37,7 +38,7 @@ async function updateRules() {
         alert(msg);
         return;
       }
-      storage.updateRules(rules);
+      await storage.updateRules(rules);
       const msg = I18n.translate('rules-saved');
       alert(msg);
     } catch (e: any) {
@@ -52,11 +53,11 @@ function initialize(): void {
   I18n.translateI18NElements();
 
   // Show rules
-  showRules();
+  void showRules();
 
   const updateBtn = document.querySelector('button');
   if (updateBtn) {
-    updateBtn.addEventListener('click', () => updateRules());
+    updateBtn.addEventListener('click', () => void updateRules());
   }
 }
 

@@ -7,24 +7,25 @@ export class CommunityLoader {
     new Openfish(),
     new PhishingDatabase()
   ];
-  private _communityUrls: string[] = [];
 
   async getCommunityUrls(): Promise<string[]> {
-    const communitySources$ = this._sources.map(source =>
-      source
-        .fetch()
-        .then(res => {
-          if (res && Array.isArray(res) && res.length > 0) {
-            this._communityUrls = [...this._communityUrls, ...res];
-          }
-        })
-        .catch(err => {
-          throw Error(`Cannot fetch community data: ${err}`);
-        })
+    // One unreachable community source should not prevent the other source
+    // from being used. Promise.allSettled keeps the plugin usable when a feed
+    // is temporarily offline.
+    const results = await Promise.allSettled(
+      this._sources.map(source => source.fetch())
     );
-    return await Promise.all(communitySources$).then(() => {
-      const uniqueCommunityUrls = new Set(this._communityUrls);
-      return [...uniqueCommunityUrls];
+
+    const communityUrls = results.flatMap(result => {
+      if (result.status === 'fulfilled' && Array.isArray(result.value)) {
+        return result.value;
+      }
+      if (result.status === 'rejected') {
+        console.error('Cannot fetch community data', result.reason);
+      }
+      return [];
     });
+
+    return [...new Set(communityUrls)];
   }
 }

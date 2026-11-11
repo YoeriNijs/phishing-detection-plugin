@@ -2,47 +2,39 @@ import { IPhishingRuleChecker } from './i-phishing-rule-checker';
 import { PhishingRuleType } from '../../../model/phishing-rule-type';
 import { PhishingRule } from '../../../model/phishing-rule';
 
-class InvalidHostError extends Error {
-  constructor(msg: string) {
-    super(msg);
-  }
-}
-
 export class PhishingRuleHost implements IPhishingRuleChecker {
   type(): PhishingRuleType {
     return 'host';
   }
 
   isApplicable(rule: PhishingRule, url: string): boolean {
-    if (!rule || !rule.value) {
+    if (!rule || !rule.value || !url) {
       return false;
     }
     if (rule.value.length < 1) {
       return false;
     }
-    let urlToCheck = url;
-    if (!url.startsWith('http')) {
-      urlToCheck = `http://${url}`; // Otherwise we cannot validate it using the URL class
+
+    const hostname = this.getHostName(url);
+    if (!hostname) {
+      return false;
     }
-    const baseUrl = this.getHostName(urlToCheck);
-    return baseUrl.toLowerCase() === rule.value.toLowerCase();
+
+    const value = rule.value.toLowerCase();
+    return hostname === value || hostname.endsWith(`.${value}`);
   }
 
-  private getHostName(url: string): string {
-    try {
-      const parsedUrl = new URL(url);
-      const hostParts = parsedUrl.hostname.split('.');
+  private getHostName(url: string): string | null {
+    let urlToCheck = url.trim();
+    if (!/^https?:\/\//i.test(urlToCheck)) {
+      urlToCheck = `http://${urlToCheck}`;
+    }
 
-      // Check if there are at least two parts (e.g., "example.com")
-      if (hostParts.length >= 2) {
-        // Return the last two parts (e.g., "example.com")
-        return hostParts.slice(-2).join('.');
-      } else {
-        // If there's only one part, return it as is
-        return parsedUrl.hostname;
-      }
+    try {
+      return new URL(urlToCheck).hostname.toLowerCase();
     } catch (error) {
-      throw new InvalidHostError('Invalid URL:' + error);
+      console.warn(`Invalid URL while checking host rule: ${url}`, error);
+      return null;
     }
   }
 }

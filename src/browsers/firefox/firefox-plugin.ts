@@ -1,27 +1,22 @@
 import { FirefoxStorage } from './firefox-storage';
 import { DEFAULT_RULES } from '../../rules/default';
 import { PhishingDetectionPlugin } from '../_shared/plugin';
-import { PhishingRules } from '../../model/phishing-rules';
+import { fetchLatestRules } from '../_shared/rules-loader';
 
-const LATEST_RULES =
-  'https://raw.githubusercontent.com/YoeriNijs/phishing-detection-plugin/refs/heads/main/release/latest_rules.json';
+/**
+ * Initialize the plugin synchronously at the top level so the tab listeners are
+ * registered as soon as the background script starts.
+ *
+ * The latest rules are fetched lazily; the stored rules are used immediately
+ * when they are available, and the bundled rules are the fallback on a fresh
+ * install when the network is unavailable.
+ */
+const storage = new FirefoxStorage(() => fetchLatestRules(DEFAULT_RULES));
+const plugin = new PhishingDetectionPlugin(storage, browser);
 
-async function updateRules(all_rules: PhishingRules[]) {
-  const response = await fetch(LATEST_RULES);
-  if (response.ok) {
-    const text = await response.text();
-    all_rules = JSON.parse(text);
-  }
-  return all_rules;
-}
-
-// Initialize plugin
-const initializeFirefoxPlugin = async () => {
-  const all_rules: PhishingRules[] = await updateRules(DEFAULT_RULES);
-  const storage = new FirefoxStorage(all_rules);
-  new PhishingDetectionPlugin(storage, browser);
-};
-
-initializeFirefoxPlugin().then(() =>
-  console.log('Firefox Phishing Detection Plugin initialized!')
-);
+void plugin
+  .whenReady()
+  .then(() => console.log('Firefox Phishing Detection Plugin initialized!'))
+  .catch(error =>
+    console.error('Could not initialize the Phishing Detection Plugin', error)
+  );

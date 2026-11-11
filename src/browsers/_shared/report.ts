@@ -35,10 +35,15 @@ function showReport(item: DataItem) {
 
 if (htmlParagraphElement) {
   const browserImpl = getBrowserImpl();
-  browserImpl.tabs.query({ active: true, currentWindow: true }, tabs => {
-    if (tabs.length > 0) {
+  browserImpl.tabs
+    .query({ active: true, currentWindow: true })
+    .then(tabs => {
+      if (tabs.length < 1) {
+        return;
+      }
+
       const currentTab = tabs[0];
-      const currentUrl = currentTab.url;
+      const currentUrl = currentTab.url || '';
       const storage = createStorageForBrowserImpl();
       storage.getRules(rules => {
         const resultWithHighestScore = BadgeScorer.calculate(
@@ -94,32 +99,34 @@ if (htmlParagraphElement) {
           } else if (item.name === 'source') {
             const rulesDetailsArea: HTMLElement =
               document.querySelector('div.rules-details');
-            const closeRulesDetailsAreBtn = document.createElement('button');
-            closeRulesDetailsAreBtn.classList.add('close-rules-details');
-            closeRulesDetailsAreBtn.innerText = I18n.translate('close');
-            closeRulesDetailsAreBtn.onclick = () =>
-              (rulesDetailsArea.style.display = 'none');
+            if (rulesDetailsArea) {
+              const closeRulesDetailsAreBtn = document.createElement('button');
+              closeRulesDetailsAreBtn.classList.add('close-rules-details');
+              closeRulesDetailsAreBtn.innerText = I18n.translate('close');
+              closeRulesDetailsAreBtn.onclick = () =>
+                (rulesDetailsArea.style.display = 'none');
 
-            const rulesDetailsAreaTitle = document.createElement('h2');
-            rulesDetailsAreaTitle.innerText =
-              I18n.translate('detection-based-on');
+              const rulesDetailsAreaTitle = document.createElement('h2');
+              rulesDetailsAreaTitle.innerText =
+                I18n.translate('detection-based-on');
 
-            const rulesDetailsAreaBody = document.createElement('div');
-            rulesDetailsAreaBody.classList.add('rules-body');
-            const rulesDetailsAreaBodyPre = document.createElement('pre');
-            rulesDetailsAreaBodyPre.innerText = item.value;
-            rulesDetailsAreaBody.append(rulesDetailsAreaBodyPre);
+              const rulesDetailsAreaBody = document.createElement('div');
+              rulesDetailsAreaBody.classList.add('rules-body');
+              const rulesDetailsAreaBodyPre = document.createElement('pre');
+              rulesDetailsAreaBodyPre.innerText = item.value;
+              rulesDetailsAreaBody.append(rulesDetailsAreaBodyPre);
 
-            rulesDetailsArea.append(
-              closeRulesDetailsAreBtn,
-              rulesDetailsAreaTitle,
-              rulesDetailsAreaBody
-            );
+              rulesDetailsArea.append(
+                closeRulesDetailsAreBtn,
+                rulesDetailsAreaTitle,
+                rulesDetailsAreaBody
+              );
 
-            const btn = document.createElement('button');
-            btn.innerText = I18n.translate('show-rules-btn');
-            btn.onclick = () => (rulesDetailsArea.style.display = 'flex');
-            td2.appendChild(btn);
+              const btn = document.createElement('button');
+              btn.innerText = I18n.translate('show-rules-btn');
+              btn.onclick = () => (rulesDetailsArea.style.display = 'flex');
+              td2.appendChild(btn);
+            }
           } else {
             td2.innerText = item.value;
           }
@@ -131,8 +138,10 @@ if (htmlParagraphElement) {
 
         htmlParagraphElement.appendChild(table);
       });
-    }
-  });
+    })
+    .catch(error => {
+      console.error('Could not read the active tab', error);
+    });
 }
 
 I18n.translateI18NElements();

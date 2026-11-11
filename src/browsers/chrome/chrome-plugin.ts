@@ -1,48 +1,44 @@
 import { ChromeStorage } from './chrome-storage';
 import { DEFAULT_RULES } from '../../rules/default';
 import { PhishingDetectionPlugin } from '../_shared/plugin';
-import { PhishingRules } from '../../model/phishing-rules';
+import { fetchLatestRules } from '../_shared/rules-loader';
 
-const LATEST_RULES =
-  'https://raw.githubusercontent.com/YoeriNijs/phishing-detection-plugin/refs/heads/main/release/latest_rules.json';
+/**
+ * Initialize the plugin synchronously at the top level.
+ *
+ * Chrome MV3 service workers are stopped when idle and restarted for the next
+ * browser event. Registering the tab listeners only from onStartup/onInstalled
+ * means they are missing after such a restart. Creating the plugin here makes
+ * sure the listeners are registered every time the service worker starts.
+ *
+ * The latest rules are fetched lazily. If storage already contains rules, the
+ * fetch result is ignored and the stored rules are used immediately. On a fresh
+ * install the plugin waits (at most a few seconds) for the latest rules, then
+ * falls back to the bundled rules.
+ */
+const storage = new ChromeStorage(() => fetchLatestRules(DEFAULT_RULES));
+const plugin = new PhishingDetectionPlugin(storage, chrome);
 
-let pluginInstance: PhishingDetectionPlugin | null = null;
-
-async function updateRules(all_rules: PhishingRules[]) {
-  const response = await fetch(LATEST_RULES);
-  if (response.ok) {
-    const text = await response.text();
-    all_rules = JSON.parse(text);
-  }
-  return all_rules;
-}
-
-async function initializePlugin() {
-  const all_rules: PhishingRules[] = await updateRules(DEFAULT_RULES);
-  const storage = new ChromeStorage(all_rules);
-
-  // Check if the plugin instance already exists
-  if (!pluginInstance) {
-    pluginInstance = new PhishingDetectionPlugin(storage, chrome);
-  }
-
-  return all_rules;
+function logInitialized(message: string): void {
+  void plugin
+    .whenReady()
+    .then(() =>
+      console.log(`${message} Phishing Detection Plugin initialized.`)
+    )
+    .catch(error =>
+      console.error('Could not initialize the Phishing Detection Plugin', error)
+    );
 }
 
 /**
- * Fired when a profile that has this extension installed first starts up. This event is not fired when an incognito
- * profile is started, even if this extension is operating in 'split' incognito mode.
+ * Fired when a profile that has this extension installed first starts up. This
+ * event is not fired when an incognito profile is started, even if this
+ * extension is operating in 'split' incognito mode.
  */
-chrome.runtime.onStartup.addListener(async () => {
-  const all_rules = await initializePlugin();
-  console.log(`Started Phishing Detection Plugin with rules:`, all_rules);
-});
+chrome.runtime.onStartup.addListener(() => logInitialized('Started'));
 
 /**
- * Fired when the extension is first installed, when the extension is updated to a new version, and when Chrome is
- * updated to a new version.
+ * Fired when the extension is first installed, when the extension is updated to
+ * a new version, and when Chrome is updated to a new version.
  */
-chrome.runtime.onInstalled.addListener(async () => {
-  const all_rules = await initializePlugin();
-  console.log(`Initialized Phishing Detection Plugin with rules:`, all_rules);
-});
+chrome.runtime.onInstalled.addListener(() => logInitialized('Installed'));
