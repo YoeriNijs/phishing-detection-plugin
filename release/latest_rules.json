@@ -117,6 +117,20 @@
         "weight": 99
       },
       {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
+        "weight": 99
+      },
+      {
         "name": "nu_exclude_rule_1",
         "description": "A Nu.nl phishing exclude rule",
         "phishingRuleType": "host",
@@ -264,6 +278,20 @@
         "weight": 99
       },
       {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
+        "weight": 99
+      },
+      {
         "name": "nu_exclude_rule_1",
         "description": "A Nu.nl phishing exclude rule",
         "phishingRuleType": "host",
@@ -394,6 +422,20 @@
         "description": "A cnn phishing exclude rule",
         "phishingRuleType": "host",
         "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
         "weight": 99
       },
       {
@@ -569,6 +611,20 @@
         "description": "A cnn phishing exclude rule",
         "phishingRuleType": "host",
         "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
         "weight": 99
       },
       {
@@ -1422,6 +1478,20 @@
         "weight": 99
       },
       {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
+        "weight": 99
+      },
+      {
         "name": "nu_exclude_rule_1",
         "description": "A Nu.nl phishing exclude rule",
         "phishingRuleType": "host",
@@ -2213,6 +2283,20 @@
         "weight": 99
       },
       {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
+        "weight": 99
+      },
+      {
         "name": "nu_exclude_rule_1",
         "description": "A Nu.nl phishing exclude rule",
         "phishingRuleType": "host",
@@ -2399,6 +2483,20 @@
         "description": "A cnn phishing exclude rule",
         "phishingRuleType": "host",
         "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
         "weight": 99
       },
       {
@@ -3179,6 +3277,20 @@
         "weight": 99
       },
       {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
+        "weight": 99
+      },
+      {
         "name": "nu_exclude_rule_1",
         "description": "A Nu.nl phishing exclude rule",
         "phishingRuleType": "host",
@@ -3946,6 +4058,20 @@
         "description": "A cnn phishing exclude rule",
         "phishingRuleType": "host",
         "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
         "weight": 99
       },
       {
@@ -4779,6 +4905,20 @@
         "description": "A cnn phishing exclude rule",
         "phishingRuleType": "host",
         "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
         "weight": 99
       },
       {
