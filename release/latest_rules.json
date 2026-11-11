@@ -26,6 +26,125 @@
     ],
     "exclude": [
       {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
         "name": "ics_exclude_rule_1",
         "description": "All official ics sites",
         "value": "^icscards\\.(nl|de|com)$",
@@ -52,7 +171,127 @@
         "weight": 0.8
       }
     ],
-    "exclude": []
+    "exclude": [
+      {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      }
+    ]
   },
   {
     "threshold": 1,
@@ -63,6 +302,127 @@
         "weight": 1,
         "phishingRuleType": "regex",
         "value": "^https?:\\/\\/([a-zA-Z0-9-]+\\.)?(www\\.)?wplnkr\\.(help|info|cc|xyz|tk|icu)(\\/.*)?$"
+      }
+    ],
+    "exclude": [
+      {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
       }
     ]
   },
@@ -120,6 +480,125 @@
       }
     ],
     "exclude": [
+      {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
       {
         "name": "wetransfer_rule",
         "description": "Detect WeTransfer scams",
@@ -852,6 +1331,125 @@
     ],
     "exclude": [
       {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
         "name": "rabo_phishing_exclude_rule",
         "description": "A phishing rule to detect rabobank phishing attempts",
         "phishingRuleType": "host",
@@ -1524,6 +2122,125 @@
     ],
     "exclude": [
       {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
         "name": "nl_keyword",
         "description": "A phishing rule to detect common scam keywords",
         "phishingRuleType": "host",
@@ -1593,6 +2310,125 @@
       }
     ],
     "exclude": [
+      {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
       {
         "name": "ing_exclude_rule",
         "description": "A phishing rule to detect common scam keywords",
@@ -2252,6 +3088,125 @@
     ],
     "exclude": [
       {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
         "name": "nl_keyword",
         "description": "A phishing rule to detect common scam keywords",
         "phishingRuleType": "host",
@@ -2902,6 +3857,125 @@
       }
     ],
     "exclude": [
+      {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
       {
         "name": "anwb_phishing_exclude_rule",
         "description": "A anwb phishing exlude rule",
@@ -3616,6 +4690,125 @@
       }
     ],
     "exclude": [
+      {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
       {
         "name": "isp_odido_exclude",
         "description": "An Odido exclude rule",
