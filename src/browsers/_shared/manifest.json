@@ -3,27 +3,17 @@
   "name": "Phishing Detection Plugin",
   "version": "0.1.29",
   "description": "Blocks highly likely phishing attempts based on a dynamic rule set",
-  "permissions": [
-    "storage",
-    "activeTab"
-  ],
+  "permissions": ["storage", "activeTab"],
   "background": {
     "service_worker": "plugin.js",
+    "scripts": ["plugin.js"],
     "type": "module"
   },
-  "host_permissions": [
-    "*://*/*"
-  ],
+  "host_permissions": ["*://*/*"],
   "web_accessible_resources": [
     {
-      "resources": [
-        "blocked.html",
-        "shield_48.png",
-        "shield_512.png"
-      ],
-      "matches": [
-        "*://*/*"
-      ]
+      "resources": ["blocked.html", "shield_48.png", "shield_512.png"],
+      "matches": ["*://*/*"]
     }
   ],
   "content_security_policy": {
@@ -45,18 +35,14 @@
       "id": "pdp_gecko@yoeri.dev",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
-        "required": [
-          "none"
-        ]
+        "required": ["none"]
       }
     },
     "gecko_android": {
       "id": "pdp_gecko_android@yoeri.dev",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
-        "required": [
-          "none"
-        ]
+        "required": ["none"]
       }
     }
   }
