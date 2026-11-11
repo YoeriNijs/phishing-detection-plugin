@@ -123,7 +123,9 @@ const unblockConf = merge(common, {
     new CopyPlugin({
       patterns: [
         { from: 'src/browsers/_shared/manifest.json', to: '.' },
-        { from: 'src/browsers/_shared/icons/shield.png', to: '.' },
+        { from: 'src/browsers/_shared/icons/shield_48.png', to: '.' },
+        { from: 'src/browsers/_shared/icons/shield_128.png', to: '.' },
+        { from: 'src/browsers/_shared/icons/shield_512.png', to: '.' },
         { from: 'src/browsers/_shared/blocked.html', to: '.' },
         {
           from: './src/browsers/_shared/unblock.html',
