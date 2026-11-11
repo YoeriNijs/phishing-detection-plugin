@@ -1,6 +1,7 @@
 import { PhishingRules } from '../../../model/phishing-rules';
 import { PhishingRule } from '../../../model/phishing-rule';
 import { ALL_DUTCH_KEYWORDS } from '../__boilerplate__/_all_dutch_keywords';
+import { ALL_WHITELISTED } from '../../__whitelisted__';
 
 const SPECIFIC_ING_RULES: PhishingRule[] = [
   {
@@ -51,6 +52,7 @@ export const ING_RULES: PhishingRules = {
   threshold: 1,
   include: [...SPECIFIC_ING_RULES],
   exclude: [
+    ...ALL_WHITELISTED,
     {
       name: 'ing_exclude_rule',
       description: 'A phishing rule to detect common scam keywords',

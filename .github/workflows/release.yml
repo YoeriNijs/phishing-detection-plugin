@@ -8,7 +8,7 @@ jobs:
     uses: yoerinijs/phishing-detection-plugin/.github/workflows/sanity_check.yml@main
 
   Release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: sanity-check
     steps:
       - uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
-          node-version: '20.x'
+          node-version: '24.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: setup

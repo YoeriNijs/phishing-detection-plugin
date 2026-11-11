@@ -1,0 +1,9 @@
+import { ALL_WHITELISTED_SEARCH_ENGINES } from './search_engines';
+import { ALL_WHITELISTED_KNOWLEDGE_PLATFORMS } from './knowledge';
+import { ALL_WHITELISTED_NEWS } from './news';
+
+export const ALL_WHITELISTED = [
+  ...ALL_WHITELISTED_SEARCH_ENGINES,
+  ...ALL_WHITELISTED_NEWS,
+  ...ALL_WHITELISTED_KNOWLEDGE_PLATFORMS
+];

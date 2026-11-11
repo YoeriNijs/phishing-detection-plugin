@@ -1,4 +1,5 @@
 import { PhishingRules } from '../../../model/phishing-rules';
+import { ALL_WHITELISTED } from '../../__whitelisted__';
 
 export const BREWERIES_RULES: PhishingRules = {
   threshold: 1,
@@ -11,5 +12,6 @@ export const BREWERIES_RULES: PhishingRules = {
       value:
         '^https?:\\/\\/([a-zA-Z0-9-]+\\.)?(www\\.)?wplnkr\\.(help|info|cc|xyz|tk|icu)(\\/.*)?$'
     }
-  ]
+  ],
+  exclude: [...ALL_WHITELISTED]
 };
