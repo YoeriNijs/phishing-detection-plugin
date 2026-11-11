@@ -3,8 +3,9 @@ import {
   getBrowserImpl
 } from './util/browser-util';
 import { I18n } from './i18n/i18n';
+import { IStorage } from './i-storage';
 
-let code: number = null;
+let code: number | null = null;
 let codeByUser: number[] = [];
 
 const getRandomNumber = (): number => {
@@ -22,7 +23,22 @@ const showUserCode = (number: string) => {
 const clearUserCode = () => {
   const userCode = document.querySelector('p.user-code');
   if (userCode) {
-    userCode.innerHTML = '';
+    userCode.textContent = '';
+  }
+};
+
+const getTempUrl = (storage: IStorage): Promise<string | undefined> => {
+  return new Promise(resolve => storage.getTempUrl(resolve));
+};
+
+const closeActiveTab = async (): Promise<void> => {
+  const browserImpl = getBrowserImpl();
+  const tabs = await browserImpl.tabs.query({
+    active: true,
+    currentWindow: true
+  });
+  if (tabs.length > 0 && tabs[0].id !== undefined) {
+    await browserImpl.tabs.remove(tabs[0].id);
   }
 };
 
@@ -59,32 +75,38 @@ if (calculatorBtns) {
 
 const submitBtn: HTMLButtonElement = document.querySelector('button.submit');
 if (submitBtn) {
-  submitBtn.addEventListener('click', () => {
-    if (Number(codeByUser.join('')) === code) {
-      const confirmed = confirm(I18n.translate('domain-whitelist-warning'));
-      if (confirmed) {
-        const storage = createStorageForBrowserImpl();
-        storage.getTempUrl((domain: string) => {
-          storage.addWhitelistedUrl(domain);
-
-          // Notify
-          alert(I18n.translate('domain-whitelisted', domain));
-
-          // Close current window
-          const browserImpl = getBrowserImpl();
-          browserImpl.tabs.query(
-            { active: true, currentWindow: true },
-            tabs => {
-              browserImpl.tabs.remove(tabs[0].id);
-            }
-          );
-        });
-      }
-    } else {
+  submitBtn.addEventListener('click', async () => {
+    if (code === null || Number(codeByUser.join('')) !== code) {
       submitBtn.disabled = true;
       codeByUser = [];
       clearUserCode();
       alert(I18n.translate('invalid-code-try-again'));
+      return;
+    }
+
+    const confirmed = confirm(I18n.translate('domain-whitelist-warning'));
+    if (!confirmed) {
+      return;
+    }
+
+    const storage = createStorageForBrowserImpl();
+    const domain = await getTempUrl(storage);
+    if (!domain) {
+      alert(I18n.translate('unknown-domain'));
+      return;
+    }
+
+    // Wait for the whitelist to be persisted before closing the tab. Otherwise
+    // the background script may still read the old whitelist when the user
+    // navigates to the domain again.
+    await storage.addWhitelistedUrl(domain);
+
+    alert(I18n.translate('domain-whitelisted', domain));
+
+    try {
+      await closeActiveTab();
+    } catch (error) {
+      console.error('Could not close the blocked tab', error);
     }
   });
 }

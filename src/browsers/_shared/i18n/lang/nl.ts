@@ -34,6 +34,11 @@ export const LANG_NL: ILanguageItem[] = [
     key: 'invalid-code-try-again',
     value: 'Ongeldige code. Probeer opnieuw.'
   },
+  {
+    key: 'unknown-domain',
+    value:
+      'Het domein dat uitgesloten moet worden kon niet worden bepaald. Probeer het opnieuw.'
+  },
   { key: 'title-report', value: 'Detectierapport' },
   { key: 'show-rules-btn', value: 'Toon regels' },
   { key: 'possible-phishing-attempt', value: 'Mogelijke phishingpoging' },

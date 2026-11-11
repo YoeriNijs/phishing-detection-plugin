@@ -34,6 +34,10 @@ export const LANG_EN: ILanguageItem[] = [
     key: 'invalid-code-try-again',
     value: 'Invalid code. Try again.'
   },
+  {
+    key: 'unknown-domain',
+    value: 'Could not determine the domain to whitelist. Please try again.'
+  },
   { key: 'title-report', value: 'Detection Report' },
   { key: 'show-rules-btn', value: 'Show rules' },
   { key: 'possible-phishing-attempt', value: 'Possible phishing attempt' },

@@ -9,19 +9,19 @@ interface EngineResult {
   phishingProbability: number;
 }
 
-const NO_PHISHING_RESULT: DetectionResult = {
+const NO_PHISHING_RESULT = (): DetectionResult => ({
   isPhishing: false,
   phishingProbability: 0,
   threshold: 0,
   matchingRules: { include: [], exclude: [] }
-};
+});
 
-const PHISHING_RESULT: DetectionResult = {
+const PHISHING_RESULT = (): DetectionResult => ({
   isPhishing: true,
   phishingProbability: 1,
   threshold: 0,
   matchingRules: { include: [], exclude: [] }
-};
+});
 
 export class Engine {
   private _rules_sets: PhishingRules[] = [];
@@ -35,24 +35,56 @@ export class Engine {
 
   detect(url: string): DetectionResult[] {
     // When we have no rules, then just mark the url as safe
-    if (this._rules_sets.length < 1 || !url) {
-      return [NO_PHISHING_RESULT];
+    if (
+      !Array.isArray(this._rules_sets) ||
+      this._rules_sets.length < 1 ||
+      typeof url !== 'string' ||
+      !url
+    ) {
+      return [NO_PHISHING_RESULT()];
     }
 
     // If it is a community url, then mark it as unsafe
-    const isCommunityUrl = this._community_urls
-      .map(cu => cu.toLowerCase())
-      .includes(url.toLowerCase());
+    const normalizedUrl = url.toLowerCase();
+    const isCommunityUrl = (this._community_urls || [])
+      .map(communityUrl => communityUrl.toLowerCase())
+      .includes(normalizedUrl);
     if (isCommunityUrl) {
-      return [PHISHING_RESULT];
+      return [PHISHING_RESULT()];
     }
 
+    const phishingRuleFactory = new PhishingRuleFactory();
     return this._rules_sets.map(rules => {
-      const containsProbability = this.runType(rules, 'contains', url);
-      const startsWithProbability = this.runType(rules, 'startswith', url);
-      const endsWithProbability = this.runType(rules, 'endswith', url);
-      const regexProbability = this.runType(rules, 'regex', url);
-      const hostProbability = this.runType(rules, 'host', url);
+      const containsProbability = this.runType(
+        rules,
+        'contains',
+        url,
+        phishingRuleFactory
+      );
+      const startsWithProbability = this.runType(
+        rules,
+        'startswith',
+        url,
+        phishingRuleFactory
+      );
+      const endsWithProbability = this.runType(
+        rules,
+        'endswith',
+        url,
+        phishingRuleFactory
+      );
+      const regexProbability = this.runType(
+        rules,
+        'regex',
+        url,
+        phishingRuleFactory
+      );
+      const hostProbability = this.runType(
+        rules,
+        'host',
+        url,
+        phishingRuleFactory
+      );
       const engineResult = this.calculateResult(rules.threshold, [
         containsProbability,
         startsWithProbability,
@@ -75,10 +107,10 @@ export class Engine {
   private runType(
     rules: PhishingRules,
     type: PhishingRuleType,
-    url: string
+    url: string,
+    phishingRuleFactory: PhishingRuleFactory
   ): number {
     let totalWeight = 0;
-    const phishingRuleFactory = new PhishingRuleFactory();
     const phishingRuleImpl = phishingRuleFactory.getPhishingRuleImpl(type);
     if (rules.include) {
       // The weight is going up when the include rule exists
@@ -89,7 +121,7 @@ export class Engine {
           console.debug(`Applicable rule for url ${url}`, r);
           return r.weight;
         })
-        .forEach((weight: number) => (totalWeight += weight));
+        .forEach((weight: number) => (totalWeight += this.toWeight(weight)));
     }
 
     if (rules.exclude) {
@@ -98,24 +130,30 @@ export class Engine {
         .filter((r: PhishingRule) => r.phishingRuleType === type)
         .filter(r => phishingRuleImpl.isApplicable(r, url))
         .map(r => r.weight)
-        .forEach((weight: number) => (totalWeight -= weight));
+        .forEach((weight: number) => (totalWeight -= this.toWeight(weight)));
     }
 
     return totalWeight;
   }
 
+  private toWeight(weight: number): number {
+    const value = Number(weight);
+    return Number.isFinite(value) ? value : 0;
+  }
+
   private calculateResult(threshold: number, numbers: number[]): EngineResult {
     const filteredNumbers = numbers.filter((n: number) => n !== 0);
     if (filteredNumbers.length === 0) {
-      return NO_PHISHING_RESULT;
+      return NO_PHISHING_RESULT();
     }
 
     const probability = filteredNumbers.reduce(
       (acc, number) => acc + number,
       0
     );
+    const normalizedThreshold = Number.isFinite(threshold) ? threshold : 0;
     return {
-      isPhishing: probability >= threshold,
+      isPhishing: probability >= normalizedThreshold,
       phishingProbability: probability
     };
   }

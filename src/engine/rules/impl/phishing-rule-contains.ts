@@ -8,12 +8,12 @@ export class PhishingRuleContains implements IPhishingRuleChecker {
   }
 
   isApplicable(rule: PhishingRule, url: string): boolean {
-    if (!rule || !rule.value) {
-      return false; // TODO: think whether we should throw an error here
+    if (!rule || !rule.value || !url) {
+      return false;
     }
     if (rule.value.length < 1) {
       return false;
     }
-    return url.indexOf(rule.value.toLowerCase()) !== -1;
+    return url.toLowerCase().includes(rule.value.toLowerCase());
   }
 }

@@ -8,6 +8,9 @@ export class PhishingRuleEndsWith implements IPhishingRuleChecker {
   }
 
   isApplicable(rule: PhishingRule, url: string): boolean {
-    return url.endsWith(rule.value.toLowerCase());
+    if (!rule || !rule.value || !url) {
+      return false;
+    }
+    return url.toLowerCase().endsWith(rule.value.toLowerCase());
   }
 }

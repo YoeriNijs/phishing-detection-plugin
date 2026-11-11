@@ -4,241 +4,386 @@ import { PhishingRules } from '../../model/phishing-rules';
 import { CommunityLoader } from '../../community/community-loader';
 import { IStorage } from './i-storage';
 import { BadgeScorer } from './badge-scorer';
+import { isHttpUrl } from './util/url-util';
+import { isWhitelistedUrl } from './util/whitelist';
 
-interface TabIdAndDetectionResults {
+interface TabState {
   tabId: number;
   url: string;
   detectionResults?: DetectionResult[];
+  redirecting?: boolean;
 }
-
-class NotCreatedTabIdAndDetectionResults extends Error {}
 
 export class PhishingDetectionPlugin {
   private _rules: PhishingRules[] = [];
   private _communityUrls: string[] = [];
   private _whitelistedUrls: string[] = [];
-  private _tabIdsAndDetectionResults: Set<TabIdAndDetectionResults> =
-    new Set<TabIdAndDetectionResults>();
+  private readonly _tabStates = new Map<number, TabState>();
+  private readonly _tabUpdateVersions = new Map<number, number>();
+  private readonly _ready: Promise<void>;
 
   constructor(
     private _storage: IStorage,
     private _browserImpl: typeof chrome | typeof browser,
     private _communityLoader = new CommunityLoader()
   ) {
-    this.updateRules();
+    // Load the persisted state first, but register the listeners immediately.
+    // Chrome MV3 service workers are stopped when idle and restarted on the
+    // next event; listeners must therefore be registered synchronously at the
+    // top level (see chrome-plugin.ts).
+    this._ready = this.initializeState();
+    this.registerListeners();
     this.loadCommunityUrls();
-    this.setWhitelistedUrls();
+    this.initializeOpenTabs();
+  }
 
+  /**
+   * Resolves when the rules and whitelist have been loaded from storage.
+   */
+  whenReady(): Promise<void> {
+    return this._ready;
+  }
+
+  private registerListeners(): void {
     /**
-     * When tab is removed by user
+     * When a tab is removed by the user.
      */
     this._browserImpl.tabs.onRemoved.addListener((tabId: number) => {
-      const itemToRemove = Array.from(this._tabIdsAndDetectionResults).find(
-        item => item.tabId === tabId
-      );
-      if (itemToRemove) {
-        this._tabIdsAndDetectionResults.delete(itemToRemove);
-      }
+      this._tabStates.delete(tabId);
+      this._tabUpdateVersions.delete(tabId);
 
-      // Update the latest rules since something may have been changed
-      this.updateRules();
-      this.setWhitelistedUrls();
+      // Something may have been changed in the settings or whitelist.
+      void this.loadRules();
+      void this.refreshWhitelistedUrls();
     });
 
     /**
-     * When tab is activated by user (opened for the first time, or opened again after selecting it).
-     * In this stage, we do NOT update the state. We are only interested in the last score. If it is phishing, the
-     * user is already navigated to the unblock page by the onUpdated event, so we do not need to redirect the user
-     * again.
+     * When a tab is activated by the user (opened for the first time, or
+     * opened again after selecting it). The phishing detection itself happens
+     * in the onUpdated event. Here we only update the popup and close
+     * previously blocked tabs, so the user cannot accidentally interact with
+     * them anymore.
      */
     this._browserImpl.tabs.onActivated.addListener(activeInfo => {
-      this._browserImpl.tabs.get(activeInfo.tabId, tab => {
-        // Update the latest rules since something may have been changed
-        this.loadCommunityUrls();
-        this.setWhitelistedUrls();
-
-        // Close all previous phishing tabs first. If the user has activated
-        // another tab, we assume he is not interested anymore in the phishing
-        // tab, so we close it for him in order to protect further unwanted
-        // interactions. Also, this helps us to prevent messy behaviour with
-        // other new phishing detections, since we may have multiple phishing
-        // urls to deal with.
-        Array.from(this._tabIdsAndDetectionResults)
-          .filter(item => item.detectionResults)
-          .filter(item => item.detectionResults.some(r => r.isPhishing))
-          .map(item => item.tabId)
-          .forEach(tabId => this._browserImpl.tabs.remove(tabId));
-
-        const activeTabResults = Array.from(
-          this._tabIdsAndDetectionResults
-        ).find(item => item.tabId === tab.id);
-
-        // Unknown detection or no detection. In that case, report nothing here
-        if (!activeTabResults || !activeTabResults.detectionResults) {
-          this.updateResult('report.html', '--');
-          return;
-        }
-
-        // Start reporting on what is known for this tab (do NOT update it here, and do NOT redirect)
-        const isWhitelisted = this._whitelistedUrls.some(wlu =>
-          activeTabResults.url.startsWith(wlu)
-        );
-        const isPhishing =
-          activeTabResults.detectionResults &&
-          activeTabResults.detectionResults.some(res => res.isPhishing);
-        const badgeScore = BadgeScorer.calculate(
-          this._communityUrls,
-          this._rules,
-          activeTabResults.url
-        ).phishingProbability;
-        if (isPhishing && !isWhitelisted) {
-          this.updateResult('unblock.html', badgeScore);
-        } else {
-          this.updateResult('report.html', badgeScore);
-        }
-      });
+      return this.handleTabActivated(activeInfo.tabId);
     });
 
     /**
-     * When content of tab is updated. This is the ONLY stage where we check on phishing attempts.
+     * When the content of a tab is updated. This is the ONLY place where the
+     * plugin checks for phishing attempts.
      */
-    this._browserImpl.tabs.onUpdated.addListener((_a, _b, tab) => {
-      const url = tab.url;
-      const itemToUpdate = Array.from(this._tabIdsAndDetectionResults).find(
-        item => item.tabId === tab.id
-      );
-
-      // We expect a tab state here (which was created in the onCreated events). If it does not exist here, this means
-      // that we made an error.
-      if (!itemToUpdate) {
-        // TODO: decide whether we need to keep this here, since it may cause unwanted behaviour.
-        this.updateResult('report.html', '--');
-
-        throw new NotCreatedTabIdAndDetectionResults(
-          `Not created tabId ${tab.id}, while it should be!`
-        );
-      }
-
-      // If our URL is undefined or the url is a internal browser url, such as the extension settings page, we are only
-      // interested in the previous url. If we have one, act accordingly.
-      if (!url || this.isBrowserUrl(url)) {
-        const isWhitelisted = this._whitelistedUrls.some(wlu =>
-          url.startsWith(wlu)
-        );
-        const isPhishing =
-          itemToUpdate.detectionResults &&
-          itemToUpdate.detectionResults.some(res => res.isPhishing);
-        const badgeScore = BadgeScorer.calculate(
-          this._communityUrls,
-          this._rules,
-          itemToUpdate.url
-        );
-        if (isPhishing && !isWhitelisted) {
-          this.updateResult('unblock.html', badgeScore.phishingProbability);
-        } else {
-          this.updateResult('report.html', badgeScore.phishingProbability);
-        }
-
-        return;
-      }
-
-      // If we have an URL, this means that we have something to check on. So check it, and then update the state in
-      // our tabs set. Also, report the phishing detection, and redirect the user to the unblock page if it is phishing.
-      const detectionResults: DetectionResult[] = this.detectPhishing(url);
-
-      // Log for transparency/debug
-      console.log(
-        `URL: ${url}. Enable debug logging for applicable rules.`,
-        detectionResults
-      );
-
-      const updatedItem = Object.assign({}, itemToUpdate);
-      this._tabIdsAndDetectionResults.delete(itemToUpdate);
-      updatedItem.url = tab.url;
-      updatedItem.detectionResults = detectionResults;
-      this._tabIdsAndDetectionResults.add(updatedItem);
-
-      const isWhitelisted = this._whitelistedUrls.some(wlu =>
-        url.startsWith(wlu)
-      );
-      const isPhishing = detectionResults.some(res => res.isPhishing);
-      const badgeScore = BadgeScorer.calculate(
-        this._communityUrls,
-        this._rules,
-        url
-      ).phishingProbability;
-      if (isPhishing && !isWhitelisted) {
-        this.updateLastKnownPhishingUrl(url);
-        this.updateResult('unblock.html', badgeScore);
-
-        // @ts-ignore
-        this._browserImpl.tabs.update(tab.id, {
-          url: this._browserImpl.runtime.getURL('blocked.html')
-        });
-      } else {
-        this.updateResult('report.html', badgeScore);
-      }
+    this._browserImpl.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+      return this.handleTabUpdated(tabId, changeInfo, tab);
     });
 
     /**
-     * When tab is created. We create an initial tab value to query on in later events.
-     * Do NOT check for phishing in this stage yet.
+     * When a tab is created. We create an initial state to update in later
+     * events. Do NOT check for phishing in this stage yet.
      */
     this._browserImpl.tabs.onCreated.addListener(tab => {
-      const item: TabIdAndDetectionResults = {
-        tabId: tab.id,
-        url: tab.url,
-        detectionResults: undefined
-      };
-      this._tabIdsAndDetectionResults.add(item);
+      if (tab.id === undefined) {
+        return;
+      }
+      this.getOrCreateTabState(tab.id, tab.url || '');
+    });
+
+    /**
+     * Keep the in-memory rules and whitelist in sync with changes made from
+     * the settings page or the unblock page.
+     */
+    this._browserImpl.storage?.onChanged?.addListener((changes, areaName) => {
+      if (areaName !== 'local' || !changes['settings']) {
+        return;
+      }
+      void this.loadRules();
+      void this.refreshWhitelistedUrls();
     });
   }
 
-  private setWhitelistedUrls() {
-    this._storage.getWhitelistedUrls((whitelistedUrls: string[]) => {
-      if (whitelistedUrls && Array.isArray(whitelistedUrls)) {
-        this._whitelistedUrls = whitelistedUrls;
+  private async initializeState(): Promise<void> {
+    await Promise.all([this.loadRules(), this.refreshWhitelistedUrls()]);
+  }
+
+  private loadRules(): Promise<void> {
+    return new Promise(resolve => {
+      try {
+        this._storage.getRules(rules => {
+          if (Array.isArray(rules)) {
+            this._rules = rules;
+          }
+          resolve();
+        });
+      } catch (error) {
+        console.error('Could not load phishing rules', error);
+        resolve();
       }
     });
+  }
+
+  private refreshWhitelistedUrls(): Promise<void> {
+    return new Promise(resolve => {
+      try {
+        this._storage.getWhitelistedUrls(urls => {
+          if (Array.isArray(urls)) {
+            this._whitelistedUrls = urls;
+          }
+          resolve();
+        });
+      } catch (error) {
+        console.error('Could not load whitelisted URLs', error);
+        resolve();
+      }
+    });
+  }
+
+  private async getWhitelistedUrlsFromStorage(): Promise<string[]> {
+    return new Promise(resolve => {
+      try {
+        this._storage.getWhitelistedUrls(urls => {
+          resolve(Array.isArray(urls) ? urls : []);
+        });
+      } catch (error) {
+        console.error('Could not read whitelisted URLs', error);
+        resolve(this._whitelistedUrls);
+      }
+    });
+  }
+
+  private async handleTabActivated(tabId: number): Promise<void> {
+    // Refresh the whitelist before deciding which popup to show.
+    await this.refreshWhitelistedUrls();
+
+    const activeState = this._tabStates.get(tabId);
+
+    // Close previous phishing/blocked tabs. Never close the tab the user just
+    // activated.
+    for (const state of Array.from(this._tabStates.values())) {
+      if (state.tabId === tabId) {
+        continue;
+      }
+      if (state.detectionResults?.some(result => result.isPhishing)) {
+        void this.closeTab(state.tabId);
+      }
+    }
+
+    if (!activeState || !activeState.detectionResults) {
+      this.updateResult('report.html', '--');
+      return;
+    }
+
+    this.updatePopupForState(activeState);
+  }
+
+  private async handleTabUpdated(
+    tabId: number,
+    changeInfo: { url?: string; status?: string },
+    tab: { id?: number; url?: string }
+  ): Promise<void> {
+    if (tabId === undefined || tabId === null) {
+      return;
+    }
+
+    // A tab can emit several onUpdated events in quick succession (loading,
+    // title, favicon, ...). Only the most recent event may update the state.
+    const version = (this._tabUpdateVersions.get(tabId) || 0) + 1;
+    this._tabUpdateVersions.set(tabId, version);
+
+    const state = this.getOrCreateTabState(tabId);
+    const previousUrl = state.url;
+    const url = changeInfo?.url || tab?.url || '';
+
+    await this._ready;
+
+    // A newer event superseded this one.
+    if (this._tabUpdateVersions.get(tabId) !== version) {
+      return;
+    }
+
+    // Internal browser pages (about:, chrome://, extension pages, ...) should
+    // never be scanned. Our own blocked page is special: keep the previous
+    // result so the popup can still offer the whitelist flow.
+    if (!isHttpUrl(url)) {
+      if (url && this.isBlockedPageUrl(url)) {
+        this.updatePopupForState(state);
+        return;
+      }
+
+      if (!url) {
+        this.updatePopupForState(state);
+        return;
+      }
+
+      state.url = url;
+      state.detectionResults = undefined;
+      this.updateResult('report.html', '--');
+      return;
+    }
+
+    const shouldDetect =
+      !state.detectionResults ||
+      url !== previousUrl ||
+      !!changeInfo?.url ||
+      changeInfo?.status === 'loading';
+
+    if (!shouldDetect) {
+      this.updatePopupForState(state);
+      return;
+    }
+
+    const detectionResults = this.detectPhishing(url);
+    state.url = url;
+    state.detectionResults = detectionResults;
+
+    const isPhishing = detectionResults.some(result => result.isPhishing);
+    if (!isPhishing) {
+      this.updateResult('report.html', this.calculateBadge(url));
+      return;
+    }
+
+    // Read the whitelist from storage at decision time. This prevents a race
+    // where the user has just whitelisted a domain, but the in-memory cache
+    // has not been refreshed yet by the storage.onChanged event.
+    const whitelistedUrls = await this.getWhitelistedUrlsFromStorage();
+    this._whitelistedUrls = whitelistedUrls;
+
+    if (isWhitelistedUrl(url, whitelistedUrls)) {
+      this.updateResult('report.html', this.calculateBadge(url));
+      return;
+    }
+
+    await this.storeLastKnownPhishingUrl(url);
+    this.updateResult('unblock.html', this.calculateBadge(url));
+    await this.blockTab(tabId, state);
+  }
+
+  private getOrCreateTabState(tabId: number, url = ''): TabState {
+    let state = this._tabStates.get(tabId);
+    if (!state) {
+      state = { tabId, url };
+      this._tabStates.set(tabId, state);
+    } else if (url) {
+      state.url = url;
+    }
+    return state;
+  }
+
+  private updatePopupForState(state: TabState): void {
+    if (!state.detectionResults) {
+      this.updateResult('report.html', '--');
+      return;
+    }
+
+    const isPhishing = state.detectionResults.some(result => result.isPhishing);
+    const isWhitelisted = isWhitelistedUrl(state.url, this._whitelistedUrls);
+
+    this.updateResult(
+      isPhishing && !isWhitelisted ? 'unblock.html' : 'report.html',
+      this.calculateBadge(state.url)
+    );
+  }
+
+  private calculateBadge(url: string): string {
+    try {
+      return BadgeScorer.calculate(this._communityUrls, this._rules, url)
+        .phishingProbability;
+    } catch (error) {
+      console.error('Could not calculate the phishing score', error);
+      return '--';
+    }
   }
 
   private detectPhishing(url: string): DetectionResult[] {
     if (!url) {
       return [];
     }
-    const engine = new Engine(this._communityUrls, ...this._rules);
-    return engine.detect(url);
+    try {
+      const engine = new Engine(this._communityUrls, ...this._rules);
+      return engine.detect(url);
+    } catch (error) {
+      console.error('Could not run the phishing detection engine', error);
+      return [];
+    }
+  }
+
+  private async blockTab(tabId: number, state: TabState): Promise<void> {
+    if (state.redirecting) {
+      return;
+    }
+
+    state.redirecting = true;
+    try {
+      const blockedUrl = this._browserImpl.runtime.getURL('blocked.html');
+      const tabs = this._browserImpl.tabs as typeof chrome.tabs;
+      await tabs.update(tabId, { url: blockedUrl });
+    } catch (error) {
+      console.error('Could not redirect the tab to the blocked page', error);
+    } finally {
+      state.redirecting = false;
+    }
+  }
+
+  private async closeTab(tabId: number): Promise<void> {
+    try {
+      await this._browserImpl.tabs.remove(tabId);
+    } catch (error) {
+      console.error('Could not close a phishing tab', error);
+    }
+  }
+
+  private async storeLastKnownPhishingUrl(url: string): Promise<void> {
+    try {
+      await this._storage.updateLastKnownPhishingUrl(url);
+    } catch (error) {
+      console.error('Could not store the last known phishing URL', error);
+    }
+  }
+
+  private isBlockedPageUrl(url: string): boolean {
+    try {
+      return url.startsWith(this._browserImpl.runtime.getURL('blocked.html'));
+    } catch {
+      return false;
+    }
+  }
+
+  private loadCommunityUrls(): void {
+    void this._communityLoader
+      .getCommunityUrls()
+      .then(urls => {
+        if (Array.isArray(urls)) {
+          this._communityUrls = urls;
+        }
+      })
+      .catch(error => {
+        console.error('Could not load community URLs', error);
+      });
+  }
+
+  private initializeOpenTabs(): void {
+    Promise.resolve(this._browserImpl.tabs.query({}))
+      .then(tabs => {
+        (tabs || []).forEach(tab => {
+          // Do not overwrite a state that was created by an event while the
+          // query was in flight.
+          if (tab.id !== undefined && !this._tabStates.has(tab.id)) {
+            this._tabStates.set(tab.id, {
+              tabId: tab.id,
+              url: tab.url || ''
+            });
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Could not query the open tabs', error);
+      });
   }
 
   private updateResult(popupPath: string, badge: string): void {
-    this._browserImpl.action.setPopup({ popup: popupPath });
-    this._browserImpl.action.setBadgeText({ text: badge });
-  }
-
-  private updateRules(): void {
-    this._storage.getRules(rules => (this._rules = rules));
-  }
-
-  private loadCommunityUrls() {
-    this._communityLoader
-      .getCommunityUrls()
-      .then(urls => (this._communityUrls = urls));
-  }
-
-  private updateLastKnownPhishingUrl(url: string): void {
-    if (this.isBrowserUrl(url)) {
-      return;
-    }
-    this._storage.updateLastKnownPhishingUrl(url);
-  }
-
-  private isBrowserUrl(url: string): boolean {
-    switch (true) {
-      case url.toLowerCase().includes('chrome-extension'):
-      case url.toLowerCase().includes('moz-extension'):
-        return true;
-      default:
-        return false;
+    try {
+      this._browserImpl.action.setPopup({ popup: popupPath });
+      this._browserImpl.action.setBadgeText({ text: badge });
+    } catch (error) {
+      console.error('Could not update the extension action', error);
     }
   }
 }
