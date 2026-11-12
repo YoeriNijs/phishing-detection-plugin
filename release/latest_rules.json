@@ -26,6 +26,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -157,6 +185,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       },
       {
         "name": "ics_exclude_rule_1",
@@ -187,6 +229,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -318,6 +388,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       }
     ]
   },
@@ -334,6 +418,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -465,6 +577,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       }
     ]
   },
@@ -523,6 +649,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -654,6 +808,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       },
       {
         "name": "wetransfer_rule",
@@ -1387,6 +1555,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -1518,6 +1714,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       },
       {
         "name": "rabo_phishing_exclude_rule",
@@ -2192,6 +2402,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -2323,6 +2561,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       },
       {
         "name": "nl_keyword",
@@ -2395,6 +2647,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -2526,6 +2806,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       },
       {
         "name": "ing_phishing_exclude_rule_1",
@@ -3214,6 +3508,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -3345,6 +3667,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       },
       {
         "name": "nl_keyword",
@@ -3998,6 +4334,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -4129,6 +4493,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       },
       {
         "name": "anwb_phishing_exclude_rule",
@@ -4845,6 +5223,34 @@
     ],
     "exclude": [
       {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
         "name": "bitbucket_exclude_rule_1",
         "description": "A bitbucket phishing exclude rule",
         "phishingRuleType": "host",
@@ -4976,6 +5382,20 @@
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
         "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": ".be",
+        "weight": 1
       },
       {
         "name": "isp_odido_exclude",
