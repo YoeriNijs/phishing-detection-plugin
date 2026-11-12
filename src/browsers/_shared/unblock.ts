@@ -42,6 +42,11 @@ const closeActiveTab = async (): Promise<void> => {
   }
 };
 
+const openNewTab = async (url: string): Promise<void> => {
+  const browserImpl = getBrowserImpl();
+  await browserImpl.tabs.create({ url, active: false });
+};
+
 const codeElement = document.querySelector('p.code');
 if (codeElement) {
   code = getRandomNumber();
@@ -104,6 +109,12 @@ if (submitBtn) {
     alert(I18n.translate('domain-whitelisted', domain));
 
     try {
+      // Open tab prior to closing active one
+      await getTempUrl(storage).then(url => {
+        if (url) openNewTab(url);
+      });
+
+      // Close active tab
       await closeActiveTab();
     } catch (error) {
       console.error('Could not close the blocked tab', error);
