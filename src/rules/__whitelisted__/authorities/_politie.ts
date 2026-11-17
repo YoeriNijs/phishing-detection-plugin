@@ -18,8 +18,8 @@ export const WHITELIST_POLITIE: PhishingRule[] = [
   {
     name: 'politie_exclude_rule_3',
     description: 'A politie phishing exclude rule',
-    phishingRuleType: 'contains',
-    value: '.politie/',
+    phishingRuleType: 'hostendswith',
+    value: '.politie',
     weight: 99
   }
 ];

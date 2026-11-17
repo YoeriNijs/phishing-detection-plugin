@@ -1,8 +1,8 @@
-import { IPhishingRuleChecker } from './i-phishing-rule-checker';
 import { PhishingRuleType } from '../../../model/phishing-rule-type';
 import { PhishingRule } from '../../../model/phishing-rule';
+import { AbstractPhishingRuleHostChecker } from './abstract-phishing-rule-host-checker';
 
-export class PhishingRuleHost implements IPhishingRuleChecker {
+export class PhishingRuleHost extends AbstractPhishingRuleHostChecker {
   type(): PhishingRuleType {
     return 'host';
   }
@@ -22,19 +22,5 @@ export class PhishingRuleHost implements IPhishingRuleChecker {
 
     const value = rule.value.toLowerCase();
     return hostname === value || hostname.endsWith(`.${value}`);
-  }
-
-  private getHostName(url: string): string | null {
-    let urlToCheck = url.trim();
-    if (!/^https?:\/\//i.test(urlToCheck)) {
-      urlToCheck = `http://${urlToCheck}`;
-    }
-
-    try {
-      return new URL(urlToCheck).hostname.toLowerCase();
-    } catch (error) {
-      console.warn(`Invalid URL while checking host rule: ${url}`, error);
-      return null;
-    }
   }
 }
