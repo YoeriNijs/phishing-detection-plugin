@@ -3,6 +3,7 @@ import { PhishingRules } from '../model/phishing-rules';
 import { PhishingRuleType } from '../model/phishing-rule-type';
 import { PhishingRuleFactory } from './rules/phishing-rule-factory';
 import { PhishingRule } from '../model/phishing-rule';
+import { getHostname } from '../browsers/_shared/util/url-util';
 
 interface EngineResult {
   isPhishing: boolean;
@@ -46,9 +47,12 @@ export class Engine {
 
     // If it is a community url, then mark it as unsafe
     const normalizedUrl = url.toLowerCase();
+    const hostname = getHostname(normalizedUrl);
     const isCommunityUrl = (this._community_urls || [])
+      .filter(url => url && url.length > 0)
       .map(communityUrl => communityUrl.toLowerCase())
-      .includes(normalizedUrl);
+      .map(communityUrl => getHostname(communityUrl))
+      .some(communityUrl => communityUrl === hostname);
     if (isCommunityUrl) {
       return [PHISHING_RESULT()];
     }

@@ -16,9 +16,13 @@ export class OpenFishCache {
   }
 }
 
-export class Openfish implements ICommunity {
+export class OpenPhish implements ICommunity {
   private readonly _feed_url =
     'https://raw.githubusercontent.com/openphish/public_feed/refs/heads/main/feed.txt';
+
+  publicName(): string {
+    return 'Openphish';
+  }
 
   async fetch(): Promise<string[]> {
     const cachedValue = OpenFishCache.getCache();

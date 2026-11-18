@@ -4,6 +4,7 @@ import {
 } from './util/browser-util';
 import { I18n } from './i18n/i18n';
 import { IStorage } from './i-storage';
+import { getOrigin } from './util/url-util';
 
 let code: number | null = null;
 let codeByUser: number[] = [];
@@ -27,8 +28,8 @@ const clearUserCode = () => {
   }
 };
 
-const getTempUrl = (storage: IStorage): Promise<string | undefined> => {
-  return new Promise(resolve => storage.getTempUrl(resolve));
+const getLastKnownPhishingUrl = (storage: IStorage): Promise<string | undefined> => {
+  return new Promise(resolve => storage.getLastKnownPhishingUrl(resolve));
 };
 
 const closeActiveTab = async (): Promise<void> => {
@@ -95,8 +96,8 @@ if (submitBtn) {
     }
 
     const storage = createStorageForBrowserImpl();
-    const domain = await getTempUrl(storage);
-    if (!domain) {
+    const lastKnownPhishingUrl = await getLastKnownPhishingUrl(storage);
+    if (!lastKnownPhishingUrl) {
       alert(I18n.translate('unknown-domain'));
       return;
     }
@@ -104,13 +105,14 @@ if (submitBtn) {
     // Wait for the whitelist to be persisted before closing the tab. Otherwise
     // the background script may still read the old whitelist when the user
     // navigates to the domain again.
-    await storage.addWhitelistedUrl(domain);
+    await storage.addWhitelistedUrl(lastKnownPhishingUrl);
 
-    alert(I18n.translate('domain-whitelisted', domain));
+    const origin = getOrigin(lastKnownPhishingUrl) || 'invalid domain';
+    alert(I18n.translate('domain-whitelisted', origin));
 
     try {
       // Open tab prior to closing active one
-      await getTempUrl(storage).then(url => {
+      await getLastKnownPhishingUrl(storage).then(url => {
         if (url) openNewTab(url);
       });
 

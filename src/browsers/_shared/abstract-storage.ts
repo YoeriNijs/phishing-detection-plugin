@@ -80,19 +80,14 @@ export abstract class AbstractStorage implements IStorage {
     });
   }
 
-  updateLastKnownPhishingUrl(tempUrl: string): Promise<void> {
-    const origin = getOrigin(tempUrl);
-    if (!origin) {
-      return Promise.resolve();
-    }
-
+  updateLastKnownPhishingUrl(url: string): Promise<void> {
     return this.updateSettings(settings => ({
       ...settings,
-      lastKnownPhishingUrl: origin
+      lastKnownPhishingUrl: url
     }));
   }
 
-  getTempUrl(fn: (url?: string) => void): void {
+  getLastKnownPhishingUrl(fn: (url?: string) => void): void {
     void this.getValidSettings()
       .then(settings => fn(settings.lastKnownPhishingUrl))
       .catch(error => {

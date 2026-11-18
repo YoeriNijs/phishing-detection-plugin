@@ -20,6 +20,10 @@ export class StevenBlack implements ICommunity {
   private readonly _feed_url =
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts';
 
+  publicName(): string {
+    return 'StevenBlack';
+  }
+
   async fetch(): Promise<string[]> {
     const cachedValue = StevenBlackCache.getCache();
     if (cachedValue === null) {

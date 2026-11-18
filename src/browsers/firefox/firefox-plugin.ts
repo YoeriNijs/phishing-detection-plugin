@@ -1,6 +1,6 @@
 import { FirefoxStorage } from './firefox-storage';
 import { DEFAULT_RULES } from '../../rules/default';
-import { PhishingDetectionPlugin } from '../_shared/plugin';
+import PhishingDetectionPlugin from '../_shared/plugin';
 import { fetchLatestRules } from '../_shared/rules-loader';
 
 /**

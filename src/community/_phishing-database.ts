@@ -20,6 +20,10 @@ export class PhishingDatabase implements ICommunity {
   private readonly _feed_url =
     'https://raw.githubusercontent.com/Phishing-Database/Phishing.Database/refs/heads/master/phishing-links-NEW-today.txt';
 
+  publicName(): string {
+    return 'PhishingDatabase';
+  }
+
   async fetch(): Promise<string[]> {
     const cachedValue = PhishingDatabaseCache.getCache();
     if (cachedValue === null) {
