@@ -6,7 +6,7 @@ _A modular phishing detection plugin for Chrome and Firefox_
 
 ## Installation
 
-If applicable, install this plugin by using the Chrome Web Store or the Firefox Extension Store.
+If applicable, install this plugin by using the [Chrome Web Store](https://chromewebstore.google.com/detail/phishing-detection-plugin/nadlnglpibiemkeoonbdbamcacghdiak) or the [Firefox Extension Store](https://addons.mozilla.org/en-US/firefox/addon/phishing-detection-plugin/).
 
 ## Manual installation (for testing purposes only)
 
@@ -34,29 +34,6 @@ attempt. All settings and activities are stored on your computer alone. We do no
 - Run `npm install` (make sure you've [Node](https://nodejs.org/en) or higher installed)
 - Run `npm run build:chrome` for Chrome or `npm run build:firefox` for Firefox
 - Build output is saved in the `/build` directory.
-
-## Backlog
-
-- [ ] Add additional tests for Chrome and Firefox
-- [ ] Mark site as phishing site
-- [ ] Implement Naive Bayes Classifier to manually classify phishing panels locally
-- [ ] Dropdown for selecting rules sets
-- [ ] Keep latest community urls in localstorage for a while
-- [x] Combine Webpack configs
-- [x] Reimplement Firefox plugin based on new Chrome code
-- [x] Window for whitelisting domains
-- [x] Logic for whitelisting domains
-- [x] Remove http(s) from domain that needs to be checked
-- [x] Link repository, add favicon contributor
-- [x] Add real world rules
-- [x] Add engine tests based on real world phishing urls
-- [x] Clean up duplicate Chrome and Firefox code (programming against interface)
-- [x] Fix community urls implementation
-- [x] Clean up project structure
-- [x] Finalize i18n
-- [x] Implement release pipeline
-- [x] Update this readme
-- [x] Retrieve rules from Github directly
 
 ## Acknowledgement
 

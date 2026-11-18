@@ -236,7 +236,12 @@ class PhishingDetectionPlugin {
 
     const isPhishing = detectionResults.some(result => result.isPhishing);
     if (!isPhishing) {
-      this.updateResult('report.html', this.calculateBadge(url), 'white', 'green');
+      this.updateResult(
+        'report.html',
+        this.calculateBadge(url),
+        'white',
+        'green'
+      );
       return;
     }
 
@@ -247,7 +252,12 @@ class PhishingDetectionPlugin {
     this._whitelistedUrls = whitelistedUrls;
 
     if (isWhitelistedUrl(url, whitelistedUrls)) {
-      this.updateResult('report.html', this.calculateBadge(url), 'white', 'green');
+      this.updateResult(
+        'report.html',
+        this.calculateBadge(url),
+        'white',
+        'green'
+      );
       return;
     }
 
@@ -381,7 +391,12 @@ class PhishingDetectionPlugin {
       });
   }
 
-  private updateResult(popupPath: string, badge: string, textColor: string, bgColor: string): void {
+  private updateResult(
+    popupPath: string,
+    badge: string,
+    textColor: string,
+    bgColor: string
+  ): void {
     try {
       this._browserImpl.action.setPopup({ popup: popupPath });
       this._browserImpl.action.setBadgeText({ text: badge });

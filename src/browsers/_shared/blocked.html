@@ -1,177 +1,181 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>⚠️ Phishing Detection Plugin</title>
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>⚠️ Phishing Detection Plugin</title>
+    <style>
       body {
-          --bg: #211719;
-          --panel: #302124;
-          --border: #593338;
-          --text: #fff1f0;
-          --muted: #d0b4b4;
-          --accent: #ff6b5f;
-          --warning: #ffb454;
+        --bg: #211719;
+        --panel: #302124;
+        --border: #593338;
+        --text: #fff1f0;
+        --muted: #d0b4b4;
+        --accent: #ff6b5f;
+        --warning: #ffb454;
 
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-          padding: 24px;
-          background:
-                  radial-gradient(ellipse at top, #482326 0%, transparent 65%),
-                  var(--bg);
-          color: var(--text);
-          font: 14px/1.5 Arial, sans-serif;
-          text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 24px;
+        background:
+          radial-gradient(ellipse at top, #482326 0%, transparent 65%),
+          var(--bg);
+        color: var(--text);
+        font:
+          14px/1.5 Arial,
+          sans-serif;
+        text-align: center;
       }
 
       .container {
-          width: min(100%, 460px);
-          padding: 26px;
-          border: 1px solid var(--border);
-          border-radius: 12px;
-          background: var(--panel);
-          box-shadow: 0 12px 36px rgb(0 0 0 / 35%);
+        width: min(100%, 460px);
+        padding: 26px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--panel);
+        box-shadow: 0 12px 36px rgb(0 0 0 / 35%);
       }
 
       h1 {
-          margin: 0 0 12px;
-          color: #ff8177;
-          font-size: 22px;
-          font-weight: 700;
+        margin: 0 0 12px;
+        color: #ff8177;
+        font-size: 22px;
+        font-weight: 700;
       }
 
       .container > p {
-          margin: 0;
-          color: var(--muted);
-          font-size: 14px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
       }
 
       div.exclude {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 12px;
-          margin: 22px 0 0;
-          padding: 18px;
-          border: 1px solid rgb(255 107 95 / 38%);
-          border-radius: 9px;
-          background: rgb(255 107 95 / 8%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin: 22px 0 0;
+        padding: 18px;
+        border: 1px solid rgb(255 107 95 / 38%);
+        border-radius: 9px;
+        background: rgb(255 107 95 / 8%);
       }
 
       p.code,
       p.user-code {
-          width: 100%;
-          margin: 0;
-          text-align: center;
+        width: 100%;
+        margin: 0;
+        text-align: center;
       }
 
       p.code {
-          min-height: 18px;
-          color: var(--muted);
-          font-size: 13px;
+        min-height: 18px;
+        color: var(--muted);
+        font-size: 13px;
       }
 
       p.user-code {
-          min-height: 34px;
-          color: #fff;
-          font-size: 25px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
+        min-height: 34px;
+        color: #fff;
+        font-size: 25px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
       }
 
       button {
-          min-height: 36px;
-          padding: 7px 12px;
-          border: 1px solid #694147;
-          border-radius: 6px;
-          background: #402b30;
-          color: var(--text);
-          font: inherit;
-          cursor: pointer;
-          transition: background-color 120ms ease, border-color 120ms ease,
+        min-height: 36px;
+        padding: 7px 12px;
+        border: 1px solid #694147;
+        border-radius: 6px;
+        background: #402b30;
+        color: var(--text);
+        font: inherit;
+        cursor: pointer;
+        transition:
+          background-color 120ms ease,
+          border-color 120ms ease,
           opacity 120ms ease;
       }
 
       .row button {
-          width: 46px;
-          padding: 6px;
-          font-size: 16px;
-          font-weight: 600;
+        width: 46px;
+        padding: 6px;
+        font-size: 16px;
+        font-weight: 600;
       }
 
       button:hover:not(:disabled) {
-          border-color: #a65b5c;
-          background: #563339;
+        border-color: #a65b5c;
+        background: #563339;
       }
 
       button:focus-visible {
-          outline: 2px solid var(--warning);
-          outline-offset: 2px;
+        outline: 2px solid var(--warning);
+        outline-offset: 2px;
       }
 
       button:disabled {
-          opacity: 0.45;
-          cursor: not-allowed;
+        opacity: 0.45;
+        cursor: not-allowed;
       }
 
       button.submit {
-          min-width: 150px;
-          padding: 9px 16px;
-          border-color: #ff766b;
-          background: #c9433b;
-          color: #fff;
-          font-weight: 700;
+        min-width: 150px;
+        padding: 9px 16px;
+        border-color: #ff766b;
+        background: #c9433b;
+        color: #fff;
+        font-weight: 700;
       }
 
       button.submit:hover:not(:disabled) {
-          border-color: #ff988f;
-          background: #df5148;
+        border-color: #ff988f;
+        background: #df5148;
       }
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1><i18n>possible-phishing-attempt</i18n></h1>
-  <p>
-    <i18n>possible-phishing-attempt-details</i18n>
-  </p>
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1><i18n>possible-phishing-attempt</i18n></h1>
+      <p>
+        <i18n>possible-phishing-attempt-details</i18n>
+      </p>
 
-  <div class="exclude">
-    <p class="code"></p>
-    <p class="user-code"></p>
+      <div class="exclude">
+        <p class="code"></p>
+        <p class="user-code"></p>
 
-    <div class="calculator">
-      <div class="row">
-        <button type="button">7</button>
-        <button type="button">8</button>
-        <button type="button">9</button>
-      </div>
-      <div class="row">
-        <button type="button">4</button>
-        <button type="button">5</button>
-        <button type="button">6</button>
-      </div>
-      <div class="row">
-        <button type="button">1</button>
-        <button type="button">2</button>
-        <button type="button">3</button>
-      </div>
-      <div class="row">
-        <button type="button">0</button>
-        <button type="button">&lt;&lt;</button>
+        <div class="calculator">
+          <div class="row">
+            <button type="button">7</button>
+            <button type="button">8</button>
+            <button type="button">9</button>
+          </div>
+          <div class="row">
+            <button type="button">4</button>
+            <button type="button">5</button>
+            <button type="button">6</button>
+          </div>
+          <div class="row">
+            <button type="button">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+          </div>
+          <div class="row">
+            <button type="button">0</button>
+            <button type="button">&lt;&lt;</button>
+          </div>
+        </div>
+
+        <button class="submit" type="button" disabled>
+          <i18n>whitelist-button</i18n>
+        </button>
       </div>
     </div>
 
-    <button class="submit" type="button" disabled>
-      <i18n>whitelist-button</i18n>
-    </button>
-  </div>
-</div>
-
-<script defer src="unblock.js"></script>
-<script defer src="i18n.js"></script>
-</body>
+    <script defer src="unblock.js"></script>
+    <script defer src="i18n.js"></script>
+  </body>
 </html>
