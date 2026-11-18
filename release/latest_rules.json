@@ -187,6 +187,13 @@
         "weight": 99
       },
       {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
+        "weight": 99
+      },
+      {
         "name": "bbc_exclude_rule_1",
         "description": "A bbc phishing exclude rule",
         "phishingRuleType": "host",
@@ -488,6 +495,13 @@
         "weight": 99
       },
       {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
+        "weight": 99
+      },
+      {
         "name": "bbc_exclude_rule_1",
         "description": "A bbc phishing exclude rule",
         "phishingRuleType": "host",
@@ -772,6 +786,13 @@
         "description": "A qwant phishing exclude rule",
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
         "weight": 99
       },
       {
@@ -1101,6 +1122,13 @@
         "description": "A qwant phishing exclude rule",
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
         "weight": 99
       },
       {
@@ -2108,6 +2136,13 @@
         "weight": 99
       },
       {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
+        "weight": 99
+      },
+      {
         "name": "bbc_exclude_rule_1",
         "description": "A bbc phishing exclude rule",
         "phishingRuleType": "host",
@@ -3050,6 +3085,13 @@
         "description": "A qwant phishing exclude rule",
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
         "weight": 99
       },
       {
@@ -4019,6 +4061,13 @@
         "weight": 99
       },
       {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
+        "weight": 99
+      },
+      {
         "name": "bbc_exclude_rule_1",
         "description": "A bbc phishing exclude rule",
         "phishingRuleType": "host",
@@ -4187,15 +4236,8 @@
       {
         "name": "knab_include_rule_1",
         "description": "Detect knab typosquatting",
-        "phishingRuleType": "regex",
-        "value": "(?i)(?:^|[./:-])(?:knab|knba|k[nm]ab|kn[a4]b|kna[b8]|k[a-z0-9]nab|kn[a-z0-9]ab|kna[a-z0-9]b|knab[a-z0-9])(?:$|[./:?#[\\]-])",
-        "weight": 0.5
-      },
-      {
-        "name": "knab_include_rule_2",
-        "description": "Detect knab lookalikes",
-        "phishingRuleType": "regex",
-        "value": "(?i)(?:^|[./:-])[kкκ][nпո][aаα][bвβ](?:$|[./:?#[\\]-])",
+        "phishingRuleType": "contains",
+        "value": "/\\b(?:knab|kanb|knba|nkab|knabb|kknab)\\b/",
         "weight": 0.5
       },
       {
@@ -4975,6 +5017,13 @@
         "description": "A qwant phishing exclude rule",
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
         "weight": 99
       },
       {
@@ -5892,6 +5941,13 @@
         "description": "A qwant phishing exclude rule",
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
         "weight": 99
       },
       {
@@ -6816,6 +6872,13 @@
         "description": "A qwant phishing exclude rule",
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
         "weight": 99
       },
       {
@@ -7803,6 +7866,13 @@
         "description": "A qwant phishing exclude rule",
         "phishingRuleType": "regex",
         "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "avrotros_exclude_rule_1",
+        "description": "An avrotros phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "avrotros.nl",
         "weight": 99
       },
       {

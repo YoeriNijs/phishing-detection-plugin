@@ -1,1 +1,1 @@
-92d71b2637a4e268e8525242aa32fd9d6741ec1e77504e9f14d59a97ea98b4f5  ./release/latest_rules.json
+ce5b330782f278bf7ccb094d780d0e6edf814420ee0589474482e8d45e4150bc  ./release/latest_rules.json

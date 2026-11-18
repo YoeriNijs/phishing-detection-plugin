@@ -1,0 +1,1 @@
+aa4a89b0af663b92ac9839806c2a4fe2549b25a8c425106ac2413c21ce443f67  ../../release/chrome_plugin_0.1.35.crx
