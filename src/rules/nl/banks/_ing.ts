@@ -50,7 +50,7 @@ const SPECIFIC_ING_RULES: PhishingRule[] = [
 
 export const ING_RULES: PhishingRules = {
   threshold: 1,
-  include: [...SPECIFIC_ING_RULES],
+  include: [...SPECIFIC_ING_RULES, ...ALL_DUTCH_KEYWORDS],
   exclude: [
     ...ALL_WHITELISTED,
     {
