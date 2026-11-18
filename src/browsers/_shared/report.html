@@ -1,173 +1,177 @@
 <!doctype html>
 <html>
-<head>
-  <title></title>
-  <style>
+  <head>
+    <title></title>
+    <style>
       * {
-          box-sizing: border-box;
+        box-sizing: border-box;
       }
 
       html,
       body {
-          width: 250px;
-          height: 300px;
-          margin: 0;
+        width: 250px;
+        height: 300px;
+        margin: 0;
       }
 
       body {
-          --bg: #1f2126;
-          --panel: #292c33;
-          --border: #3b3f48;
-          --text: #f2f3f5;
-          --muted: #a6aab4;
-          --accent: #8ab4f8;
+        --bg: #1f2126;
+        --panel: #292c33;
+        --border: #3b3f48;
+        --text: #f2f3f5;
+        --muted: #a6aab4;
+        --accent: #8ab4f8;
 
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          overflow: hidden;
-          padding: 17px;
-          background: var(--bg);
-          color: var(--text);
-          font: 13px/1.45 Arial, sans-serif;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        overflow: hidden;
+        padding: 17px;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          13px/1.45 Arial,
+          sans-serif;
       }
 
       h1 {
-          display: flex;
-          align-items: center;
-          min-height: 30px;
-          margin: 0;
-          padding-bottom: 10px;
-          border-bottom: 1px solid var(--border);
-          font-size: 16px;
-          font-weight: 600;
-          letter-spacing: 0.1px;
+        display: flex;
+        align-items: center;
+        min-height: 30px;
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.1px;
       }
 
       h2 {
-          margin: 2px 0 0;
-          color: var(--muted);
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       p {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          width: 100%;
-          margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        margin: 0;
       }
 
       table {
-          width: 100%;
-          border-collapse: collapse;
-          overflow: hidden;
-          border: 1px solid var(--border);
-          border-radius: 7px;
-          background: var(--panel);
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        background: var(--panel);
       }
 
       td {
-          padding: 8px 9px;
-          border-bottom: 1px solid var(--border);
-          vertical-align: middle;
+        padding: 8px 9px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: middle;
       }
 
       tr:last-child td {
-          border-bottom: 0;
+        border-bottom: 0;
       }
 
       td.shorten {
-          max-width: 1px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+        max-width: 1px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       td.shorten:hover {
-          color: var(--accent);
-          cursor: pointer;
-          text-decoration: underline;
-          text-underline-offset: 2px;
+        color: var(--accent);
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 2px;
       }
 
       button {
-          min-height: 30px;
-          padding: 6px 11px;
-          border: 1px solid var(--border);
-          border-radius: 6px;
-          background: #343841;
-          color: var(--text);
-          font: inherit;
-          cursor: pointer;
-          transition: background-color 120ms ease, border-color 120ms ease;
+        min-height: 30px;
+        padding: 6px 11px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: #343841;
+        color: var(--text);
+        font: inherit;
+        cursor: pointer;
+        transition:
+          background-color 120ms ease,
+          border-color 120ms ease;
       }
 
       button:hover {
-          border-color: #626875;
-          background: #3c414b;
+        border-color: #626875;
+        background: #3c414b;
       }
 
       button:focus-visible {
-          outline: 2px solid var(--accent);
-          outline-offset: 2px;
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
       }
 
       button.close-rules-details,
       button.close-report {
-          align-self: flex-start;
+        align-self: flex-start;
       }
 
       .rules-details,
       .report-overlay {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          display: none;
-          flex-direction: column;
-          gap: 12px;
-          overflow: auto;
-          padding: 17px;
-          background: var(--bg);
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        overflow: auto;
+        padding: 17px;
+        background: var(--bg);
       }
 
       .rules-body {
-          min-height: 0;
-          overflow: auto;
-          padding: 10px;
-          border: 1px solid var(--border);
-          border-radius: 7px;
-          background: var(--panel);
+        min-height: 0;
+        overflow: auto;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        background: var(--panel);
       }
 
       .report {
-          margin: 0;
-          padding: 11px;
-          border: 1px solid var(--border);
-          border-radius: 7px;
-          background: var(--panel);
-          color: var(--text);
-          overflow-wrap: anywhere;
+        margin: 0;
+        padding: 11px;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        background: var(--panel);
+        color: var(--text);
+        overflow-wrap: anywhere;
       }
-  </style>
-</head>
-<body>
-<h1><i18n>title-report</i18n></h1>
-<p></p>
+    </style>
+  </head>
+  <body>
+    <h1><i18n>title-report</i18n></h1>
+    <p></p>
 
-<div class="rules-details"></div>
+    <div class="rules-details"></div>
 
-<div class="report-overlay">
-  <button class="close-report" type="button"></button>
-  <h2>URL</h2>
-  <div class="report"></div>
-</div>
+    <div class="report-overlay">
+      <button class="close-report" type="button"></button>
+      <h2>URL</h2>
+      <div class="report"></div>
+    </div>
 
-<script defer src="report.js"></script>
-<script defer src="i18n.js"></script>
-</body>
+    <script defer src="report.js"></script>
+    <script defer src="i18n.js"></script>
+  </body>
 </html>

@@ -15,12 +15,19 @@ export class CommunityLoader {
     // from being used. Promise.allSettled keeps the plugin usable when a feed
     // is temporarily offline.
     const results = await Promise.allSettled(
-      this._sources.map(source => source.fetch()
-        .then(res => {
-          console.log(`Loaded community source: ${source.publicName()}`);
-          return res;
-        })
-        .catch(() => console.error(`Failed to load community source: ${source.publicName()}`)))
+      this._sources.map(source =>
+        source
+          .fetch()
+          .then(res => {
+            console.log(`Loaded community source: ${source.publicName()}`);
+            return res;
+          })
+          .catch(() =>
+            console.error(
+              `Failed to load community source: ${source.publicName()}`
+            )
+          )
+      )
     );
 
     const communityUrls = results.flatMap(result => {

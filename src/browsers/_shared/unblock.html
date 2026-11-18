@@ -1,190 +1,194 @@
 <!doctype html>
 <html>
-<head>
-  <title></title>
-  <style>
+  <head>
+    <title></title>
+    <style>
       * {
-          box-sizing: border-box;
+        box-sizing: border-box;
       }
 
       html,
       body {
-          margin: 0;
-          width: 500px;
+        margin: 0;
+        width: 500px;
       }
 
       body {
-          --bg: #211719;
-          --panel: #302124;
-          --border: #593338;
-          --text: #fff1f0;
-          --muted: #d0b4b4;
-          --accent: #ff6b5f;
-          --warning: #ffb454;
+        --bg: #211719;
+        --panel: #302124;
+        --border: #593338;
+        --text: #fff1f0;
+        --muted: #d0b4b4;
+        --accent: #ff6b5f;
+        --warning: #ffb454;
 
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 14px;
-          padding: 22px 26px;
-          overflow: auto;
-          background:
-                  radial-gradient(ellipse at top, #482326 0%, transparent 65%),
-                  var(--bg);
-          color: var(--text);
-          font: 14px/1.5 Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding: 22px 26px;
+        overflow: auto;
+        background:
+          radial-gradient(ellipse at top, #482326 0%, transparent 65%),
+          var(--bg);
+        color: var(--text);
+        font:
+          14px/1.5 Arial,
+          sans-serif;
       }
 
       h1 {
-          width: 100%;
-          margin: 0;
-          padding-bottom: 13px;
-          border-bottom: 1px solid var(--border);
-          color: #ff8177;
-          font-size: 19px;
-          font-weight: 700;
-          text-align: center;
+        width: 100%;
+        margin: 0;
+        padding-bottom: 13px;
+        border-bottom: 1px solid var(--border);
+        color: #ff8177;
+        font-size: 19px;
+        font-weight: 700;
+        text-align: center;
       }
 
       p {
-          width: 100%;
-          margin: 0;
+        width: 100%;
+        margin: 0;
       }
 
       p.details {
-          padding: 12px 14px;
-          border: 1px solid var(--border);
-          border-radius: 8px;
-          background: var(--panel);
-          color: var(--muted);
-          text-align: center;
+        padding: 12px 14px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--panel);
+        color: var(--muted);
+        text-align: center;
       }
 
       p.code,
       p.user-code {
-          width: 100%;
-          padding: 0;
-          text-align: center;
+        width: 100%;
+        padding: 0;
+        text-align: center;
       }
 
       p.code {
-          min-height: 18px;
-          color: var(--muted);
-          font-size: 13px;
+        min-height: 18px;
+        color: var(--muted);
+        font-size: 13px;
       }
 
       p.user-code {
-          min-height: 34px;
-          color: #fff;
-          font-size: 25px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
+        min-height: 34px;
+        color: #fff;
+        font-size: 25px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
       }
 
       .calculator {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-          margin: 0;
-          padding: 12px;
-          border: 1px solid #694147;
-          border-radius: 10px;
-          background: #302124;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin: 0;
+        padding: 12px;
+        border: 1px solid #694147;
+        border-radius: 10px;
+        background: #302124;
       }
 
       .calculator .row {
-          display: flex;
-          justify-content: center;
-          gap: 6px;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
       }
 
       button {
-          min-height: 38px;
-          padding: 7px 12px;
-          border: 1px solid #694147;
-          border-radius: 6px;
-          background: #402b30;
-          color: var(--text);
-          font: inherit;
-          cursor: pointer;
-          transition: background-color 120ms ease, border-color 120ms ease,
+        min-height: 38px;
+        padding: 7px 12px;
+        border: 1px solid #694147;
+        border-radius: 6px;
+        background: #402b30;
+        color: var(--text);
+        font: inherit;
+        cursor: pointer;
+        transition:
+          background-color 120ms ease,
+          border-color 120ms ease,
           opacity 120ms ease;
       }
 
       .row button {
-          width: 48px;
-          padding: 6px;
-          font-size: 16px;
-          font-weight: 600;
+        width: 48px;
+        padding: 6px;
+        font-size: 16px;
+        font-weight: 600;
       }
 
       button:hover:not(:disabled) {
-          border-color: #a65b5c;
-          background: #563339;
+        border-color: #a65b5c;
+        background: #563339;
       }
 
       button:focus-visible {
-          outline: 2px solid var(--warning);
-          outline-offset: 2px;
+        outline: 2px solid var(--warning);
+        outline-offset: 2px;
       }
 
       button:disabled {
-          opacity: 0.45;
-          cursor: not-allowed;
+        opacity: 0.45;
+        cursor: not-allowed;
       }
 
       button.submit {
-          min-width: 150px;
-          padding: 9px 16px;
-          border-color: #ff766b;
-          background: #c9433b;
-          color: #fff;
-          font-weight: 700;
+        min-width: 150px;
+        padding: 9px 16px;
+        border-color: #ff766b;
+        background: #c9433b;
+        color: #fff;
+        font-weight: 700;
       }
 
       button.submit:hover:not(:disabled) {
-          border-color: #ff988f;
-          background: #df5148;
+        border-color: #ff988f;
+        background: #df5148;
       }
-  </style>
-</head>
-<body>
-<h1><i18n>possible-phishing-attempt</i18n></h1>
+    </style>
+  </head>
+  <body>
+    <h1><i18n>possible-phishing-attempt</i18n></h1>
 
-<p class="details">
-  <i18n>possible-phishing-attempt-details</i18n>
-</p>
+    <p class="details">
+      <i18n>possible-phishing-attempt-details</i18n>
+    </p>
 
-<p class="code"></p>
-<p class="user-code"></p>
+    <p class="code"></p>
+    <p class="user-code"></p>
 
-<div class="calculator">
-  <div class="row">
-    <button type="button">7</button>
-    <button type="button">8</button>
-    <button type="button">9</button>
-  </div>
-  <div class="row">
-    <button type="button">4</button>
-    <button type="button">5</button>
-    <button type="button">6</button>
-  </div>
-  <div class="row">
-    <button type="button">1</button>
-    <button type="button">2</button>
-    <button type="button">3</button>
-  </div>
-  <div class="row">
-    <button type="button">0</button>
-    <button type="button">&lt;&lt;</button>
-  </div>
-</div>
+    <div class="calculator">
+      <div class="row">
+        <button type="button">7</button>
+        <button type="button">8</button>
+        <button type="button">9</button>
+      </div>
+      <div class="row">
+        <button type="button">4</button>
+        <button type="button">5</button>
+        <button type="button">6</button>
+      </div>
+      <div class="row">
+        <button type="button">1</button>
+        <button type="button">2</button>
+        <button type="button">3</button>
+      </div>
+      <div class="row">
+        <button type="button">0</button>
+        <button type="button">&lt;&lt;</button>
+      </div>
+    </div>
 
-<button class="submit" type="button" disabled>
-  <i18n>whitelist-button</i18n>
-</button>
+    <button class="submit" type="button" disabled>
+      <i18n>whitelist-button</i18n>
+    </button>
 
-<script defer src="unblock.js"></script>
-<script defer src="i18n.js"></script>
-</body>
+    <script defer src="unblock.js"></script>
+    <script defer src="i18n.js"></script>
+  </body>
 </html>

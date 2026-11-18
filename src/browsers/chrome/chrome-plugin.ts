@@ -22,9 +22,7 @@ const plugin = new PhishingDetectionPlugin(storage, chrome);
 function logInitialized(message: string): void {
   void plugin
     .whenReady()
-    .then(() =>
-      console.log(`${message} Phishing Detection Plugin.`)
-    )
+    .then(() => console.log(`${message} Phishing Detection Plugin.`))
     .catch(error =>
       console.error('Could not initialize the Phishing Detection Plugin', error)
     );

@@ -28,7 +28,9 @@ const clearUserCode = () => {
   }
 };
 
-const getLastKnownPhishingUrl = (storage: IStorage): Promise<string | undefined> => {
+const getLastKnownPhishingUrl = (
+  storage: IStorage
+): Promise<string | undefined> => {
   return new Promise(resolve => storage.getLastKnownPhishingUrl(resolve));
 };
 
