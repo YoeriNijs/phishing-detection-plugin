@@ -33,6 +33,41 @@
         "weight": 99
       },
       {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
         "name": "politie_exclude_rule_1",
         "description": "A politie phishing exclude rule",
         "phishingRuleType": "host",
@@ -47,10 +82,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -180,6 +243,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -189,15 +266,36 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       },
       {
@@ -236,6 +334,41 @@
         "weight": 99
       },
       {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
         "name": "politie_exclude_rule_1",
         "description": "A politie phishing exclude rule",
         "phishingRuleType": "host",
@@ -250,10 +383,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -383,6 +544,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -392,15 +567,36 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       }
     ]
@@ -425,6 +621,41 @@
         "weight": 99
       },
       {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
         "name": "politie_exclude_rule_1",
         "description": "A politie phishing exclude rule",
         "phishingRuleType": "host",
@@ -439,10 +670,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -572,6 +831,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -581,15 +854,36 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       }
     ]
@@ -656,6 +950,41 @@
         "weight": 99
       },
       {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
         "name": "politie_exclude_rule_1",
         "description": "A politie phishing exclude rule",
         "phishingRuleType": "host",
@@ -670,10 +999,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -803,6 +1160,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -812,15 +1183,36 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       },
       {
@@ -1562,6 +1954,41 @@
         "weight": 99
       },
       {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
         "name": "politie_exclude_rule_1",
         "description": "A politie phishing exclude rule",
         "phishingRuleType": "host",
@@ -1576,10 +2003,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -1709,6 +2164,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -1718,15 +2187,36 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       },
       {
@@ -2409,6 +2899,41 @@
         "weight": 99
       },
       {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
         "name": "politie_exclude_rule_1",
         "description": "A politie phishing exclude rule",
         "phishingRuleType": "host",
@@ -2423,10 +2948,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -2556,6 +3109,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -2565,22 +3132,50 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       },
       {
         "name": "nl_keyword",
         "description": "A phishing rule to detect common scam keywords",
-        "phishingRuleType": "host",
+        "phishingRuleType": "hostendswith",
         "value": "bunq.nl",
+        "weight": 99
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "hostendswith",
+        "value": "bunq.com",
         "weight": 99
       },
       {
@@ -2643,6 +3238,622 @@
         "phishingRuleType": "contains",
         "value": "ïng",
         "weight": 1
+      },
+      {
+        "name": "verifieren_phishing_include_rule_1",
+        "description": "A phishing rule to detect verifieren phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "-verifieren",
+        "weight": 1
+      },
+      {
+        "name": "verifieren_phishing_include_rule_2",
+        "description": "A phishing rule to detect verifieren phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "verifieren-",
+        "weight": 1
+      },
+      {
+        "name": "verifieren_phishing_include_rule_3",
+        "description": "A phishing rule to detect verifieren phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "verfieren",
+        "weight": 1
+      },
+      {
+        "name": "verificatie_phishing_include_rule_1",
+        "description": "A phishing rule to detect verificatie phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "-verificatie",
+        "weight": 1
+      },
+      {
+        "name": "verificatie_phishing_include_rule_2",
+        "description": "A phishing rule to detect verificatie phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "verificatie-",
+        "weight": 1
+      },
+      {
+        "name": "verificatie_phishing_include_rule_3",
+        "description": "A phishing rule to detect verificatie phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "verficatie",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect meld with possible hyphens and dots",
+        "phishingRuleType": "regex",
+        "value": "m[-.]?e[-.]?l[-.]?d",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect wijzig with possible hyphens and dots",
+        "phishingRuleType": "regex",
+        "value": "w[-.]?i[-.]?j[-.]?z[-.]?i[-.]?g",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect aanmaning with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)a\\.?a\\.?n\\.?m\\.?a\\.?n\\.?i\\.?n\\.?g",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect voorkombeslag with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)v\\.?o\\.?o\\.?r\\.?k\\.?o\\.?m\\.?b\\.?e\\.?s\\.?l\\.?a\\.?g",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect belastingdienst with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)b\\.?e\\.?l\\.?a\\.?s\\.?t\\.?i\\.?n\\.?g\\.?d\\.?i\\.?en\\.?s\\.?t",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect deurwaarder with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)d\\.?e\\.?u\\.?r\\.?w\\.?a\\.?a\\.?r\\.?d\\.?e\\.?r",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect aangifte with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)a\\.?a\\.?n\\.?g\\.?i\\.?f\\.?t\\.?e",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "regex",
+        "value": "\\bhttps?://[^\\s/$.?#].[^\\s]*\\.(help|info|cc|xyz|tk|icu)([^\\s]*)?\\b",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect opwaardeer keywords",
+        "phishingRuleType": "regex",
+        "value": "[o0𝑜𝓞][pр𝓹𝒑][wʍ𝓌𝒲][aɑα𝒶𝓪][aɑα𝒶𝓪][rг𝓻𝒓][d𝒹𝓭][e𝑒𝓮][e𝑒𝓮][rг𝓻𝒓]",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect veilig keywords",
+        "phishingRuleType": "regex",
+        "value": "[vʋ𝓋𝒱][e𝑒𝓮][i𝑖𝒾𝓲][l1|𝓵𝒍][i𝑖𝒾𝓲][g9𝑔𝓰]",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect waarschuw keywords",
+        "phishingRuleType": "regex",
+        "value": "[wʍ𝓌𝒲][aɑα𝒶𝓪][aɑα𝒶𝓪][rг𝓻𝒓][s5𝓈𝓼][cϲ𝒸𝓬][h𝒽𝓱][u𝓾][wʍ𝓌𝒲]",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "opwaarderen",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "deurwaarder",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "verifieren",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "verifieer",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "verificatie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "geverifieerd",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betalen",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betaal",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betaling",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "boete",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "sturen",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "stuur",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "factuur",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "rekening",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "nota",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "voorkom",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "update",
+        "weight": 0.3
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bijwerken",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bericht",
+        "weight": 0.3
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "dringend",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "spoedig",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "direct",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "actie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "reactie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betaalgegevens",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bevestig",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "teruggave",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "vordering",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "vernieuw",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "openstaand",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "herinnering",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "berichtenbox",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "pakket",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "vervang",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "blokkade",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "opnieuw",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "aangifte",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "toegang",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "belangrijk",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "urgent",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "alert",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "persoonlijk",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betaalpas",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "beveiliging",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "noodzakelijk",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "actualiseer",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "actualiseren",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bezorging",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "wijziging",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "identificatie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "document",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "aanmaning",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "douanekosten",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "overtreding",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "factuur",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "ideal",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "ontvang",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "tikkie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "winactie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bedrag",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "kenmerk",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "belasting",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "herstel",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "odido",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "kpn",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "ziggo",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "vodafone",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "simkaart",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "sim-kaart",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "sim-",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "-sim",
+        "weight": 0.5
       }
     ],
     "exclude": [
@@ -2652,6 +3863,41 @@
         "phishingRuleType": "host",
         "value": "belgium.be",
         "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
       },
       {
         "name": "politie_exclude_rule_1",
@@ -2668,10 +3914,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -2801,6 +4075,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -2810,15 +4098,36 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       },
       {
@@ -2869,6 +4178,923 @@
         "phishingRuleType": "contains",
         "value": "vergadering",
         "weight": 1
+      }
+    ]
+  },
+  {
+    "threshold": 1,
+    "include": [
+      {
+        "name": "knab_include_rule_1",
+        "description": "Detect knab typosquatting",
+        "phishingRuleType": "regex",
+        "value": "(?i)(?:^|[./:-])(?:knab|knba|k[nm]ab|kn[a4]b|kna[b8]|k[a-z0-9]nab|kn[a-z0-9]ab|kna[a-z0-9]b|knab[a-z0-9])(?:$|[./:?#[\\]-])",
+        "weight": 0.5
+      },
+      {
+        "name": "knab_include_rule_2",
+        "description": "Detect knab lookalikes",
+        "phishingRuleType": "regex",
+        "value": "(?i)(?:^|[./:-])[kкκ][nпո][aаα][bвβ](?:$|[./:?#[\\]-])",
+        "weight": 0.5
+      },
+      {
+        "name": "verifieren_phishing_include_rule_1",
+        "description": "A phishing rule to detect verifieren phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "-verifieren",
+        "weight": 1
+      },
+      {
+        "name": "verifieren_phishing_include_rule_2",
+        "description": "A phishing rule to detect verifieren phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "verifieren-",
+        "weight": 1
+      },
+      {
+        "name": "verifieren_phishing_include_rule_3",
+        "description": "A phishing rule to detect verifieren phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "verfieren",
+        "weight": 1
+      },
+      {
+        "name": "verificatie_phishing_include_rule_1",
+        "description": "A phishing rule to detect verificatie phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "-verificatie",
+        "weight": 1
+      },
+      {
+        "name": "verificatie_phishing_include_rule_2",
+        "description": "A phishing rule to detect verificatie phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "verificatie-",
+        "weight": 1
+      },
+      {
+        "name": "verificatie_phishing_include_rule_3",
+        "description": "A phishing rule to detect verificatie phishing attempts",
+        "phishingRuleType": "contains",
+        "value": "verficatie",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect meld with possible hyphens and dots",
+        "phishingRuleType": "regex",
+        "value": "m[-.]?e[-.]?l[-.]?d",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect wijzig with possible hyphens and dots",
+        "phishingRuleType": "regex",
+        "value": "w[-.]?i[-.]?j[-.]?z[-.]?i[-.]?g",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect aanmaning with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)a\\.?a\\.?n\\.?m\\.?a\\.?n\\.?i\\.?n\\.?g",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect voorkombeslag with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)v\\.?o\\.?o\\.?r\\.?k\\.?o\\.?m\\.?b\\.?e\\.?s\\.?l\\.?a\\.?g",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect belastingdienst with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)b\\.?e\\.?l\\.?a\\.?s\\.?t\\.?i\\.?n\\.?g\\.?d\\.?i\\.?en\\.?s\\.?t",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect deurwaarder with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)d\\.?e\\.?u\\.?r\\.?w\\.?a\\.?a\\.?r\\.?d\\.?e\\.?r",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect aangifte with dots in between",
+        "phishingRuleType": "regex",
+        "value": "(?=.*\\.)a\\.?a\\.?n\\.?g\\.?i\\.?f\\.?t\\.?e",
+        "weight": 1
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "regex",
+        "value": "\\bhttps?://[^\\s/$.?#].[^\\s]*\\.(help|info|cc|xyz|tk|icu)([^\\s]*)?\\b",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect opwaardeer keywords",
+        "phishingRuleType": "regex",
+        "value": "[o0𝑜𝓞][pр𝓹𝒑][wʍ𝓌𝒲][aɑα𝒶𝓪][aɑα𝒶𝓪][rг𝓻𝒓][d𝒹𝓭][e𝑒𝓮][e𝑒𝓮][rг𝓻𝒓]",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect veilig keywords",
+        "phishingRuleType": "regex",
+        "value": "[vʋ𝓋𝒱][e𝑒𝓮][i𝑖𝒾𝓲][l1|𝓵𝒍][i𝑖𝒾𝓲][g9𝑔𝓰]",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect waarschuw keywords",
+        "phishingRuleType": "regex",
+        "value": "[wʍ𝓌𝒲][aɑα𝒶𝓪][aɑα𝒶𝓪][rг𝓻𝒓][s5𝓈𝓼][cϲ𝒸𝓬][h𝒽𝓱][u𝓾][wʍ𝓌𝒲]",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "opwaarderen",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "deurwaarder",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "verifieren",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "verifieer",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "verificatie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "geverifieerd",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betalen",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betaal",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betaling",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "boete",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "sturen",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "stuur",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "factuur",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "rekening",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "nota",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "voorkom",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "update",
+        "weight": 0.3
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bijwerken",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bericht",
+        "weight": 0.3
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "dringend",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "spoedig",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "direct",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "actie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "reactie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betaalgegevens",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bevestig",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "teruggave",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "vordering",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "vernieuw",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "openstaand",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "herinnering",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "berichtenbox",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "pakket",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "vervang",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "blokkade",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "opnieuw",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "aangifte",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "toegang",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "belangrijk",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "urgent",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "alert",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "persoonlijk",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "betaalpas",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "beveiliging",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "noodzakelijk",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "actualiseer",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "actualiseren",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bezorging",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "wijziging",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "identificatie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "document",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "aanmaning",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "douanekosten",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "overtreding",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "factuur",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "ideal",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "ontvang",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "tikkie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "winactie",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "bedrag",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "kenmerk",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "belasting",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "herstel",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "odido",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "kpn",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "ziggo",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "vodafone",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "simkaart",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "sim-kaart",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "sim-",
+        "weight": 0.5
+      },
+      {
+        "name": "nl_keyword",
+        "description": "A phishing rule to detect common scam keywords",
+        "phishingRuleType": "contains",
+        "value": "-sim",
+        "weight": 0.5
+      }
+    ],
+    "exclude": [
+      {
+        "name": "belgium_exclude_rule_1",
+        "description": "A belgium phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belgium.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
+        "name": "politie_exclude_rule_1",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.nl",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_2",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "politie.be",
+        "weight": 99
+      },
+      {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_1",
+        "description": "A rijksoverheid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
+        "weight": 99
+      },
+      {
+        "name": "bitbucket_exclude_rule_1",
+        "description": "A bitbucket phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bitbucket.com",
+        "weight": 99
+      },
+      {
+        "name": "codeberg_exclude_rule_1",
+        "description": "A codeberg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "codeberg.org",
+        "weight": 99
+      },
+      {
+        "name": "github_exclude_rule_1",
+        "description": "A github phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "github.com",
+        "weight": 99
+      },
+      {
+        "name": "gitlab_exclude_rule_1",
+        "description": "A gitlab phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "gitlab.com",
+        "weight": 99
+      },
+      {
+        "name": "bing_exclude_rule_1",
+        "description": "A bing phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*bing\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_1",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*duckduckgo\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "ddg_exclude_rule_2",
+        "description": "A ddg phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "duck.ai",
+        "weight": 99
+      },
+      {
+        "name": "ecosia_exclude_rule_1",
+        "description": "An ecosia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*ecosia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "google_exclude_rule_1",
+        "description": "A google phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*google\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "qwant_exclude_rule_1",
+        "description": "A qwant phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*qwant\\.(?:com|(?:[a-z0-9-]+\\.)?(?:at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "bbc_exclude_rule_1",
+        "description": "A bbc phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bbc.com",
+        "weight": 99
+      },
+      {
+        "name": "bleeping_computer_exclude_rule_1",
+        "description": "A bleeping computer phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "bleepingcomputer.com",
+        "weight": 99
+      },
+      {
+        "name": "cnn_exclude_rule_1",
+        "description": "A cnn phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "cnn.com",
+        "weight": 99
+      },
+      {
+        "name": "krebs_exclude_rule_1",
+        "description": "A krebs phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "krebsonsecurity.com",
+        "weight": 99
+      },
+      {
+        "name": "nos_exclude_rule_1",
+        "description": "A nos phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nos.nl",
+        "weight": 99
+      },
+      {
+        "name": "nu_exclude_rule_1",
+        "description": "A Nu.nl phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "nu.nl",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.net",
+        "weight": 99
+      },
+      {
+        "name": "tweakers_exclude_rule_1",
+        "description": "A tweakers phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "tweakers.nl",
+        "weight": 99
+      },
+      {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
+        "name": "wikipedia_exclude_rule_1",
+        "description": "A wikipedia phishing exclude rule",
+        "phishingRuleType": "regex",
+        "value": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.(?:com|(?:[a-z0-9-]+\\.)?(?:org|at|be|bg|ch|cy|cz|de|dk|ee|es|fi|fr|gr|hr|hu|ie|is|it|li|lt|lu|lv|me|mk|mt|nl|no|pl|pt|ro|rs|se|si|sk|ua|uk|ae|af|am|az|bd|bh|bn|bt|cn|ge|hk|id|il|in|iq|ir|jo|jp|kg|kh|kp|kr|kz|la|lb|lk|mm|mn|mo|mv|my|np|om|ph|pk|ps|qa|sa|sg|sy|th|tj|tm|tr|tw|uz|vn|ye))(?::\\d+)?(?:[/?#]|$)",
+        "weight": 99
+      },
+      {
+        "name": "tld_exclude_rule_1",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".nl",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_2",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
+        "weight": 1
+      },
+      {
+        "name": "knab_exclude_rule_1",
+        "description": "Knab exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "knab.nl",
+        "weight": 99
       }
     ]
   },
@@ -3515,6 +5741,41 @@
         "weight": 99
       },
       {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
         "name": "politie_exclude_rule_1",
         "description": "A politie phishing exclude rule",
         "phishingRuleType": "host",
@@ -3529,10 +5790,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -3662,6 +5951,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -3671,15 +5974,36 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       },
       {
@@ -4341,6 +6665,41 @@
         "weight": 99
       },
       {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
         "name": "politie_exclude_rule_1",
         "description": "A politie phishing exclude rule",
         "phishingRuleType": "host",
@@ -4355,10 +6714,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -4488,6 +6875,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -4497,15 +6898,36 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       },
       {
@@ -5230,6 +7652,41 @@
         "weight": 99
       },
       {
+        "name": "weather_exclude_rule_1",
+        "description": "A knmi phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "knmi.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_2",
+        "description": "A weather phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "meteo.be",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_3",
+        "description": "A weeronline phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "weeronline.nl",
+        "weight": 99
+      },
+      {
+        "name": "weather_exclude_rule_4",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "weer",
+        "weight": 0.5
+      },
+      {
+        "name": "weather_exclude_rule_5",
+        "description": "A weer phishing exclude rule",
+        "phishingRuleType": "contains",
+        "value": "meteo",
+        "weight": 0.5
+      },
+      {
         "name": "politie_exclude_rule_1",
         "description": "A politie phishing exclude rule",
         "phishingRuleType": "host",
@@ -5244,10 +7701,38 @@
         "weight": 99
       },
       {
+        "name": "politie_exclude_rule_3",
+        "description": "A politie phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".politie",
+        "weight": 99
+      },
+      {
         "name": "rijksoverheid_exclude_rule_1",
         "description": "A rijksoverheid phishing exclude rule",
         "phishingRuleType": "host",
         "value": "rijksoverheid.nl",
+        "weight": 99
+      },
+      {
+        "name": "rijksoverheid_exclude_rule_2",
+        "description": "A belastingdienst phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "belastingdienst.nl",
+        "weight": 99
+      },
+      {
+        "name": "toeslagen_exclude_rule_3",
+        "description": "A toeslagen phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "toeslagen.nl",
+        "weight": 99
+      },
+      {
+        "name": "digid_exclude_rule_3",
+        "description": "A digid phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "digid.nl",
         "weight": 99
       },
       {
@@ -5377,6 +7862,20 @@
         "weight": 99
       },
       {
+        "name": "claude_exclude_rule_1",
+        "description": "A claude phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "claude.com",
+        "weight": 99
+      },
+      {
+        "name": "chatgpt_exclude_rule_1",
+        "description": "A chatgpt phishing exclude rule",
+        "phishingRuleType": "host",
+        "value": "chatgpt.com",
+        "weight": 99
+      },
+      {
         "name": "wikipedia_exclude_rule_1",
         "description": "A wikipedia phishing exclude rule",
         "phishingRuleType": "regex",
@@ -5386,15 +7885,36 @@
       {
         "name": "tld_exclude_rule_1",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".nl",
         "weight": 1
       },
       {
         "name": "tld_exclude_rule_2",
         "description": "A tld phishing exclude rule",
-        "phishingRuleType": "contains",
+        "phishingRuleType": "hostendswith",
         "value": ".be",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_3",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": ".com",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_4",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov.uk",
+        "weight": 1
+      },
+      {
+        "name": "tld_exclude_rule_5",
+        "description": "A tld phishing exclude rule",
+        "phishingRuleType": "hostendswith",
+        "value": "gov",
         "weight": 1
       },
       {
