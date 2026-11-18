@@ -7,8 +7,7 @@ _A modular phishing detection plugin for Chrome and Firefox_
 ## Screenshots
 
 <img src="https://raw.githubusercontent.com/YoeriNijs/phishing-detection-plugin/main/img/report.png" alt="Plugin report" width="400"/>
-<br />
-<br />
+
 <img src="https://raw.githubusercontent.com/YoeriNijs/phishing-detection-plugin/main/img/warning.png" alt="Plugin warning" width="400"/>
 
 ## Installation
