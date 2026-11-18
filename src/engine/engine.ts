@@ -77,6 +77,12 @@ export class Engine {
         url,
         phishingRuleFactory
       );
+      const hostEndsWithProbability = this.runType(
+        rules,
+        'hostendswith',
+        url,
+        phishingRuleFactory
+      );
       const regexProbability = this.runType(
         rules,
         'regex',
@@ -93,6 +99,7 @@ export class Engine {
         containsProbability,
         startsWithProbability,
         endsWithProbability,
+        hostEndsWithProbability,
         regexProbability,
         hostProbability
       ]);

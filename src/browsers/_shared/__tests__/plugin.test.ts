@@ -59,7 +59,9 @@ function createBrowserMock() {
   };
   const action = {
     setPopup: jest.fn(),
-    setBadgeText: jest.fn()
+    setBadgeText: jest.fn(),
+    setBadgeTextColor: jest.fn(),
+    setBadgeBackgroundColor: jest.fn()
   };
   const runtime = {
     getURL: (path: string) => `chrome-extension://test/${path}`

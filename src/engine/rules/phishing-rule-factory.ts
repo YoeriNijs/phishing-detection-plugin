@@ -5,6 +5,7 @@ import { PhishingRuleStartsWith } from './impl/phishing-rule-startswith';
 import { PhishingRuleEndsWith } from './impl/phishing-rule-endswith';
 import { PhishingRuleRegex } from './impl/phishing-rule-regex';
 import { PhishingRuleHost } from './impl/phishing-rule-host';
+import { PhishingRuleHostEndsWith } from './impl/phishing-rule-hostendswith';
 
 export class PhishingRuleFactory {
   getPhishingRuleImpl(type: PhishingRuleType): IPhishingRuleChecker {
@@ -19,6 +20,8 @@ export class PhishingRuleFactory {
         return new PhishingRuleRegex();
       case 'host':
         return new PhishingRuleHost();
+      case 'hostendswith':
+        return new PhishingRuleHostEndsWith();
       default:
         throw new Error(`Phishing rule type ${type} is not supported`);
     }
