@@ -30,8 +30,15 @@ export const BUNQ_RULES: PhishingRules = {
     {
       name: 'nl_keyword',
       description: 'A phishing rule to detect common scam keywords',
-      phishingRuleType: 'host',
+      phishingRuleType: 'hostendswith',
       value: 'bunq.nl',
+      weight: 99
+    },
+    {
+      name: 'nl_keyword',
+      description: 'A phishing rule to detect common scam keywords',
+      phishingRuleType: 'hostendswith',
+      value: 'bunq.com',
       weight: 99
     },
     {

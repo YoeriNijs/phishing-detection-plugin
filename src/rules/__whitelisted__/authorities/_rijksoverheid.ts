@@ -7,5 +7,26 @@ export const WHITELIST_RIJKSOVERHEID: PhishingRule[] = [
     phishingRuleType: 'host',
     value: 'rijksoverheid.nl',
     weight: 99
+  },
+  {
+    name: 'rijksoverheid_exclude_rule_2',
+    description: 'A belastingdienst phishing exclude rule',
+    phishingRuleType: 'host',
+    value: 'belastingdienst.nl',
+    weight: 99
+  },
+  {
+    name: 'toeslagen_exclude_rule_3',
+    description: 'A toeslagen phishing exclude rule',
+    phishingRuleType: 'host',
+    value: 'toeslagen.nl',
+    weight: 99
+  },
+  {
+    name: 'digid_exclude_rule_3',
+    description: 'A digid phishing exclude rule',
+    phishingRuleType: 'host',
+    value: 'digid.nl',
+    weight: 99
   }
 ];

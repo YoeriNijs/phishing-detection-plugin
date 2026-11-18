@@ -3,4 +3,5 @@ export type PhishingRuleType =
   | 'startswith'
   | 'endswith'
   | 'regex'
-  | 'host';
+  | 'host'
+  | 'hostendswith';
