@@ -1,6 +1,6 @@
 import { ChromeStorage } from './chrome-storage';
 import { DEFAULT_RULES } from '../../rules/default';
-import { PhishingDetectionPlugin } from '../_shared/plugin';
+import PhishingDetectionPlugin from '../_shared/plugin';
 import { fetchLatestRules } from '../_shared/rules-loader';
 
 /**
@@ -23,7 +23,7 @@ function logInitialized(message: string): void {
   void plugin
     .whenReady()
     .then(() =>
-      console.log(`${message} Phishing Detection Plugin initialized.`)
+      console.log(`${message} Phishing Detection Plugin.`)
     )
     .catch(error =>
       console.error('Could not initialize the Phishing Detection Plugin', error)

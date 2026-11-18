@@ -7,16 +7,8 @@ const SPECIFIC_KNAB_RULES: PhishingRule[] = [
   {
     name: 'knab_include_rule_1',
     description: 'Detect knab typosquatting',
-    phishingRuleType: 'regex',
-    value:
-      '(?i)(?:^|[./:-])(?:knab|knba|k[nm]ab|kn[a4]b|kna[b8]|k[a-z0-9]nab|kn[a-z0-9]ab|kna[a-z0-9]b|knab[a-z0-9])(?:$|[./:?#[\\]-])',
-    weight: 0.5
-  },
-  {
-    name: 'knab_include_rule_2',
-    description: 'Detect knab lookalikes',
-    phishingRuleType: 'regex',
-    value: '(?i)(?:^|[./:-])[kкκ][nпո][aаα][bвβ](?:$|[./:?#[\\]-])',
+    phishingRuleType: 'contains',
+    value: '/\\b(?:knab|kanb|knba|nkab|knabb|kknab)\\b/',
     weight: 0.5
   }
 ];

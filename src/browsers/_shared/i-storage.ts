@@ -11,5 +11,5 @@ export interface IStorage {
 
   updateLastKnownPhishingUrl(url: string): Promise<void>;
 
-  getTempUrl(fn: (url?: string) => void): void;
+  getLastKnownPhishingUrl(fn: (url?: string) => void): void;
 }

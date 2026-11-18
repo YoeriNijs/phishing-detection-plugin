@@ -14,7 +14,7 @@ interface TabState {
   redirecting?: boolean;
 }
 
-export class PhishingDetectionPlugin {
+class PhishingDetectionPlugin {
   private _rules: PhishingRules[] = [];
   private _communityUrls: string[] = [];
   private _whitelistedUrls: string[] = [];
@@ -167,7 +167,7 @@ export class PhishingDetectionPlugin {
     }
 
     if (!activeState || !activeState.detectionResults) {
-      this.updateResult('report.html', '--');
+      this.updateResult('report.html', '--', 'black', 'white');
       return;
     }
 
@@ -215,7 +215,7 @@ export class PhishingDetectionPlugin {
 
       state.url = url;
       state.detectionResults = undefined;
-      this.updateResult('report.html', '--');
+      this.updateResult('report.html', '--', 'black', 'white');
       return;
     }
 
@@ -236,7 +236,7 @@ export class PhishingDetectionPlugin {
 
     const isPhishing = detectionResults.some(result => result.isPhishing);
     if (!isPhishing) {
-      this.updateResult('report.html', this.calculateBadge(url));
+      this.updateResult('report.html', this.calculateBadge(url), 'white', 'green');
       return;
     }
 
@@ -247,12 +247,12 @@ export class PhishingDetectionPlugin {
     this._whitelistedUrls = whitelistedUrls;
 
     if (isWhitelistedUrl(url, whitelistedUrls)) {
-      this.updateResult('report.html', this.calculateBadge(url));
+      this.updateResult('report.html', this.calculateBadge(url), 'white', 'green');
       return;
     }
 
     await this.storeLastKnownPhishingUrl(url);
-    this.updateResult('unblock.html', this.calculateBadge(url));
+    this.updateResult('unblock.html', this.calculateBadge(url), 'white', 'red');
     await this.blockTab(tabId, state);
   }
 
@@ -269,16 +269,19 @@ export class PhishingDetectionPlugin {
 
   private updatePopupForState(state: TabState): void {
     if (!state.detectionResults) {
-      this.updateResult('report.html', '--');
+      this.updateResult('report.html', '--', 'black', 'white');
       return;
     }
 
     const isPhishing = state.detectionResults.some(result => result.isPhishing);
     const isWhitelisted = isWhitelistedUrl(state.url, this._whitelistedUrls);
+    const shouldUnblock = isPhishing && !isWhitelisted;
 
     this.updateResult(
-      isPhishing && !isWhitelisted ? 'unblock.html' : 'report.html',
-      this.calculateBadge(state.url)
+      shouldUnblock ? 'unblock.html' : 'report.html',
+      this.calculateBadge(state.url),
+      shouldUnblock ? 'black' : 'white',
+      shouldUnblock ? 'red' : 'green'
     );
   }
 
@@ -378,12 +381,16 @@ export class PhishingDetectionPlugin {
       });
   }
 
-  private updateResult(popupPath: string, badge: string): void {
+  private updateResult(popupPath: string, badge: string, textColor: string, bgColor: string): void {
     try {
       this._browserImpl.action.setPopup({ popup: popupPath });
       this._browserImpl.action.setBadgeText({ text: badge });
+      this._browserImpl.action.setBadgeTextColor({ color: textColor });
+      this._browserImpl.action.setBadgeBackgroundColor({ color: bgColor });
     } catch (error) {
       console.error('Could not update the extension action', error);
     }
   }
 }
+
+export default PhishingDetectionPlugin;

@@ -1,4 +1,4 @@
-import { PhishingDetectionPlugin } from '../plugin';
+import PhishingDetectionPlugin from '../plugin';
 import { IStorage } from '../i-storage';
 import { PhishingRules } from '../../../model/phishing-rules';
 import { createContainsRule, createHostRule } from '../../../testing';
@@ -35,7 +35,7 @@ class InMemoryStorage implements IStorage {
     return Promise.resolve();
   }
 
-  getTempUrl(fn: (url?: string) => void): void {
+  getLastKnownPhishingUrl(fn: (url?: string) => void): void {
     fn(this.lastKnownPhishingUrl);
   }
 }

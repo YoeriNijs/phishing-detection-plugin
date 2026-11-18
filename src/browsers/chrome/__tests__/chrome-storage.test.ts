@@ -15,7 +15,7 @@ describe('ChromeStorage', () => {
     new Promise(resolve => storage.getWhitelistedUrls(resolve));
 
   const getTempUrl = (storage: ChromeStorage): Promise<string | undefined> =>
-    new Promise(resolve => storage.getTempUrl(resolve));
+    new Promise(resolve => storage.getLastKnownPhishingUrl(resolve));
 
   beforeEach(() => {
     storageObject = {};

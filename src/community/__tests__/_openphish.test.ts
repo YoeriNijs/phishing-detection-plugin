@@ -1,6 +1,6 @@
-import { Openfish, OpenFishCache } from '../_openfish';
+import { OpenPhish, OpenFishCache } from '../_openphish';
 
-describe('Openfish', () => {
+describe('Openphish', () => {
   beforeEach(() => {
     // Clear the cache before each test
     OpenFishCache.updateCache(null);
@@ -20,7 +20,7 @@ describe('Openfish', () => {
     // Replace the global fetch with the mock
     global.fetch = mockFetch;
 
-    const openfish = new Openfish();
+    const openfish = new OpenPhish();
     const result = await openfish.fetch();
 
     expect(mockFetch).toHaveBeenCalledWith(openfish['_feed_url']);
@@ -33,7 +33,7 @@ describe('Openfish', () => {
     const cachedData = ['cachedLink1', 'cachedLink2'];
     OpenFishCache.updateCache(cachedData);
 
-    const openfish = new Openfish();
+    const openfish = new OpenPhish();
     const result = await openfish.fetch();
 
     expect(result).toEqual(cachedData);
