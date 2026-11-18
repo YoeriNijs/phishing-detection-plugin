@@ -1,0 +1,1 @@
+b6a7fc95fe525306003be5be9582eddcf5399a3b485da35fbeaa448db29a0d26  ../../release/chrome_source_0.1.39.zip

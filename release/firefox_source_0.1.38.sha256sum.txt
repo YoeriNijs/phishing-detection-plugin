@@ -1,1 +1,0 @@
-a70fefcbeee84086221d95d4af01142afb5567cb1173d6c91c0d7000700015c9  ../../release/firefox_source_0.1.38.zip
