@@ -9,6 +9,8 @@ export interface BadgeScore {
   phishingProbability: string;
   threshold: string;
   matchingRules: { include: PhishingRule[]; exclude: PhishingRule[] } | null;
+  showWarning: boolean;
+  isWhitelisted: string;
 }
 
 export class BadgeScorer {
@@ -19,7 +21,8 @@ export class BadgeScorer {
   static calculate(
     communityUrls: string[],
     rules: PhishingRules[],
-    url: string
+    url: string,
+    isWhitelisted: boolean
   ): BadgeScore {
     const engine = new Engine(communityUrls, ...rules);
     const results = engine.detect(url);
@@ -40,7 +43,11 @@ export class BadgeScorer {
         isPhishing: I18n.translate('unlikely'),
         phishingProbability: '0.0',
         threshold: '0.0',
-        matchingRules: null
+        matchingRules: null,
+        showWarning: false,
+        isWhitelisted: isWhitelisted
+          ? I18n.translate('yes')
+          : I18n.translate('no')
       };
     }
 
@@ -54,7 +61,11 @@ export class BadgeScorer {
       matchingRules:
         resultWithHighestScore.phishingProbability < 0.1
           ? null
-          : resultWithHighestScore.matchingRules
+          : resultWithHighestScore.matchingRules,
+      showWarning: resultWithHighestScore.isPhishing,
+      isWhitelisted: isWhitelisted
+        ? I18n.translate('yes')
+        : I18n.translate('no')
     };
   }
 }
