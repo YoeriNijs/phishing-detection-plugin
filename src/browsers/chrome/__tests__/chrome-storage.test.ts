@@ -1,5 +1,5 @@
 import { ChromeStorage } from '../chrome-storage';
-import { DEFAULT_RULES } from '../../../rules/default';
+import { INITIAL_RULES } from '../../../rules/default';
 import { PhishingRules } from '../../../model/phishing-rules';
 import { createHostRule } from '../../../testing';
 
@@ -43,10 +43,10 @@ describe('ChromeStorage', () => {
   });
 
   it('should initialize the default rules when storage is empty', async () => {
-    const storage = new ChromeStorage(DEFAULT_RULES);
+    const storage = new ChromeStorage(INITIAL_RULES);
     const rules = await getRules(storage);
 
-    expect(rules).toEqual(DEFAULT_RULES);
+    expect(rules).toEqual(INITIAL_RULES);
     expect(storageObject.settings.whitelistedUrls).toEqual([]);
   });
 
@@ -65,7 +65,7 @@ describe('ChromeStorage', () => {
       }
     };
 
-    const storage = new ChromeStorage(DEFAULT_RULES);
+    const storage = new ChromeStorage(INITIAL_RULES);
 
     expect(await getRules(storage)).toEqual(customRules);
     expect(await getWhitelistedUrls(storage)).toEqual(['https://example.com']);
@@ -76,11 +76,11 @@ describe('ChromeStorage', () => {
   it('should preserve the whitelist when updating the rules', async () => {
     storageObject = {
       settings: {
-        rules: DEFAULT_RULES,
+        rules: INITIAL_RULES,
         whitelistedUrls: ['https://example.com']
       }
     };
-    const storage = new ChromeStorage(DEFAULT_RULES);
+    const storage = new ChromeStorage(INITIAL_RULES);
     await getRules(storage);
 
     await storage.updateRules([
@@ -93,12 +93,12 @@ describe('ChromeStorage', () => {
   it('should preserve rules and the last known phishing URL when whitelisting a domain', async () => {
     storageObject = {
       settings: {
-        rules: DEFAULT_RULES,
+        rules: INITIAL_RULES,
         whitelistedUrls: ['https://example.com'],
         lastKnownPhishingUrl: 'https://phishing.test'
       }
     };
-    const storage = new ChromeStorage(DEFAULT_RULES);
+    const storage = new ChromeStorage(INITIAL_RULES);
     await getWhitelistedUrls(storage);
 
     await storage.addWhitelistedUrl('https://phishing.test/some/path');
@@ -108,18 +108,18 @@ describe('ChromeStorage', () => {
       'https://example.com',
       'https://phishing.test'
     ]);
-    expect(await getRules(storage)).toEqual(DEFAULT_RULES);
+    expect(await getRules(storage)).toEqual(INITIAL_RULES);
     expect(await getTempUrl(storage)).toBe('https://phishing.test');
   });
 
   it('should keep a whitelisted domain after the plugin restarts', async () => {
-    const firstStorage = new ChromeStorage(DEFAULT_RULES);
+    const firstStorage = new ChromeStorage(INITIAL_RULES);
     await getWhitelistedUrls(firstStorage);
     await firstStorage.addWhitelistedUrl('https://phishing.test/login');
 
     // Simulate a background service worker restart: a new storage instance is
     // created with the same underlying browser storage.
-    const secondStorage = new ChromeStorage(DEFAULT_RULES);
+    const secondStorage = new ChromeStorage(INITIAL_RULES);
 
     expect(await getWhitelistedUrls(secondStorage)).toEqual([
       'https://phishing.test'
@@ -129,12 +129,12 @@ describe('ChromeStorage', () => {
   it('should repair partially invalid storage without losing valid fields', async () => {
     storageObject = {
       settings: {
-        rules: DEFAULT_RULES
+        rules: INITIAL_RULES
       }
     };
-    const storage = new ChromeStorage(DEFAULT_RULES);
+    const storage = new ChromeStorage(INITIAL_RULES);
 
-    expect(await getRules(storage)).toEqual(DEFAULT_RULES);
+    expect(await getRules(storage)).toEqual(INITIAL_RULES);
     expect(await getWhitelistedUrls(storage)).toEqual([]);
   });
 
@@ -151,7 +151,7 @@ describe('ChromeStorage', () => {
         whitelistedUrls: []
       }
     };
-    const rulesProvider = jest.fn(() => Promise.resolve(DEFAULT_RULES));
+    const rulesProvider = jest.fn(() => Promise.resolve(INITIAL_RULES));
 
     const storage = new ChromeStorage(rulesProvider);
     expect(await getRules(storage)).toEqual(customRules);
@@ -159,21 +159,21 @@ describe('ChromeStorage', () => {
   });
 
   it('should load the initial rules only once when storage is empty', async () => {
-    const rulesProvider = jest.fn(() => Promise.resolve(DEFAULT_RULES));
+    const rulesProvider = jest.fn(() => Promise.resolve(INITIAL_RULES));
 
     const storage = new ChromeStorage(rulesProvider);
-    expect(await getRules(storage)).toEqual(DEFAULT_RULES);
-    expect(await getRules(storage)).toEqual(DEFAULT_RULES);
+    expect(await getRules(storage)).toEqual(INITIAL_RULES);
+    expect(await getRules(storage)).toEqual(INITIAL_RULES);
     expect(rulesProvider).toHaveBeenCalledTimes(1);
   });
 
   it('should return undefined when there is no last known phishing URL', async () => {
-    const storage = new ChromeStorage(DEFAULT_RULES);
+    const storage = new ChromeStorage(INITIAL_RULES);
     expect(await getTempUrl(storage)).toBeUndefined();
   });
 
   it('should ignore invalid update rules', async () => {
-    const storage = new ChromeStorage(DEFAULT_RULES);
+    const storage = new ChromeStorage(INITIAL_RULES);
     await getRules(storage);
 
     await storage.updateRules([]);

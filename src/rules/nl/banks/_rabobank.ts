@@ -1,7 +1,5 @@
 import { PhishingRules } from '../../../model/phishing-rules';
 import { PhishingRule } from '../../../model/phishing-rule';
-import { ALL_DUTCH_KEYWORDS } from '../__boilerplate__/_all_dutch_keywords';
-import { ALL_WHITELISTED } from '../../__whitelisted__';
 
 const SPECIFIC_RABOBANK_RULES: PhishingRule[] = [
   {
@@ -72,9 +70,8 @@ const SPECIFIC_RABOBANK_RULES: PhishingRule[] = [
 
 export const RABOBANK_RULES: PhishingRules = {
   threshold: 1,
-  include: [...SPECIFIC_RABOBANK_RULES, ...ALL_DUTCH_KEYWORDS],
+  include: [...SPECIFIC_RABOBANK_RULES],
   exclude: [
-    ...ALL_WHITELISTED,
     {
       name: 'rabo_phishing_exclude_rule',
       description: 'A phishing rule to detect rabobank phishing attempts',

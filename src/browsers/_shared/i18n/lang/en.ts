@@ -3,10 +3,12 @@ import { ILanguageItem } from '../i-language-item';
 export const LANG_EN: ILanguageItem[] = [
   { key: 'close', value: 'Close' },
   { key: 'yes', value: 'yes' },
+  { key: 'no', value: 'no' },
   { key: 'unlikely', value: 'unlikely' },
   { key: 'url', value: 'URL' },
   { key: 'save', value: 'Save' },
   { key: 'is-phishing', value: 'Is phishing' },
+  { key: 'is-whitelisted', value: 'Whitelisted' },
   { key: 'probability', value: 'Probability' },
   { key: 'threshold', value: 'Threshold' },
   { key: 'source', value: 'Source' },

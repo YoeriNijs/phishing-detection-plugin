@@ -1,5 +1,5 @@
 import { ChromeStorage } from '../../chrome/chrome-storage';
-import { DEFAULT_RULES } from '../../../rules/default';
+import { INITIAL_RULES } from '../../../rules/default';
 import { FirefoxStorage } from '../../firefox/firefox-storage';
 import { IStorage } from '../i-storage';
 
@@ -34,10 +34,10 @@ export function getBrowserImpl(): typeof chrome | typeof browser {
 
 export function createStorageForBrowserImpl(): IStorage {
   if (hasBrowserApi()) {
-    return new FirefoxStorage(DEFAULT_RULES);
+    return new FirefoxStorage(INITIAL_RULES);
   }
   if (hasChromeApi()) {
-    return new ChromeStorage(DEFAULT_RULES);
+    return new ChromeStorage(INITIAL_RULES);
   }
   throw new UnsupportedBrowserError('Unsupported browser!');
 }

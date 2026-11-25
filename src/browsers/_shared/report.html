@@ -9,8 +9,8 @@
 
       html,
       body {
-        width: 250px;
-        height: 300px;
+        width: 300px;
+        height: 350px;
         margin: 0;
       }
 
@@ -67,7 +67,7 @@
       table {
         width: 100%;
         border-collapse: collapse;
-        overflow: hidden;
+        overflow: auto;
         border: 1px solid var(--border);
         border-radius: 7px;
         background: var(--panel);
@@ -95,6 +95,14 @@
         cursor: pointer;
         text-decoration: underline;
         text-underline-offset: 2px;
+      }
+
+      td.is-phishing {
+        background-color: #f2003c;
+      }
+
+      td.is-whitelisted {
+        background-color: #2a8000;
       }
 
       button {

@@ -15,6 +15,8 @@ export class FirefoxStorage extends AbstractStorage {
   }
 
   protected async writeSettings(settings: PluginSettings): Promise<void> {
+    // Firefox can store 10MB of extension localstorage data, which should be more than sufficient for our purposes.
+    // See: https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#how_much_data_can_be_stored
     await browser.storage.local.set({ settings });
   }
 }

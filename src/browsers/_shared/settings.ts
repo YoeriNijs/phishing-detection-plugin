@@ -1,4 +1,4 @@
-import { DEFAULT_RULES } from '../../rules/default';
+import { INITIAL_RULES } from '../../rules/default';
 import { PhishingRules } from '../../model/phishing-rules';
 import { I18n } from './i18n/i18n';
 import { createStorageForBrowserImpl } from './util/browser-util';
@@ -12,7 +12,7 @@ async function showRules() {
   if (settingsTextArea) {
     storage.getRules(rules => {
       console.debug('Stored rules', rules);
-      settingsTextArea.value = JSON.stringify(rules || DEFAULT_RULES, null, 4);
+      settingsTextArea.value = JSON.stringify(rules || INITIAL_RULES, null, 4);
     });
   }
 }

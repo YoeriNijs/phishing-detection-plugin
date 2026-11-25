@@ -3,10 +3,12 @@ import { ILanguageItem } from '../i-language-item';
 export const LANG_NL: ILanguageItem[] = [
   { key: 'close', value: 'Sluiten' },
   { key: 'yes', value: 'ja' },
+  { key: 'no', value: 'nee' },
   { key: 'unlikely', value: 'onwaarschijnlijk' },
   { key: 'url', value: 'URL' },
   { key: 'save', value: 'Opslaan' },
   { key: 'is-phishing', value: 'Is phishing' },
+  { key: 'is-whitelisted', value: 'Whitelist' },
   { key: 'probability', value: 'Waarschijnlijkheid' },
   { key: 'threshold', value: 'Drempelwaarde' },
   { key: 'source', value: 'Bron' },

@@ -1,5 +1,5 @@
 import { FirefoxStorage } from '../firefox-storage';
-import { DEFAULT_RULES } from '../../../rules/default';
+import { INITIAL_RULES } from '../../../rules/default';
 import { PhishingRules } from '../../../model/phishing-rules';
 import { createHostRule } from '../../../testing';
 
@@ -39,10 +39,10 @@ describe('FirefoxStorage', () => {
   });
 
   it('should initialize the default rules when storage is empty', async () => {
-    const storage = new FirefoxStorage(DEFAULT_RULES);
+    const storage = new FirefoxStorage(INITIAL_RULES);
     const rules = await getRules(storage);
 
-    expect(rules).toEqual(DEFAULT_RULES);
+    expect(rules).toEqual(INITIAL_RULES);
     expect(storageObject.settings.whitelistedUrls).toEqual([]);
   });
 
@@ -61,7 +61,7 @@ describe('FirefoxStorage', () => {
       }
     };
 
-    const storage = new FirefoxStorage(DEFAULT_RULES);
+    const storage = new FirefoxStorage(INITIAL_RULES);
 
     expect(await getRules(storage)).toEqual(customRules);
     expect(await getWhitelistedUrls(storage)).toEqual(['https://example.com']);
@@ -70,11 +70,11 @@ describe('FirefoxStorage', () => {
   });
 
   it('should keep a whitelisted domain after the plugin restarts', async () => {
-    const firstStorage = new FirefoxStorage(DEFAULT_RULES);
+    const firstStorage = new FirefoxStorage(INITIAL_RULES);
     await getWhitelistedUrls(firstStorage);
     await firstStorage.addWhitelistedUrl('https://phishing.test/login');
 
-    const secondStorage = new FirefoxStorage(DEFAULT_RULES);
+    const secondStorage = new FirefoxStorage(INITIAL_RULES);
 
     expect(await getWhitelistedUrls(secondStorage)).toEqual([
       'https://phishing.test'

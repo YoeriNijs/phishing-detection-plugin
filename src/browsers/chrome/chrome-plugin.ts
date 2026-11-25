@@ -1,5 +1,5 @@
 import { ChromeStorage } from './chrome-storage';
-import { DEFAULT_RULES } from '../../rules/default';
+import { INITIAL_RULES } from '../../rules/default';
 import PhishingDetectionPlugin from '../_shared/plugin';
 import { fetchLatestRules } from '../_shared/rules-loader';
 
@@ -16,7 +16,7 @@ import { fetchLatestRules } from '../_shared/rules-loader';
  * install the plugin waits (at most a few seconds) for the latest rules, then
  * falls back to the bundled rules.
  */
-const storage = new ChromeStorage(() => fetchLatestRules(DEFAULT_RULES));
+const storage = new ChromeStorage(() => fetchLatestRules(INITIAL_RULES));
 const plugin = new PhishingDetectionPlugin(storage, chrome);
 
 function logInitialized(message: string): void {

@@ -254,7 +254,7 @@ class PhishingDetectionPlugin {
     if (isWhitelistedUrl(url, whitelistedUrls)) {
       this.updateResult(
         'report.html',
-        this.calculateBadge(url),
+        this.calculateBadge(url, true),
         'white',
         'green'
       );
@@ -295,10 +295,14 @@ class PhishingDetectionPlugin {
     );
   }
 
-  private calculateBadge(url: string): string {
+  private calculateBadge(url: string, isWhitelisted: boolean = false): string {
     try {
-      return BadgeScorer.calculate(this._communityUrls, this._rules, url)
-        .phishingProbability;
+      return BadgeScorer.calculate(
+        this._communityUrls,
+        this._rules,
+        url,
+        isWhitelisted
+      ).phishingProbability;
     } catch (error) {
       console.error('Could not calculate the phishing score', error);
       return '--';

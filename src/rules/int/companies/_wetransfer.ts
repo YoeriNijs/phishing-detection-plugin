@@ -1,5 +1,4 @@
 import { PhishingRules } from '../../../model/phishing-rules';
-import { ALL_WHITELISTED } from '../../__whitelisted__';
 
 export const WETRANSFER_RULES: PhishingRules = {
   threshold: 1,
@@ -56,7 +55,6 @@ export const WETRANSFER_RULES: PhishingRules = {
     }
   ],
   exclude: [
-    ...ALL_WHITELISTED,
     {
       name: 'wetransfer_rule',
       description: 'Detect WeTransfer scams',
