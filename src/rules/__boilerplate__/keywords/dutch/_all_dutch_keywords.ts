@@ -1,4 +1,4 @@
-import { PhishingRule } from '../../../model/phishing-rule';
+import { PhishingRule } from '../../../../model/phishing-rule';
 
 export const ALL_DUTCH_KEYWORDS: PhishingRule[] = [
   {

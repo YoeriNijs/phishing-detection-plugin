@@ -1,7 +1,5 @@
 import { PhishingRule } from '../../../model/phishing-rule';
 import { PhishingRules } from '../../../model/phishing-rules';
-import { ALL_WHITELISTED } from '../../__whitelisted__';
-import { ALL_DUTCH_KEYWORDS } from '../__boilerplate__/_all_dutch_keywords';
 
 const SPECIFIC_KNAB_RULES: PhishingRule[] = [
   {
@@ -15,9 +13,8 @@ const SPECIFIC_KNAB_RULES: PhishingRule[] = [
 
 export const KNAB_RULES: PhishingRules = {
   threshold: 1,
-  include: [...SPECIFIC_KNAB_RULES, ...ALL_DUTCH_KEYWORDS],
+  include: [...SPECIFIC_KNAB_RULES],
   exclude: [
-    ...ALL_WHITELISTED,
     {
       name: 'knab_exclude_rule_1',
       description: 'Knab exclude rule',

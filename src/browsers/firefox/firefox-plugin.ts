@@ -1,5 +1,5 @@
 import { FirefoxStorage } from './firefox-storage';
-import { DEFAULT_RULES } from '../../rules/default';
+import { INITIAL_RULES } from '../../rules/default';
 import PhishingDetectionPlugin from '../_shared/plugin';
 import { fetchLatestRules } from '../_shared/rules-loader';
 
@@ -11,7 +11,7 @@ import { fetchLatestRules } from '../_shared/rules-loader';
  * when they are available, and the bundled rules are the fallback on a fresh
  * install when the network is unavailable.
  */
-const storage = new FirefoxStorage(() => fetchLatestRules(DEFAULT_RULES));
+const storage = new FirefoxStorage(() => fetchLatestRules(INITIAL_RULES));
 const plugin = new PhishingDetectionPlugin(storage, browser);
 
 void plugin

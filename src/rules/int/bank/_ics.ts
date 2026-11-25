@@ -1,5 +1,4 @@
 import { PhishingRules } from '../../../model/phishing-rules';
-import { ALL_WHITELISTED } from '../../__whitelisted__';
 
 export const ICS_RULES: PhishingRules = {
   threshold: 1,
@@ -30,7 +29,6 @@ export const ICS_RULES: PhishingRules = {
     }
   ],
   exclude: [
-    ...ALL_WHITELISTED,
     {
       name: 'ics_exclude_rule_1',
       description: 'All official ics sites',

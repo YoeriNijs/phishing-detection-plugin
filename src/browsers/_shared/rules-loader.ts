@@ -1,4 +1,9 @@
 import { PhishingRules } from '../../model/phishing-rules';
+import {
+  DEFAULT_RULES_VERSION,
+  isDefaultRules,
+  mapDefaultRules
+} from '../../rules/default';
 
 const LATEST_RULES =
   'https://raw.githubusercontent.com/YoeriNijs/phishing-detection-plugin/refs/heads/main/release/latest_rules.json';
@@ -20,14 +25,22 @@ export async function fetchLatestRules(
       signal: controller.signal
     });
     if (!response.ok) {
-      console.warn(`Could not fetch the latest rules (${response.status})`);
+      console.warn(
+        `Could not fetch the latest rules from remote: (${response.status})`
+      );
       return fallbackRules;
     }
 
     const rules = await response.json();
-    if (Array.isArray(rules) && rules.length > 0) {
-      return rules;
+    if (isDefaultRules(rules)) {
+      if (rules.version === DEFAULT_RULES_VERSION) {
+        console.log('Successfully fetched latest rules from remote', rules);
+        return mapDefaultRules(rules);
+      }
     }
+    console.warn(
+      'Could not fetch the latest rules from remote, using fallback rules instead'
+    );
     return fallbackRules;
   } catch (error) {
     console.warn(
