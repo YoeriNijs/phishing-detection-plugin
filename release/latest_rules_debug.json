@@ -938,8 +938,8 @@
       {
         "name": "mistral_exclude_rule_1",
         "description": "A mistral phishing exclude rule",
-        "phishingRuleType": "regex",
-        "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+        "phishingRuleType": "host",
+        "value": "mistral.ai",
         "weight": 99
       },
       {
@@ -1954,8 +1954,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
@@ -3653,8 +3653,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
@@ -4696,8 +4696,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
@@ -6162,7 +6162,7 @@
           "description": "Detect phishing tlds",
           "weight": 1,
           "phishingRuleType": "regex",
-          "value": "(?i)(?:^|[./])[^./\\s]+\\.(?:top|xin|xyz|bond|vip|info|online|sbs|cfd|icu|cyou|lol|support|work|ru|casa|cc|cfd|qpon|site|skin|pics|shop)(?=[:/?#\\s]|$)"
+          "value": "\\.(?:top|xin|xyz|bond|vip|info|online|sbs|cfd|icu|cyou|lol|support|work|ru|casa|cc|qpon|site|skin|pics|shop)(?::\\d+)?(?:[/?#]|$)"
         },
         {
           "name": "domain_keywords_rule_1",
@@ -7889,8 +7889,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
@@ -8918,8 +8918,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
@@ -9996,8 +9996,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
@@ -10997,8 +10997,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
@@ -12019,8 +12019,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
@@ -13027,8 +13027,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
@@ -14133,8 +14133,8 @@
         {
           "name": "mistral_exclude_rule_1",
           "description": "A mistral phishing exclude rule",
-          "phishingRuleType": "regex",
-          "value": "(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$",
+          "phishingRuleType": "host",
+          "value": "mistral.ai",
           "weight": 99
         },
         {
