@@ -4,8 +4,8 @@ export const WHITELIST_MISTRAL: PhishingRule[] = [
   {
     name: 'mistral_exclude_rule_1',
     description: 'A mistral phishing exclude rule',
-    phishingRuleType: 'regex',
-    value: '(?i)^(?:[a-z0-9-]+\\.)*mistral\\.(?:com|ai)$',
+    phishingRuleType: 'host',
+    value: 'mistral.ai',
     weight: 99
   }
 ];

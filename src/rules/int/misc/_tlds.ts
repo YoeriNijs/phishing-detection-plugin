@@ -8,8 +8,7 @@ export const TLDS_RULES: PhishingRules = {
       description: 'Detect phishing tlds',
       weight: 1,
       phishingRuleType: 'regex',
-      value:
-        '(?i)(?:^|[./])[^./\\s]+\\.(?:top|xin|xyz|bond|vip|info|online|sbs|cfd|icu|cyou|lol|support|work|ru|casa|cc|cfd|qpon|site|skin|pics|shop)(?=[:/?#\\s]|$)'
+      value: String.raw`\.(?:top|xin|xyz|bond|vip|info|online|sbs|cfd|icu|cyou|lol|support|work|ru|casa|cc|qpon|site|skin|pics|shop)(?::\d+)?(?:[/?#]|$)`
     }
   ]
 };
