@@ -17,6 +17,10 @@ export class ChromeStorage extends AbstractStorage {
     });
   }
 
+  /**
+   * This writes the extension settings to the Chrome local storage. Currently, 10MB is the default storage size,
+   * which should be sufficient for our purposes. See https://developer.chrome.com/docs/extensions/reference/api/storage
+   */
   protected writeSettings(settings: PluginSettings): Promise<void> {
     return new Promise((resolve, reject) => {
       chrome.storage.local.set({ settings }, () => {
