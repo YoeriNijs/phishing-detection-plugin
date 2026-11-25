@@ -1,1 +1,0 @@
-ba1a67fe22b4790276100f3852079a49b840eeb7789cd8df1a741ffe27f29f7b  ../../release/firefox_source_0.1.39.zip
