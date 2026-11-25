@@ -1,1 +1,0 @@
-b785591641f88d2d2d99b0a14359d803daf31e75145d65fd0f18f4bde36a0680  ../../release/chrome_plugin_0.1.40.crx
